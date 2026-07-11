@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "nom": "Mairie de Templeuve",
+        "categorie": "Administration",
+        "adresse": "Place de la Mairie",
+        "telephone": "03 20 00 00 00",
+        "mail": "mairie@templeuve.fr",
+        "site": "https://www.templeuve.fr",
+        "description": "Accueil du public et services municipaux.",
+        "photo": "",
+        "latitude": 50.5230,
+        "longitude": 3.1710
+    },
+    {
+        "id": 2,
+        "nom": "Église Saint-Martin",
+        "categorie": "Patrimoine",
+        "adresse": "Place de l'Église",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Église historique de la commune.",
+        "photo": "",
+        "latitude": 50.5238,
+        "longitude": 3.1704
+    },
+    {
+        "id": 3,
+        "nom": "Gare de Templeuve",
+        "categorie": "Transport",
+        "adresse": "Rue de la Gare",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Ligne TER.",
+        "photo": "",
+        "latitude": 50.5209,
+        "longitude": 3.1748
+    },
+    {
+        "id": 4,
+        "nom": "Salle des Sports",
+        "categorie": "Sport",
+        "adresse": "Rue des Sports",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Complexe sportif municipal.",
+        "photo": "",
+        "latitude": 50.5215,
+        "longitude": 3.1676
+    }
+]

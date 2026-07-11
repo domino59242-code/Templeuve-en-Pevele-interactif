@@ -1,0 +1,421 @@
+/******************************************************************************
+    Templeuve Interactive
+    style.css
+    Version 0.3
+******************************************************************************/
+
+/* ===========================
+   Réinitialisation
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:#edf2f7;
+
+}
+
+/* ===========================
+   Application
+=========================== */
+
+#application{
+
+    display:flex;
+
+    width:100vw;
+    height:100vh;
+
+}
+
+/* ===========================
+   Barre latérale
+=========================== */
+
+#sidebar{
+
+    width:360px;
+    min-width:360px;
+
+    background:white;
+
+    border-right:1px solid #d7d7d7;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:20px;
+
+    overflow:hidden;
+
+    box-shadow:3px 0 12px rgba(0,0,0,.10);
+
+}
+
+/* ===========================
+   En-tête
+=========================== */
+
+header{
+
+    margin-bottom:20px;
+
+}
+
+h1{
+
+    color:#205081;
+
+    font-size:28px;
+
+    margin-bottom:5px;
+
+}
+
+.version{
+
+    color:#888;
+
+    font-size:13px;
+
+}
+
+/* ===========================
+   Sections
+=========================== */
+
+section{
+
+    margin-bottom:20px;
+
+}
+
+label{
+
+    display:block;
+
+    font-weight:bold;
+
+    color:#444;
+
+    margin-bottom:8px;
+
+}
+
+/* ===========================
+   Recherche
+=========================== */
+
+input{
+
+    width:100%;
+
+    padding:11px;
+
+    font-size:15px;
+
+    border-radius:7px;
+
+    border:1px solid #c8c8c8;
+
+    transition:.2s;
+
+}
+
+input:focus{
+
+    outline:none;
+
+    border-color:#2c7be5;
+
+    box-shadow:0 0 6px rgba(44,123,229,.30);
+
+}
+
+/* ===========================
+   Liste déroulante
+=========================== */
+
+select{
+
+    width:100%;
+
+    padding:11px;
+
+    font-size:15px;
+
+    border-radius:7px;
+
+    border:1px solid #c8c8c8;
+
+    background:white;
+
+}
+
+/* ===========================
+   Compteur
+=========================== */
+
+#compteur{
+
+    background:#2c7be5;
+
+    color:white;
+
+    padding:10px;
+
+    border-radius:7px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+/* ===========================
+   Liste des lieux
+=========================== */
+
+#listeLieux{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    border:1px solid #dddddd;
+
+    border-radius:7px;
+
+    background:#fafafa;
+
+    padding:8px;
+
+}
+
+/* ===========================
+   Carte
+=========================== */
+
+#map{
+
+    flex:1;
+
+}
+
+/* ===========================
+   Une ligne de résultat
+=========================== */
+
+.lieu{
+
+    padding:12px;
+
+    margin-bottom:8px;
+
+    background:white;
+
+    border-radius:8px;
+
+    border:1px solid #dddddd;
+
+    cursor:pointer;
+
+    transition:.20s;
+
+}
+
+.lieu:hover{
+
+    background:#eef6ff;
+
+    border-color:#2c7be5;
+
+    transform:translateX(4px);
+
+}
+
+/* ===========================
+   Nom du lieu
+=========================== */
+
+.nomLieu{
+
+    font-weight:bold;
+
+    color:#222;
+
+    margin-bottom:4px;
+
+}
+
+/* ===========================
+   Catégorie
+=========================== */
+
+.categorieLieu{
+
+    color:#2c7be5;
+
+    font-size:13px;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+    #application{
+
+        flex-direction:column;
+
+    }
+
+    #sidebar{
+
+        width:100%;
+        min-width:100%;
+        height:340px;
+
+        border-right:none;
+
+        border-bottom:1px solid #d7d7d7;
+
+    }
+
+    #map{
+
+        height:calc(100vh - 340px);
+
+    }
+
+}/********************************
+ Fiche d'information
+********************************/
+
+#ficheLieu{
+
+    margin-top:10px;
+
+    padding:15px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:8px;
+
+    background:white;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+#ficheLieu h3{
+
+    color:#205081;
+
+    margin-bottom:10px;
+
+}
+
+#ficheLieu p{
+
+    margin-bottom:8px;
+
+}
+
+#ficheLieu a{
+
+    color:#2c7be5;
+
+    text-decoration:none;
+
+}
+
+#ficheLieu a:hover{
+
+    text-decoration:underline;
+
+}/************************************************
+    Livraison 5.1
+************************************************/
+
+.fiche{
+
+    line-height:1.6;
+
+}
+
+.ficheTitre{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#1f4e79;
+
+    margin-bottom:6px;
+
+}
+
+.ficheCategorie{
+
+    display:inline-block;
+
+    padding:4px 10px;
+
+    border-radius:15px;
+
+    background:#1f78d1;
+
+    color:white;
+
+    font-size:12px;
+
+    margin-bottom:12px;
+
+}
+
+.ficheLigne{
+
+    margin-bottom:10px;
+
+}
+
+.ficheDescription{
+
+    text-align:justify;
+
+    color:#444;
+
+}
+
+.fiche a{
+
+    color:#1565c0;
+
+    text-decoration:none;
+
+}
+
+.fiche a:hover{
+
+    text-decoration:underline;
+
+}
