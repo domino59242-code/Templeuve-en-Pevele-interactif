@@ -1,0 +1,661 @@
+/******************************************************************************
+    Templeuve Interactive
+    admin.css — styles de la page d'administration
+******************************************************************************/
+
+body{
+    background:#edf2f7;
+    overflow-y:auto;
+    height:auto;
+}
+
+#admin{
+    max-width:1200px;
+    margin:0 auto;
+    padding:30px 20px 60px;
+}
+
+#adminHeader{
+    margin-bottom:25px;
+}
+
+#adminHeader h1{
+    color:#205081;
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+#adminHeader p{
+    background:#fff8e1;
+    border:1px solid #ffe08a;
+    border-radius:8px;
+    padding:10px 14px;
+    color:#6b5300;
+    font-size:14px;
+    line-height:1.5;
+}
+
+#adminHeader code{
+    background:#00000010;
+    padding:1px 5px;
+    border-radius:4px;
+}
+
+/* ===========================
+   Onglets
+=========================== */
+
+#onglets{
+    display:flex;
+    gap:8px;
+    margin-bottom:20px;
+    border-bottom:2px solid #d7d7d7;
+}
+
+.ongletBtn{
+    padding:12px 18px;
+    border:none;
+    background:none;
+    font-size:15px;
+    font-weight:bold;
+    color:#666;
+    cursor:pointer;
+    border-bottom:3px solid transparent;
+    transition:.15s;
+}
+
+.ongletBtn:hover{
+    color:#2c7be5;
+}
+
+.ongletBtn.actif{
+    color:#2c7be5;
+    border-bottom-color:#2c7be5;
+}
+
+.vue{
+    display:none;
+    grid-template-columns:380px 1fr;
+    gap:24px;
+    align-items:start;
+}
+
+.vue.actif{
+    display:grid;
+}
+
+#vueAide.actif{
+    display:block;
+}
+
+/* ===========================
+   Colonnes
+=========================== */
+
+.colonneFormulaire,
+.colonneListe{
+    background:white;
+    border-radius:10px;
+    border:1px solid #dddddd;
+    padding:20px;
+}
+
+.colonneListe{
+
+    /* La colonne reste sticky pour que l'en-tête (titre, bouton
+       télécharger, filtre, tri) reste visible pendant qu'on fait défiler
+       une longue liste de lieux */
+    position:sticky;
+    top:20px;
+    max-height:calc(100vh - 40px);
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+#listeAdminLieux,
+#listeAdminCategories,
+#listeAdminEvenements{
+
+    overflow-y:auto;
+    flex:1;
+    min-height:0;
+
+    /* Barre de défilement fine et visible (Chrome/Edge/Safari + Firefox) */
+    scrollbar-width:thin;
+    scrollbar-color:#b8c4d9 #f0f2f7;
+
+}
+
+#listeAdminLieux::-webkit-scrollbar,
+#listeAdminCategories::-webkit-scrollbar,
+#listeAdminEvenements::-webkit-scrollbar{
+    width:10px;
+}
+
+#listeAdminLieux::-webkit-scrollbar-track,
+#listeAdminCategories::-webkit-scrollbar-track,
+#listeAdminEvenements::-webkit-scrollbar-track{
+    background:#f0f2f7;
+    border-radius:10px;
+}
+
+#listeAdminLieux::-webkit-scrollbar-thumb,
+#listeAdminCategories::-webkit-scrollbar-thumb,
+#listeAdminEvenements::-webkit-scrollbar-thumb{
+    background:#b8c4d9;
+    border-radius:10px;
+}
+
+#listeAdminLieux::-webkit-scrollbar-thumb:hover,
+#listeAdminCategories::-webkit-scrollbar-thumb:hover,
+#listeAdminEvenements::-webkit-scrollbar-thumb:hover{
+    background:#93a5c4;
+}
+
+.colonneFormulaire h2,
+.enteteListe h2{
+    font-size:18px;
+    color:#205081;
+    margin-bottom:15px;
+}
+
+/* ===========================
+   Formulaires
+=========================== */
+
+#formLieu label,
+#formCategorie label{
+    display:block;
+    font-weight:bold;
+    color:#444;
+    font-size:13px;
+    margin:12px 0 5px;
+}
+
+#formLieu input,
+#formLieu textarea,
+#formLieu select,
+#formCategorie input{
+    width:100%;
+    padding:9px 10px;
+    font-size:14px;
+    border-radius:6px;
+    border:1px solid #c8c8c8;
+    font-family:inherit;
+}
+
+#formLieu input:focus,
+#formLieu textarea:focus,
+#formLieu select:focus,
+#formCategorie input:focus{
+    outline:none;
+    border-color:#2c7be5;
+    box-shadow:0 0 5px rgba(44,123,229,.30);
+}
+
+#categorieIcone{
+    font-size:20px;
+    text-align:center;
+    max-width:80px;
+}
+
+.choixType{
+    display:flex;
+    gap:16px;
+    margin-top:6px;
+}
+
+.choixRadio{
+    display:flex !important;
+    align-items:center;
+    gap:6px;
+    font-weight:normal !important;
+    font-size:14px !important;
+    margin:0 !important;
+    cursor:pointer;
+}
+
+.choixRadio input{
+    width:auto !important;
+}
+
+#categorieImageFichier{
+    padding:6px;
+    cursor:pointer;
+}
+
+.apercuIcone{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:12px;
+    padding:10px;
+    background:#f5f7fa;
+    border-radius:6px;
+    font-size:13px;
+    color:#555;
+}
+
+.apercuIcone img{
+    width:36px;
+    height:36px;
+    object-fit:contain;
+    border-radius:6px;
+    background:white;
+    border:1px solid #ddd;
+    padding:2px;
+}
+
+#categorieCouleur{
+    padding:3px;
+    height:42px;
+    cursor:pointer;
+}
+
+.ligneCoords{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.astuce{
+    font-size:12px;
+    color:#777;
+    margin-top:12px;
+}
+
+#miniCarte,
+#miniCarteEvenement{
+    height:220px;
+    border-radius:8px;
+    margin-top:8px;
+    border:1px solid #c8c8c8;
+}
+
+.boutonsForm{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+}
+
+.btnPrimaire,
+.btnSecondaire{
+    padding:10px 16px;
+    border-radius:7px;
+    border:none;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.15s;
+}
+
+.btnPrimaire{
+    background:#2c7be5;
+    color:white;
+}
+
+.btnPrimaire:hover{
+    background:#1f63c4;
+}
+
+.btnSecondaire{
+    background:#eee;
+    color:#444;
+}
+
+.btnSecondaire:hover{
+    background:#e0e0e0;
+}
+
+/* ===========================
+   Listes admin
+=========================== */
+
+.enteteListe{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.ligneAdmin{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px;
+    border:1px solid #e0e0e0;
+    border-radius:8px;
+    margin-bottom:8px;
+    gap:10px;
+}
+
+.ligneAdmin .infos{
+    flex:1;
+    min-width:0;
+}
+
+.ligneAdmin .nom{
+    font-weight:bold;
+    color:#222;
+}
+
+.ligneAdmin .details{
+    font-size:12px;
+    color:#777;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.ligneAdmin .actions{
+    display:flex;
+    gap:6px;
+    flex-shrink:0;
+}
+
+.ligneAdmin button{
+    border:none;
+    background:#f2f2f2;
+    padding:6px 10px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.ligneAdmin button:hover{
+    background:#e2e2e2;
+}
+
+.ligneAdmin button.supprimer:hover{
+    background:#fdd;
+    color:#c0392b;
+}
+
+.pastille{
+    display:inline-block;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    margin-right:6px;
+    vertical-align:middle;
+    border:2px solid white;
+    box-shadow:0 0 0 1px #ccc;
+}
+
+.icone-mini{
+    width:18px;
+    height:18px;
+    object-fit:contain;
+    vertical-align:middle;
+    border-radius:3px;
+}
+
+.etatSauvegarde{
+    font-size:13px;
+    margin-bottom:12px;
+    font-weight:bold;
+}
+
+.etatSauvegarde.aJour{
+    color:#2e7d32;
+}
+
+.etatSauvegarde.enAttente{
+    color:#c0392b;
+}
+
+.listeVide{
+    color:#999;
+    text-align:center;
+    padding:30px 10px;
+    font-size:14px;
+}
+
+/* ===========================
+   Aide
+=========================== */
+
+.blocAide{
+    background:white;
+    border-radius:10px;
+    border:1px solid #dddddd;
+    padding:25px 30px;
+    max-width:800px;
+}
+
+.blocAide h2{
+    color:#205081;
+    margin-bottom:15px;
+}
+
+.blocAide ol{
+    margin:15px 0 20px 20px;
+    line-height:1.8;
+}
+
+.blocAide p{
+    line-height:1.6;
+    color:#444;
+}
+
+.blocAide code{
+    background:#f0f0f0;
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:13px;
+}
+
+/* ===========================
+   Horaires d'ouverture (formulaire)
+=========================== */
+
+.horairesGrille{
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+
+    margin-top:6px;
+
+}
+
+.ligneHoraire{
+
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+
+}
+
+.ligneHoraire .nomJour{
+
+    font-size:13px;
+    font-weight:bold;
+    color:#444;
+    width:56px;
+    flex-shrink:0;
+    padding-top:7px;
+
+}
+
+.creneauxJour{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 14px;
+    flex:1;
+    min-width:0;
+
+}
+
+.paireCreneau{
+
+    display:flex;
+    align-items:center;
+    gap:4px;
+
+}
+
+.etiquetteCreneau{
+
+    font-size:11px;
+    color:#888;
+    width:44px;
+    flex-shrink:0;
+
+}
+
+.ligneHoraire input[type="time"]{
+
+    padding:6px 4px;
+    font-size:12px;
+    width:100px;
+
+}
+
+.btnPleineLargeur{
+
+    width:100%;
+    margin-top:10px;
+
+}
+
+/* ===========================
+   Filtre de liste
+=========================== */
+
+.champFiltre{
+
+    margin-bottom:12px;
+
+}
+
+.checkboxLigne{
+
+    display:flex !important;
+    align-items:center;
+    gap:8px;
+
+    font-weight:normal !important;
+    cursor:pointer;
+
+}
+
+.checkboxLigne input{
+
+    width:auto !important;
+
+}
+
+.ligneAjoutTag{
+
+    display:flex;
+    gap:6px;
+    margin-top:6px;
+
+}
+
+.ligneAjoutTag input{
+
+    flex:1;
+
+}
+
+.ligneAjoutTag button{
+
+    flex-shrink:0;
+    white-space:nowrap;
+
+}
+
+.listeTags{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:10px;
+
+}
+
+.tag{
+
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+
+    background:var(--couleur-principale-clair, #eef1fc);
+    color:var(--couleur-principale-fonce, #1f4e79);
+
+    padding:5px 8px 5px 12px;
+    border-radius:15px;
+    font-size:13px;
+
+}
+
+.tag button{
+
+    border:none;
+    background:none;
+    color:inherit;
+    cursor:pointer;
+    font-size:14px;
+    line-height:1;
+    padding:2px;
+
+}
+
+.tag button:hover{
+
+    color:var(--couleur-erreur, #c0392b);
+
+}
+
+.ligneFiltreTri{
+
+    display:flex;
+    gap:8px;
+    margin-bottom:12px;
+
+}
+
+.ligneFiltreTri .champFiltre{
+
+    flex:1;
+    margin-bottom:0;
+
+}
+
+.champTri{
+
+    width:auto;
+    flex-shrink:0;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+    .vue.actif{
+        grid-template-columns:1fr;
+    }
+
+    .colonneListe{
+        position:static;
+        max-height:none;
+    }
+
+    #listeAdminLieux,
+    #listeAdminCategories,
+    #listeAdminEvenements{
+        overflow-y:visible;
+        max-height:none;
+    }
+
+}

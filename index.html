@@ -8,10 +8,27 @@
 
     <title>Templeuve Interactive</title>
 
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c7be5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Templeuve">
+
     <link rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin="">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -19,17 +36,93 @@
 
 <body>
 
+<div id="ecranAccueil">
+
+    <script>
+        // Exécuté immédiatement (avant l'affichage) pour éviter un effet
+        // de clignotement si l'utilisateur a déjà vu l'accueil cette session
+        if(sessionStorage.getItem("templeuve_accueil_vu")==="true"){
+            document.write('<style>#ecranAccueil{display:none;}</style>');
+        }
+    </script>
+
+    <div class="carteAccueil">
+
+        <img src="assets/blason-96.png" alt="Blason de Templeuve" class="blasonAccueil">
+
+        <h1>Bienvenue sur Templeuve Interactive</h1>
+
+        <p class="introAccueil">
+            Découvrez les commerces, services et lieux de patrimoine de
+            votre commune, en un coup d'œil sur la carte.
+        </p>
+
+        <div id="lieuxVedetteAccueil" class="lieuxVedetteAccueil"></div>
+
+        <button id="btnDecouvrirCarte" type="button" class="btnPrimaireAccueil">
+            Découvrir la carte →
+        </button>
+
+    </div>
+
+</div>
+
 <div id="application">
 
     <aside id="sidebar">
 
         <header>
 
-            <h1>Templeuve Interactive</h1>
+            <div class="enteteTitre">
 
-            <p class="version">
-                Version 0.4
-            </p>
+                <img src="assets/blason-96.png" alt="Blason de Templeuve" class="blason">
+
+                <div>
+
+                    <h1>Templeuve Interactive</h1>
+
+                    <p class="version">
+                        Version 0.5
+                    </p>
+
+                </div>
+
+                <button
+                    id="btnAccessibilite"
+                    type="button"
+                    aria-label="Options d'affichage : taille du texte et contraste"
+                    aria-expanded="false">
+                    Aa
+                </button>
+
+            </div>
+
+            <div id="panneauAccessibilite" hidden>
+
+                <div class="ligneAccessibilite">
+
+                    <span>Taille du texte</span>
+
+                    <div class="boutonsAccessibilite">
+                        <button type="button" id="btnPoliceMoins" aria-label="Réduire la taille du texte">A-</button>
+                        <button type="button" id="btnPoliceDefaut" aria-label="Taille du texte par défaut">A</button>
+                        <button type="button" id="btnPolicePlus" aria-label="Augmenter la taille du texte">A+</button>
+                    </div>
+
+                </div>
+
+                <div class="ligneAccessibilite">
+
+                    <span>Contraste élevé</span>
+
+                    <label class="interrupteur">
+                        <input type="checkbox" id="chkContraste">
+                        <span class="curseurInterrupteur"></span>
+                    </label>
+
+                </div>
+
+            </div>
 
         </header>
 
@@ -39,10 +132,23 @@
                 🔎 Rechercher
             </label>
 
-            <input
-                id="search"
-                type="text"
-                placeholder="Nom d'un lieu...">
+            <div class="conteneurRecherche">
+
+                <input
+                    id="search"
+                    type="text"
+                    placeholder="Nom d'un lieu..."
+                    aria-label="Rechercher un lieu par nom, adresse ou description">
+
+                <button
+                    id="btnEffacerRecherche"
+                    type="button"
+                    aria-label="Effacer la recherche"
+                    hidden>
+                    ✕
+                </button>
+
+            </div>
 
         </section>
 
@@ -60,6 +166,14 @@
 
             </select>
 
+            <select id="sousCategorie" hidden>
+
+                <option value="Toutes">
+                    Toutes les sous-catégories
+                </option>
+
+            </select>
+
         </section>
 
         <section>
@@ -72,7 +186,7 @@
 
         </section>
 
-        <section>
+        <section id="sectionListeLieux">
 
             <h2>Lieux</h2>
 
@@ -106,7 +220,36 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin="">
 </script>
 
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
 <script src="js/app.js"></script>
+
+<script>
+    // Enregistrement du service worker pour le fonctionnement hors-ligne.
+    // Volontairement désactivé en local (localhost/127.0.0.1) : pendant le
+    // développement, on modifie souvent data/lieux.json et il ne faut pas
+    // qu'une ancienne version reste servie depuis le cache. Le service
+    // worker ne s'active donc qu'une fois le site réellement en ligne.
+    const estEnLocal =
+        location.hostname==="localhost" ||
+        location.hostname==="127.0.0.1";
+
+    if("serviceWorker" in navigator && !estEnLocal){
+        window.addEventListener("load", ()=>{
+            navigator.serviceWorker.register("./sw.js").catch(erreur=>{
+                console.warn("Service worker non enregistré :", erreur);
+            });
+        });
+    }else if(estEnLocal && "serviceWorker" in navigator){
+
+        // Par précaution, si un service worker d'une session précédente
+        // traînait déjà en local, on le désinscrit automatiquement.
+        navigator.serviceWorker.getRegistrations().then(registrations=>{
+            registrations.forEach(reg=>reg.unregister());
+        });
+
+    }
+</script>
 
 </body>
 

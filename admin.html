@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Templeuve Interactive — Administration</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon-32.png">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+<body>
+
+<div id="admin">
+
+    <header id="adminHeader">
+
+        <h1>🛠 Administration — Templeuve Interactive</h1>
+
+        <p class="version">
+            Cette page fonctionne uniquement en local. Elle ne modifie
+            jamais les fichiers du serveur : elle génère des fichiers
+            JSON à télécharger, à déposer ensuite dans le dossier
+            <code>data/</code> du projet.
+        </p>
+
+    </header>
+
+    <nav id="onglets">
+
+        <button class="ongletBtn actif" data-onglet="lieux">
+            📍 Lieux
+        </button>
+
+        <button class="ongletBtn" data-onglet="categories">
+            📂 Catégories
+        </button>
+
+        <button class="ongletBtn" data-onglet="evenements">
+            🎉 Événements
+        </button>
+
+        <button class="ongletBtn" data-onglet="aide">
+            ❓ Comment ça marche
+        </button>
+
+    </nav>
+
+    <!-- ============================================== -->
+    <!-- Onglet Lieux                                     -->
+    <!-- ============================================== -->
+
+    <section id="vueLieux" class="vue actif">
+
+        <div class="colonneFormulaire">
+
+            <h2 id="titreFormLieu">Ajouter un lieu</h2>
+
+            <form id="formLieu">
+
+                <input type="hidden" id="lieuId">
+
+                <label for="lieuNom">Nom *</label>
+                <input id="lieuNom" type="text" required>
+
+                <label class="checkboxLigne">
+                    <input type="checkbox" id="lieuVedette">
+                    ⭐ Mettre en avant sur la page d'accueil
+                </label>
+
+                <label for="lieuCategorie">Catégorie *</label>
+                <select id="lieuCategorie" required></select>
+
+                <div id="blocSousCategorie" hidden>
+
+                    <label for="lieuSousCategorie">Sous-catégorie</label>
+                    <select id="lieuSousCategorie">
+                        <option value="">Aucune / non précisé</option>
+                    </select>
+
+                </div>
+
+                <label for="lieuAdresse">Adresse *</label>
+                <input id="lieuAdresse" type="text" required>
+
+                <label for="lieuTelephone">Téléphone</label>
+                <input id="lieuTelephone" type="text" placeholder="03 20 00 00 00">
+
+                <label for="lieuMail">E-mail</label>
+                <input id="lieuMail" type="email" placeholder="contact@exemple.fr">
+
+                <label for="lieuSite">Site web</label>
+                <input id="lieuSite" type="url" placeholder="https://...">
+
+                <label for="lieuDescription">Description</label>
+                <textarea id="lieuDescription" rows="3"></textarea>
+
+                <label for="lieuPhoto">Photo (chemin ou URL)</label>
+                <input id="lieuPhoto" type="text" placeholder="assets/images/mon-lieu.jpg">
+
+                <label for="lieuDateFin">
+                    🎉 Date de fin (uniquement pour un événement temporaire — le
+                    lieu disparaît automatiquement du site après cette date)
+                </label>
+                <input id="lieuDateFin" type="date">
+
+                <label>Horaires d'ouverture (laisser vide un jour = fermé / non renseigné)</label>
+
+                <div id="horairesLieu" class="horairesGrille"></div>
+
+                <button type="button" id="btnCopierLundi" class="btnSecondaire btnPleineLargeur">
+                    📋 Copier "Lundi" sur tous les autres jours
+                </button>
+
+                <div class="ligneCoords">
+
+                    <div>
+                        <label for="lieuLatitude">Latitude *</label>
+                        <input id="lieuLatitude" type="number" step="any" required>
+                    </div>
+
+                    <div>
+                        <label for="lieuLongitude">Longitude *</label>
+                        <input id="lieuLongitude" type="number" step="any" required>
+                    </div>
+
+                </div>
+
+                <p class="astuce">
+                    💡 Clique sur la carte ci-dessous pour placer le lieu
+                    automatiquement.
+                </p>
+
+                <div id="miniCarte"></div>
+
+                <div class="boutonsForm">
+
+                    <button type="submit" class="btnPrimaire">
+                        Ajouter le lieu
+                    </button>
+
+                    <button type="button" id="btnAnnulerLieu" class="btnSecondaire" hidden>
+                        Annuler la modification
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="colonneListe">
+
+            <div class="enteteListe">
+
+                <h2>Lieux actuels (<span id="compteurLieux">0</span>)</h2>
+
+                <button id="btnTelechargerLieux" class="btnPrimaire">
+                    ⬇ Télécharger lieux.json
+                </button>
+
+            </div>
+
+            <p id="etatLieux" class="etatSauvegarde"></p>
+
+            <div class="ligneFiltreTri">
+
+                <input
+                    id="filtreListeLieux"
+                    type="text"
+                    placeholder="🔎 Filtrer la liste (nom, adresse, catégorie...)"
+                    class="champFiltre">
+
+                <select id="triListeLieux" class="champTri">
+                    <option value="nom">Trier par nom</option>
+                    <option value="categorie">Trier par catégorie</option>
+                </select>
+
+            </div>
+
+            <div id="listeAdminLieux"></div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- Onglet Catégories                                -->
+    <!-- ============================================== -->
+
+    <section id="vueCategories" class="vue">
+
+        <div class="colonneFormulaire">
+
+            <h2 id="titreFormCategorie">Ajouter une catégorie</h2>
+
+            <form id="formCategorie">
+
+                <input type="hidden" id="categorieAncienNom">
+
+                <label for="categorieNom">Nom *</label>
+                <input id="categorieNom" type="text" required placeholder="Ex : Culture">
+
+                <label>Type d'icône *</label>
+
+                <div class="choixType">
+
+                    <label class="choixRadio">
+                        <input type="radio" name="typeIcone" value="emoji" checked>
+                        😀 Emoji
+                    </label>
+
+                    <label class="choixRadio">
+                        <input type="radio" name="typeIcone" value="image">
+                        🖼 Image (PNG/JPG/SVG)
+                    </label>
+
+                </div>
+
+                <div id="blocIconeEmoji">
+
+                    <label for="categorieIcone">Icône (emoji)</label>
+                    <input id="categorieIcone" type="text" maxlength="4" placeholder="🎭">
+
+                </div>
+
+                <div id="blocIconeImage" hidden>
+
+                    <label for="categorieImageFichier">Fichier image</label>
+                    <input id="categorieImageFichier" type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp">
+
+                    <p class="astuce">
+                        💡 L'image sera automatiquement redimensionnée en
+                        petite icône (64×64 px) et intégrée au fichier
+                        categories.json — aucun dossier séparé à gérer.
+                    </p>
+
+                </div>
+
+                <div id="apercuIcone" class="apercuIcone" hidden>
+
+                    <span>Aperçu :</span>
+                    <img id="apercuIconeImg" alt="Aperçu de l'icône">
+                    <span id="apercuIconeTaille"></span>
+
+                </div>
+
+                <label for="categorieCouleur">Couleur des marqueurs *</label>
+                <input id="categorieCouleur" type="color" value="#2c7be5">
+
+                <label for="sousCategorieSaisie">
+                    Sous-catégories (optionnel)
+                </label>
+
+                <p class="astuce">
+                    💡 Utile pour les catégories qui regroupent des lieux
+                    très différents (ex : "Santé" → Généraliste, Spécialiste,
+                    Pharmacie...). Laisse vide si non nécessaire.
+                </p>
+
+                <div class="ligneAjoutTag">
+
+                    <input
+                        id="sousCategorieSaisie"
+                        type="text"
+                        placeholder="Ex : Généraliste"
+                        maxlength="40">
+
+                    <button type="button" id="btnAjouterSousCategorie" class="btnSecondaire">
+                        + Ajouter
+                    </button>
+
+                </div>
+
+                <div id="listeSousCategories" class="listeTags"></div>
+
+                <div class="boutonsForm">
+
+                    <button type="submit" class="btnPrimaire">
+                        Ajouter la catégorie
+                    </button>
+
+                    <button type="button" id="btnAnnulerCategorie" class="btnSecondaire" hidden>
+                        Annuler la modification
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="colonneListe">
+
+            <div class="enteteListe">
+
+                <h2>Catégories actuelles (<span id="compteurCategories">0</span>)</h2>
+
+                <button id="btnTelechargerCategories" class="btnPrimaire">
+                    ⬇ Télécharger categories.json
+                </button>
+
+            </div>
+
+            <p id="etatCategories" class="etatSauvegarde"></p>
+
+            <div id="listeAdminCategories"></div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- Onglet Événements                                -->
+    <!-- ============================================== -->
+
+    <section id="vueEvenements" class="vue">
+
+        <div class="colonneFormulaire">
+
+            <h2 id="titreFormEvenement">Ajouter un événement</h2>
+
+            <p class="astuce">
+                💡 Les événements sont enregistrés dans le même fichier que
+                les lieux (<code>lieux.json</code>) et disparaissent
+                automatiquement du site une fois leur date de fin passée.
+            </p>
+
+            <form id="formEvenement">
+
+                <input type="hidden" id="evenementId">
+
+                <label for="evenementNom">Nature de l'événement *</label>
+                <input id="evenementNom" type="text" required placeholder="Ex : Don du sang">
+
+                <label class="checkboxLigne">
+                    <input type="checkbox" id="evenementVedette">
+                    ⭐ Mettre en avant sur la page d'accueil
+                </label>
+
+                <label for="evenementDescription">Description</label>
+                <textarea id="evenementDescription" rows="3" placeholder="Détails, organisateur, contact..."></textarea>
+
+                <label for="evenementLocalisation">Localisation *</label>
+                <input id="evenementLocalisation" type="text" required placeholder="Ex : Salle polyvalente">
+
+                <label for="evenementHoraires">
+                    Horaires (texte libre, optionnel)
+                </label>
+                <input
+                    id="evenementHoraires"
+                    type="text"
+                    placeholder="Ex : de 9h à 12h et de 13h à 15h">
+
+                <div class="ligneCoords">
+
+                    <div>
+                        <label for="evenementDateDebut">Date de début *</label>
+                        <input id="evenementDateDebut" type="date" required>
+                    </div>
+
+                    <div>
+                        <label for="evenementDateFin">Date de fin *</label>
+                        <input id="evenementDateFin" type="date" required>
+                    </div>
+
+                </div>
+
+                <p class="astuce">
+                    💡 Clique sur la carte pour placer l'événement.
+                </p>
+
+                <div id="miniCarteEvenement"></div>
+
+                <div class="boutonsForm">
+
+                    <button type="submit" class="btnPrimaire">
+                        Ajouter l'événement
+                    </button>
+
+                    <button type="button" id="btnAnnulerEvenement" class="btnSecondaire" hidden>
+                        Annuler la modification
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="colonneListe">
+
+            <div class="enteteListe">
+
+                <h2>Événements (<span id="compteurEvenements">0</span>)</h2>
+
+                <button id="btnTelechargerEvenements" class="btnPrimaire">
+                    ⬇ Télécharger lieux.json
+                </button>
+
+            </div>
+
+            <p id="etatEvenements" class="etatSauvegarde"></p>
+
+            <div id="listeAdminEvenements"></div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- Onglet Aide                                      -->
+    <!-- ============================================== -->
+
+    <section id="vueAide" class="vue">
+
+        <div class="blocAide">
+
+            <h2>Comment utiliser cette page</h2>
+
+            <ol>
+
+                <li>
+                    Ouvre <code>admin.html</code> via un petit serveur local
+                    (voir le message affiché en haut si tu vois une erreur
+                    de chargement — les fichiers JSON ne se chargent pas
+                    en ouvrant simplement le fichier avec un double-clic).
+                </li>
+
+                <li>
+                    Ajoute, modifie ou supprime des lieux et/ou des
+                    catégories avec les formulaires.
+                </li>
+
+                <li>
+                    Clique sur <b>Télécharger lieux.json</b> et/ou
+                    <b>Télécharger categories.json</b> : le fichier à jour
+                    est téléchargé dans ton dossier de téléchargements.
+                </li>
+
+                <li>
+                    Remplace les fichiers correspondants dans
+                    <code>data/lieux.json</code> et
+                    <code>data/categories.json</code> de ton projet.
+                </li>
+
+                <li>
+                    Si ton site est hébergé (GitHub Pages par exemple),
+                    envoie les modifications avec <code>git add</code>,
+                    <code>git commit</code> puis <code>git push</code>.
+                </li>
+
+            </ol>
+
+            <p>
+                Cette page ne modifie jamais tes fichiers automatiquement :
+                c'est volontaire, un site statique ne peut pas écrire sur
+                le serveur depuis le navigateur. Le téléchargement +
+                remplacement manuel est la façon la plus simple de rester
+                sans base de données.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin="">
+</script>
+
+<script src="js/admin.js"></script>
+
+<script>
+    // Par précaution : si un service worker traîne d'une session
+    // précédente pendant qu'on travaille en local, on le désinscrit
+    // pour être sûr de toujours voir les données les plus récentes.
+    const estEnLocal =
+        location.hostname==="localhost" ||
+        location.hostname==="127.0.0.1";
+
+    if(estEnLocal && "serviceWorker" in navigator){
+        navigator.serviceWorker.getRegistrations().then(registrations=>{
+            registrations.forEach(reg=>reg.unregister());
+        });
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,8 +1,55 @@
 /******************************************************************************
     Templeuve Interactive
     style.css
-    Version 0.3
+    Version 0.5
 ******************************************************************************/
+
+/* ===========================
+   Charte graphique
+   (couleurs extraites du blason de Templeuve)
+
+   Toutes les couleurs du site sont pilotées depuis ces variables :
+   pour changer l'identité visuelle, il suffit de modifier les valeurs
+   ici plutôt que de chercher dans tout le fichier.
+=========================== */
+
+:root{
+
+    /* Bleu héraldique du blason */
+    --couleur-principale: #3f5fc4;
+    --couleur-principale-fonce: #2c4599;
+    --couleur-principale-clair: #eef1fc;
+
+    /* Doré héraldique du blason (à utiliser en accent, jamais en texte
+       sur fond clair : contraste insuffisant) */
+    --couleur-accent: #d4b62c;
+    --couleur-accent-clair: #faf5df;
+
+    /* Neutres */
+    --couleur-texte: #222222;
+    --couleur-texte-att: #555555;
+    --couleur-fond: #f4f6fb;
+    --couleur-bordure: #dddddd;
+
+    /* États */
+    --couleur-succes: #1e7e34;
+    --couleur-succes-fond: #e3f6e5;
+    --couleur-erreur: #c0392b;
+    --couleur-erreur-fond: #fbe7e7;
+
+}
+
+/* Mode contraste élevé (activé via le sélecteur d'accessibilité) */
+body.contraste-eleve{
+
+    --couleur-principale: #1a3a99;
+    --couleur-principale-fonce: #0f2670;
+    --couleur-texte: #000000;
+    --couleur-texte-att: #000000;
+    --couleur-bordure: #000000;
+    --couleur-fond: #ffffff;
+
+}
 
 /* ===========================
    Réinitialisation
@@ -13,6 +60,11 @@
     padding:0;
     box-sizing:border-box;
 }
+
+/* La taille du texte est ajustée via la propriété CSS "zoom" appliquée
+   en JavaScript sur #application (voir app.js) plutôt qu'ici : la plupart
+   des tailles de ce fichier sont en pixels fixes, donc changer le
+   font-size racine n'aurait pas d'effet sur elles. */
 
 html,
 body{
@@ -25,7 +77,7 @@ body{
         Arial,
         sans-serif;
 
-    background:#edf2f7;
+    background:var(--couleur-fond);
 
 }
 
@@ -53,14 +105,16 @@ body{
 
     background:white;
 
-    border-right:1px solid #d7d7d7;
+    border-right:1px solid var(--couleur-bordure);
 
     display:flex;
     flex-direction:column;
 
     padding:20px;
 
-    overflow:hidden;
+    overflow-x:hidden;
+
+    overflow-y:auto;
 
     box-shadow:3px 0 12px rgba(0,0,0,.10);
 
@@ -76,11 +130,41 @@ header{
 
 }
 
+.enteteTitre{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.blason{
+
+    width:40px;
+
+    height:40px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+}
+
+.enteteTitre > div{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
 h1{
 
-    color:#205081;
+    color:var(--couleur-principale-fonce);
 
-    font-size:28px;
+    font-size:22px;
 
     margin-bottom:5px;
 
@@ -88,9 +172,186 @@ h1{
 
 .version{
 
-    color:#888;
+    color:var(--couleur-texte-att);
 
     font-size:13px;
+
+}
+
+/* ===========================
+   Bouton et panneau d'accessibilité
+=========================== */
+
+#btnAccessibilite{
+
+    flex-shrink:0;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:8px;
+
+    border:1px solid var(--couleur-bordure);
+
+    background:white;
+
+    color:var(--couleur-principale-fonce);
+
+    font-weight:bold;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+}
+
+#btnAccessibilite:hover,
+#btnAccessibilite[aria-expanded="true"]{
+
+    background:var(--couleur-principale-clair);
+
+}
+
+#panneauAccessibilite{
+
+    margin-top:12px;
+
+    padding:12px;
+
+    border:1px solid var(--couleur-bordure);
+
+    border-radius:8px;
+
+    background:white;
+
+}
+
+.ligneAccessibilite{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    font-size:13px;
+
+    color:var(--couleur-texte);
+
+}
+
+.ligneAccessibilite + .ligneAccessibilite{
+
+    margin-top:10px;
+
+    padding-top:10px;
+
+    border-top:1px solid var(--couleur-bordure);
+
+}
+
+.boutonsAccessibilite{
+
+    display:flex;
+
+    gap:4px;
+
+}
+
+.boutonsAccessibilite button{
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:6px;
+
+    border:1px solid var(--couleur-bordure);
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+}
+
+.boutonsAccessibilite button:hover{
+
+    background:var(--couleur-principale-clair);
+
+}
+
+.interrupteur{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:38px;
+
+    height:22px;
+
+}
+
+.interrupteur input{
+
+    opacity:0;
+
+    width:0;
+
+    height:0;
+
+}
+
+.curseurInterrupteur{
+
+    position:absolute;
+
+    inset:0;
+
+    background:var(--couleur-bordure);
+
+    border-radius:22px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.curseurInterrupteur::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:16px;
+
+    height:16px;
+
+    left:3px;
+
+    top:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.2s;
+
+}
+
+.interrupteur input:checked + .curseurInterrupteur{
+
+    background:var(--couleur-principale);
+
+}
+
+.interrupteur input:checked + .curseurInterrupteur::before{
+
+    transform:translateX(16px);
 
 }
 
@@ -110,7 +371,7 @@ label{
 
     font-weight:bold;
 
-    color:#444;
+    color:var(--couleur-texte-att);
 
     margin-bottom:8px;
 
@@ -130,7 +391,7 @@ input{
 
     border-radius:7px;
 
-    border:1px solid #c8c8c8;
+    border:1px solid var(--couleur-bordure);
 
     transition:.2s;
 
@@ -140,9 +401,59 @@ input:focus{
 
     outline:none;
 
-    border-color:#2c7be5;
+    border-color:var(--couleur-principale);
 
     box-shadow:0 0 6px rgba(44,123,229,.30);
+
+}
+
+.conteneurRecherche{
+
+    position:relative;
+
+}
+
+.conteneurRecherche input{
+
+    padding-right:34px;
+
+}
+
+#btnEffacerRecherche{
+
+    position:absolute;
+
+    top:50%;
+
+    right:6px;
+
+    transform:translateY(-50%);
+
+    width:24px;
+
+    height:24px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--couleur-bordure);
+
+    color:var(--couleur-texte-att);
+
+    font-size:13px;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    padding:0;
+
+}
+
+#btnEffacerRecherche:hover{
+
+    background:var(--couleur-principale-clair);
 
 }
 
@@ -160,9 +471,15 @@ select{
 
     border-radius:7px;
 
-    border:1px solid #c8c8c8;
+    border:1px solid var(--couleur-bordure);
 
     background:white;
+
+}
+
+#sousCategorie{
+
+    margin-top:8px;
 
 }
 
@@ -172,7 +489,7 @@ select{
 
 #compteur{
 
-    background:#2c7be5;
+    background:var(--couleur-principale);
 
     color:white;
 
@@ -187,6 +504,23 @@ select{
 }
 
 /* ===========================
+   Section qui contient la liste
+   (doit être flexible pour que
+   #listeLieux puisse défiler)
+=========================== */
+
+#sectionListeLieux{
+
+    flex:1;
+
+    min-height:180px; /* la liste reste toujours utilisable, même si le reste de la barre latérale est chargé (sous-catégorie, etc.) */
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+/* ===========================
    Liste des lieux
 =========================== */
 
@@ -194,13 +528,15 @@ select{
 
     flex:1;
 
+    min-height:0;
+
     overflow-y:auto;
 
-    border:1px solid #dddddd;
+    border:1px solid var(--couleur-bordure);
 
     border-radius:7px;
 
-    background:#fafafa;
+    background:var(--couleur-fond);
 
     padding:8px;
 
@@ -230,7 +566,7 @@ select{
 
     border-radius:8px;
 
-    border:1px solid #dddddd;
+    border:1px solid var(--couleur-bordure);
 
     cursor:pointer;
 
@@ -240,9 +576,9 @@ select{
 
 .lieu:hover{
 
-    background:#eef6ff;
+    background:var(--couleur-principale-clair);
 
-    border-color:#2c7be5;
+    border-color:var(--couleur-principale);
 
     transform:translateX(4px);
 
@@ -256,9 +592,31 @@ select{
 
     font-weight:bold;
 
-    color:#222;
+    color:var(--couleur-texte);
 
     margin-bottom:4px;
+
+}
+
+/* ===========================
+   Icône de catégorie (image)
+   Utilisée quand une catégorie a une image
+   uploadée plutôt qu'un emoji (voir admin.html)
+=========================== */
+
+.icone-categorie{
+
+    width:18px;
+
+    height:18px;
+
+    object-fit:cover;
+
+    border-radius:4px;
+
+    vertical-align:middle;
+
+    margin-right:2px;
 
 }
 
@@ -268,7 +626,7 @@ select{
 
 .categorieLieu{
 
-    color:#2c7be5;
+    color:var(--couleur-principale);
 
     font-size:13px;
 
@@ -294,7 +652,7 @@ select{
 
         border-right:none;
 
-        border-bottom:1px solid #d7d7d7;
+        border-bottom:1px solid var(--couleur-bordure);
 
     }
 
@@ -314,7 +672,7 @@ select{
 
     padding:15px;
 
-    border:1px solid #d8d8d8;
+    border:1px solid var(--couleur-bordure);
 
     border-radius:8px;
 
@@ -324,11 +682,15 @@ select{
 
     line-height:1.6;
 
+    max-height:200px;
+
+    overflow-y:auto;
+
 }
 
 #ficheLieu h3{
 
-    color:#205081;
+    color:var(--couleur-principale-fonce);
 
     margin-bottom:10px;
 
@@ -342,7 +704,7 @@ select{
 
 #ficheLieu a{
 
-    color:#2c7be5;
+    color:var(--couleur-principale);
 
     text-decoration:none;
 
@@ -368,7 +730,7 @@ select{
 
     font-weight:bold;
 
-    color:#1f4e79;
+    color:var(--couleur-principale-fonce);
 
     margin-bottom:6px;
 
@@ -382,7 +744,7 @@ select{
 
     border-radius:15px;
 
-    background:#1f78d1;
+    background:var(--couleur-principale);
 
     color:white;
 
@@ -402,13 +764,129 @@ select{
 
     text-align:justify;
 
-    color:#444;
+    color:var(--couleur-texte-att);
+
+}
+
+/* ===========================
+   Photo du lieu
+=========================== */
+
+.fichePhoto{
+
+    margin:-15px -15px 12px -15px;
+
+}
+
+.fichePhoto img{
+
+    width:100%;
+
+    max-height:160px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:8px 8px 0 0;
+
+}
+
+/* ===========================
+   Badge ouvert / fermé
+=========================== */
+
+.badgeHoraires{
+
+    display:inline-block;
+
+    padding:4px 10px;
+
+    border-radius:15px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+.badgeOuvert{
+
+    background:var(--couleur-succes-fond);
+
+    color:var(--couleur-succes);
+
+}
+
+.badgeFerme{
+
+    background:var(--couleur-erreur-fond);
+
+    color:var(--couleur-erreur);
+
+}
+
+/* ===========================
+   Tableau des horaires
+=========================== */
+
+.ficheSousTitre{
+
+    font-weight:bold;
+
+    color:var(--couleur-principale-fonce);
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+}
+
+.tableauHorairesFiche{
+
+    font-size:13px;
+
+}
+
+.ligneHorairesFiche{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:3px 0;
+
+    color:var(--couleur-texte-att);
+
+}
+
+.ligneHorairesFiche.ligneAujourdhui{
+
+    color:var(--couleur-principale-fonce);
+
+    font-weight:bold;
+
+}
+
+.jourHorairesFiche{
+
+    flex-shrink:0;
+
+}
+
+.creneauxHorairesFiche{
+
+    text-align:right;
 
 }
 
 .fiche a{
 
-    color:#1565c0;
+    color:var(--couleur-principale);
 
     text-decoration:none;
 
@@ -417,5 +895,282 @@ select{
 .fiche a:hover{
 
     text-decoration:underline;
+
+}
+
+/* ===========================
+   Écran d'accueil
+=========================== */
+
+#ecranAccueil{
+
+    position:fixed;
+    inset:0;
+    z-index:1000;
+
+    background:linear-gradient(160deg, var(--couleur-principale-fonce), var(--couleur-principale));
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+#ecranAccueil.masque{
+
+    display:none;
+
+}
+
+.carteAccueil{
+
+    background:white;
+    border-radius:16px;
+    padding:36px 32px;
+    max-width:480px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+
+}
+
+.blasonAccueil{
+
+    width:72px;
+    height:72px;
+    object-fit:contain;
+    margin-bottom:16px;
+
+}
+
+.carteAccueil h1{
+
+    font-size:22px;
+    color:var(--couleur-principale-fonce);
+    margin-bottom:10px;
+
+}
+
+.introAccueil{
+
+    color:var(--couleur-texte-att);
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:22px;
+
+}
+
+.lieuxVedetteAccueil{
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:24px;
+    text-align:left;
+
+}
+
+.carteVedette{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border:1px solid var(--couleur-bordure);
+    border-radius:10px;
+    cursor:pointer;
+    background:white;
+    transition:.15s;
+
+}
+
+.carteVedette:hover{
+
+    background:var(--couleur-principale-clair);
+    border-color:var(--couleur-principale);
+
+}
+
+.carteVedette .nomVedette{
+
+    font-weight:bold;
+    font-size:13px;
+    color:var(--couleur-texte);
+
+}
+
+.carteVedette .categorieVedette{
+
+    font-size:11px;
+    color:var(--couleur-texte-att);
+
+}
+
+.btnPrimaireAccueil{
+
+    background:var(--couleur-principale);
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    width:100%;
+
+}
+
+.btnPrimaireAccueil:hover{
+
+    background:var(--couleur-principale-fonce);
+
+}
+
+/* ===========================
+   Fil d'Ariane (fiche détail)
+=========================== */
+
+.filAriane{
+
+    font-size:12px;
+    color:var(--couleur-texte-att);
+    margin-bottom:10px;
+
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:4px;
+
+}
+
+.filAriane button{
+
+    background:none;
+    border:none;
+    color:var(--couleur-principale);
+    cursor:pointer;
+    font-size:12px;
+    padding:0;
+    text-decoration:underline;
+
+}
+
+.filAriane button:hover{
+
+    color:var(--couleur-principale-fonce);
+
+}
+
+.filAriane .separateurAriane{
+
+    color:var(--couleur-bordure);
+
+}
+
+.btnRetourListe{
+
+    display:none;
+
+    align-items:center;
+    gap:4px;
+
+    background:none;
+    border:none;
+    color:var(--couleur-principale);
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+    padding:0 0 10px 0;
+
+}
+
+/* ===========================
+   Badge événement temporaire
+=========================== */
+
+.badgeEvenement{
+
+    display:inline-block;
+
+    padding:4px 10px;
+
+    border-radius:15px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+    margin-left:6px;
+
+    background:var(--couleur-accent-clair);
+
+    color:#7a6410;
+
+}
+
+@media(max-width:700px){
+
+    .btnRetourListe{
+        display:flex;
+    }
+
+}
+
+/* ===========================
+   Marqueur de sélection pulsant
+   (indique l'emplacement exact du lieu choisi, indépendamment
+   du regroupement des marqueurs à faible zoom)
+=========================== */
+
+.pulseSelection{
+
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+
+.pointSelection{
+
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#ff3b30;
+    box-shadow:
+        0 0 0 3px white,
+        0 0 0 4.5px rgba(0,0,0,.35),
+        0 2px 6px rgba(0,0,0,.5);
+    position:relative;
+    z-index:1;
+
+}
+
+.pointSelection::before{
+
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:50%;
+    border:3px solid #ff3b30;
+    animation:pulseSelectionAnim 1.4s ease-out infinite;
+
+}
+
+@keyframes pulseSelectionAnim{
+
+    0%{
+        transform:scale(0.4);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(2.8);
+        opacity:0;
+    }
 
 }
