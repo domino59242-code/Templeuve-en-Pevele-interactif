@@ -43,6 +43,18 @@ function echapperHtml(texte){
 
 }
 
+// Transforme un numéro affiché ("03 20 00 00 00") en lien tel: valide
+// (ne garde que les chiffres et le + éventuel, sans changer l'affichage)
+function lienTelephone(numero){
+    return "tel:" + numero.replace(/[^\d+]/g, "");
+}
+
+// Lien vers un itinéraire Google Maps à partir des coordonnées précises
+// du lieu (plus fiable qu'une recherche sur le texte de l'adresse)
+function lienItineraire(lieu){
+    return `https://www.google.com/maps/search/?api=1&query=${lieu.latitude},${lieu.longitude}`;
+}
+
 function icone(cat){
     return (CATEGORIES[cat] ?? CATEGORIE_DEFAUT).icone;
 }
@@ -457,14 +469,14 @@ function afficherFiche(lieu){
 
             <div class="ficheLigne">
 
-                📍 ${echapperHtml(lieu.adresse)}
+                📍 <a href="${lienItineraire(lieu)}" target="_blank" rel="noopener noreferrer">${echapperHtml(lieu.adresse)}</a>
 
             </div>
 
             ${
                 lieu.telephone
                 ?
-                `<div class="ficheLigne">☎ ${echapperHtml(lieu.telephone)}</div>`
+                `<div class="ficheLigne">☎ <a href="${lienTelephone(lieu.telephone)}">${echapperHtml(lieu.telephone)}</a></div>`
                 :
                 ""
             }
@@ -916,10 +928,10 @@ function creerPopup(lieu){
 
     }
 
-    html += `📍 ${echapperHtml(lieu.adresse)}`;
+    html += `📍 <a href="${lienItineraire(lieu)}" target="_blank" rel="noopener noreferrer">${echapperHtml(lieu.adresse)}</a>`;
 
     if(lieu.telephone)
-        html += `<br>☎ ${echapperHtml(lieu.telephone)}`;
+        html += `<br>☎ <a href="${lienTelephone(lieu.telephone)}">${echapperHtml(lieu.telephone)}</a>`;
 
     if(lieu.site)
         html += `<br><a href="${echapperHtml(lieu.site)}" target="_blank" rel="noopener noreferrer">🌍 Site internet</a>`;
