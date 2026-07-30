@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Templeuve en Pévèle</title>
+    <title>Templeuve Interactive</title>
 
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate icon" href="assets/favicon-32.png">
@@ -79,7 +79,7 @@
 
                 <div>
 
-                    <h1>Templeuve en Pévèle</h1>
+                    <h1>Templeuve Interactive</h1>
 
                     <p class="version">
                         Version 0.5
@@ -236,7 +236,26 @@ crossorigin="">
 
     if("serviceWorker" in navigator && !estEnLocal){
         window.addEventListener("load", ()=>{
-            navigator.serviceWorker.register("./sw.js").catch(erreur=>{
+            navigator.serviceWorker.register("./sw.js").then(enregistrement=>{
+
+                // Se déclenche automatiquement quand une nouvelle version du
+                // service worker prend le contrôle de la page (donc quand une
+                // mise à jour vient d'être détectée et installée en arrière-plan)
+                let dejaRecharge = false;
+
+                navigator.serviceWorker.addEventListener("controllerchange", ()=>{
+
+                    // Ignore le tout premier déclenchement (installation initiale,
+                    // pas une vraie mise à jour) : on ne montre le bandeau que si
+                    // une page était déjà ouverte avec une version précédente
+                    if(dejaRecharge) return;
+                    dejaRecharge = true;
+
+                    afficherBandeauMiseAJour();
+
+                });
+
+            }).catch(erreur=>{
                 console.warn("Service worker non enregistré :", erreur);
             });
         });
@@ -246,6 +265,24 @@ crossorigin="">
         // traînait déjà en local, on le désinscrit automatiquement.
         navigator.serviceWorker.getRegistrations().then(registrations=>{
             registrations.forEach(reg=>reg.unregister());
+        });
+
+    }
+
+    function afficherBandeauMiseAJour(){
+
+        const bandeau = document.createElement("div");
+        bandeau.id = "bandeauMiseAJour";
+
+        bandeau.innerHTML = `
+            <span>🔄 Une nouvelle version de l'application est disponible.</span>
+            <button type="button" id="btnRechargerMiseAJour">Mettre à jour</button>
+        `;
+
+        document.body.appendChild(bandeau);
+
+        document.getElementById("btnRechargerMiseAJour").addEventListener("click", ()=>{
+            location.reload();
         });
 
     }
