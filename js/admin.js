@@ -8,6 +8,69 @@
  * dans le dossier data/ du projet une fois téléchargé.
  ******************************************************************************/
 
+//==================================================
+// Protection par mot de passe
+//
+// ATTENTION : ceci n'est PAS une vraie sécurité. Le site étant statique
+// (sans serveur), ce mot de passe est visible par quiconque regarde le
+// code source de la page — ça n'empêche qu'un visiteur non technique ou
+// un robot ne tombe dessus par hasard. Ne stocke rien de vraiment
+// confidentiel dans ce projet en te fiant à cette seule protection.
+//
+// Pour changer le mot de passe : remplace simplement la valeur ci-dessous.
+//==================================================
+
+const MOT_DE_PASSE_ADMIN = "Templeuve59242";
+
+const CLE_SESSION_CONNEXION = "templeuve_admin_connecte";
+
+function verifierConnexion(){
+
+    return sessionStorage.getItem(CLE_SESSION_CONNEXION) === "true";
+
+}
+
+function afficherAdmin(){
+
+    document.getElementById("ecranConnexion").style.display = "none";
+    document.getElementById("admin").hidden = false;
+
+    // Leaflet a besoin d'un recalcul de taille : les mini-cartes ont été
+    // créées pendant que leur conteneur était caché (donc à taille nulle)
+    setTimeout(()=>{
+        if(typeof miniCarte!=="undefined") miniCarte.invalidateSize();
+        if(typeof miniCarteEvenement!=="undefined") miniCarteEvenement.invalidateSize();
+    }, 50);
+
+}
+
+if(verifierConnexion()){
+    afficherAdmin();
+}
+
+document.getElementById("formConnexion").addEventListener("submit", (e)=>{
+
+    e.preventDefault();
+
+    const saisi = document.getElementById("motDePasseSaisi").value;
+
+    if(saisi===MOT_DE_PASSE_ADMIN){
+
+        sessionStorage.setItem(CLE_SESSION_CONNEXION, "true");
+        afficherAdmin();
+
+    }else{
+
+        document.getElementById("erreurConnexion").hidden = false;
+        document.getElementById("motDePasseSaisi").value = "";
+        document.getElementById("motDePasseSaisi").focus();
+
+    }
+
+});
+
+//==================================================
+
 const CENTRE_VILLE = [50.5230, 3.1710];
 
 const JOURS_SEMAINE = [

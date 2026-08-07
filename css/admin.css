@@ -659,3 +659,100 @@ body{
     }
 
 }
+
+/* ===========================
+   Écran de connexion
+=========================== */
+
+#ecranConnexion{
+
+    position:fixed;
+    inset:0;
+    z-index:2000;
+
+    background:linear-gradient(160deg, #2c4599, #3f5fc4);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+.carteConnexion{
+
+    background:white;
+    border-radius:16px;
+    padding:36px 32px;
+    max-width:360px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+
+}
+
+.blasonConnexion{
+
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    margin-bottom:14px;
+
+}
+
+.carteConnexion h1{
+
+    font-size:20px;
+    color:#205081;
+    margin-bottom:8px;
+
+}
+
+.introConnexion{
+
+    color:#666;
+    font-size:13px;
+    margin-bottom:20px;
+
+}
+
+#motDePasseSaisi{
+
+    width:100%;
+    padding:11px;
+    font-size:15px;
+    border-radius:7px;
+    border:1px solid #c8c8c8;
+    margin-bottom:14px;
+    text-align:center;
+
+}
+
+.carteConnexion .btnPrimaireAccueil{
+
+    background:#2c7be5;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    width:100%;
+
+}
+
+.carteConnexion .btnPrimaireAccueil:hover{
+
+    background:#1f63c4;
+
+}
+
+.erreurConnexion{
+
+    color:#c0392b;
+    font-size:13px;
+    margin-top:14px;
+
+}

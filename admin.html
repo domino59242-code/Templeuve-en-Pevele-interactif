@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Templeuve en Pévèle — Administration</title>
+    <title>Templeuve Interactive — Administration</title>
 
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate icon" href="assets/favicon-32.png">
@@ -23,11 +23,38 @@
 
 <body>
 
-<div id="admin">
+<div id="ecranConnexion">
+
+    <form id="formConnexion" class="carteConnexion">
+
+        <img src="assets/blason-96.png" alt="Blason de Templeuve" class="blasonConnexion">
+
+        <h1>Administration</h1>
+
+        <p class="introConnexion">Accès réservé — saisis le mot de passe pour continuer.</p>
+
+        <input
+            id="motDePasseSaisi"
+            type="password"
+            placeholder="Mot de passe"
+            autocomplete="current-password"
+            autofocus>
+
+        <button type="submit" class="btnPrimaireAccueil">Se connecter</button>
+
+        <p id="erreurConnexion" class="erreurConnexion" hidden>
+            Mot de passe incorrect.
+        </p>
+
+    </form>
+
+</div>
+
+<div id="admin" hidden>
 
     <header id="adminHeader">
 
-        <h1>🛠 Administration — Templeuve en Pévèle</h1>
+        <h1>🛠 Administration — Templeuve Interactive</h1>
 
         <p class="version">
             Cette page fonctionne uniquement en local. Elle ne modifie
