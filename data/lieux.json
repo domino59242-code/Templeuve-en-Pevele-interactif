@@ -93,7 +93,7 @@
         "id": 4,
         "nom": "Salle des Sports Robert Vandelanoitte",
         "vedette": false,
-        "categorie": "Sport",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "Rue de Roubaix",
         "telephone": "",
@@ -363,7 +363,7 @@
     {
         "id": 15,
         "nom": "Ciné Pévèle",
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "adresse": "3, Place de l'Etoile",
         "telephone": "",
         "mail": "",
@@ -385,7 +385,7 @@
     {
         "id": 16,
         "nom": "Parc d'Anchin",
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "adresse": "11, rue de Grande campagne",
         "telephone": "",
         "mail": "",
@@ -407,7 +407,7 @@
     {
         "id": 17,
         "nom": "Le bois d'Elise",
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "adresse": "Rue de Fretin",
         "telephone": "",
         "mail": "",
@@ -451,7 +451,7 @@
     {
         "id": 19,
         "nom": "L'Espace Vers",
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "adresse": "Rue de Pévèle",
         "telephone": "",
         "mail": "",
@@ -473,7 +473,7 @@
     {
         "id": 20,
         "nom": "L'Etang d'Huquinville",
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "adresse": "29, rue d'Huquinville",
         "telephone": "",
         "mail": "",
@@ -672,19 +672,40 @@
         "sousCategorie": "",
         "adresse": "20, rue Delmer",
         "telephone": "03 20 34 70 12",
-        "mail": "",
-        "site": "",
+        "mail": "contact.templeuve@fede59.admr.org",
+        "site": "https://www.admr.org/associations/admr-templeuve",
         "description": "services à domicile pour personnes âgées, dépendantes, handicapées",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:00-12:30",
+                "13:30-16:00"
+            ],
+            "mardi": [
+                "08:00-12:30",
+                "13:30-16:00"
+            ],
+            "mercredi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "jeudi": [
+                "08:00-12:30",
+                "13:30-16:00"
+            ],
+            "vendredi": [
+                "08:00-12:30",
+                "13:30-16:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.528534,
         "longitude": 3.169788
@@ -723,18 +744,39 @@
         "adresse": "1, rue de Roubaix",
         "telephone": "",
         "mail": "",
-        "site": "",
+        "site": "https://www.creditmutuel.fr/fr/caisse/hauts-de-france/nord/10278-02706-01",
         "description": "Agence bancaire",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:45-12:30",
+                "13:30-18:00"
+            ],
+            "mardi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mercredi": [
+                "08:45-12:30",
+                "13:30-18:00"
+            ],
+            "jeudi": [
+                "08:45-12:30",
+                "13:30-18:00"
+            ],
+            "vendredi": [
+                "08:45-12:30",
+                "13:30-18:00"
+            ],
+            "samedi": [
+                "08:45-12:30",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526938,
         "longitude": 3.169844
@@ -773,18 +815,39 @@
         "adresse": "16, place du Gl de Gaulle",
         "telephone": "",
         "mail": "",
-        "site": "",
+        "site": "https://www.agences.caisse-epargne.fr/banque-assurance/templeuve-id16275059634",
         "description": "Agence bancaire",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:15-13:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:15-13:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:15-13:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:15-13:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "09:15-13:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526647,
         "longitude": 3.1699
@@ -793,7 +856,7 @@
         "id": 35,
         "nom": "MEGARESTORZ",
         "vedette": false,
-        "categorie": "Entreprises/artisans",
+        "categorie": "Auto & Transport",
         "sousCategorie": "",
         "adresse": "29, rue de Lille",
         "telephone": "03 20 59 32 93",
@@ -843,7 +906,7 @@
         "id": 37,
         "nom": "ELYS Meubles",
         "vedette": false,
-        "categorie": "Entreprises/artisans",
+        "categorie": "Bâtiment & travaux",
         "sousCategorie": "",
         "adresse": "21bis, rue de Lille",
         "telephone": "06 46 44 87 09",
@@ -894,21 +957,43 @@
         "nom": "4M l'Agence",
         "vedette": false,
         "categorie": "Service",
+        "sousCategorie": "",
         "adresse": "11, rue Demesmay",
         "telephone": "09 78 80 65 38",
-        "mail": "",
-        "site": "",
+        "mail": "accueil@4mlagence.fr",
+        "site": "https://www.4mlagence.fr/",
         "description": "Agence immobilière",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:30-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "09:30-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:30-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:30-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:30-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "09:30-12:00",
+                "14:00-19:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526372,
         "longitude": 3.168145
@@ -997,17 +1082,30 @@
         "adresse": "4, Place du Gl de Gaulle",
         "telephone": "09 87 54 85 57",
         "mail": "",
-        "site": "",
+        "site": "https://www.autour-d-un-verre.fr/",
         "description": "Cave à vins - Dégustations",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mardi": [
+                "15:00-19:30"
+            ],
+            "mercredi": [
+                "10:30-13:00",
+                "15:00-19:30"
+            ],
+            "jeudi": [
+                "10:30-13:00",
+                "15:00-23:59"
+            ],
+            "vendredi": [
+                "10:30-13:00",
+                "15:00-23:59"
+            ],
+            "samedi": [
+                "10:30-20:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.526514,
@@ -1145,16 +1243,31 @@
         "adresse": "9, rue de Rouaix",
         "telephone": "03 75 83 28 00",
         "mail": "",
-        "site": "",
+        "site": "https://agence.allianz.fr/templeuve-en-pevele-59242-H99548",
         "description": "Agence d'assurances",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "14:00-12:00",
+                "12:00-18:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-16:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -1270,18 +1383,33 @@
         "adresse": "33, rue de Roubaix",
         "telephone": "03 20 59 30 29",
         "mail": "",
-        "site": "",
+        "site": "https://www.facebook.com/profile.php?id=100028375249256#",
         "description": "Boulangerie",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "06:00-19:00"
+            ],
+            "mercredi": [
+                "06:00-19:00"
+            ],
+            "jeudi": [
+                "06:00-19:00"
+            ],
+            "vendredi": [
+                "06:00-19:00"
+            ],
+            "samedi": [
+                "06:00-19:00",
+                "13:00-15:00"
+            ],
+            "dimanche": [
+                "06:30-12:30"
+            ]
         },
         "latitude": 50.527251,
         "longitude": 3.171702
@@ -1291,21 +1419,43 @@
         "nom": "Au balcon fleuri",
         "vedette": false,
         "categorie": "Commerce",
+        "sousCategorie": "",
         "adresse": "35, rue de Roubaix",
         "telephone": "03 20 59 32 47",
         "mail": "",
-        "site": "",
+        "site": "https://www.interflora.fr/fleuristes/nord-59/59586-templeuve-en-pevele/",
         "description": "Fleuriste",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:30-12:30",
+                "14:30-19:00"
+            ],
+            "mercredi": [
+                "09:30-12:30",
+                "14:30-19:00"
+            ],
+            "jeudi": [
+                "09:30-12:30",
+                "14:30-19:00"
+            ],
+            "vendredi": [
+                "09:30-12:30",
+                "14:30-19:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.527349,
         "longitude": 3.171852
@@ -1339,7 +1489,7 @@
         "id": 58,
         "nom": "Espace socio culturel",
         "vedette": false,
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "adresse": "75, rue de Roubaix",
         "telephone": "",
         "mail": "",
@@ -1443,18 +1593,39 @@
         "adresse": "7, Place de la gare",
         "telephone": "06 07 51 18 00",
         "mail": "",
-        "site": "",
+        "site": "https://www.sanitaire-social.com/fiche/association-soins-sante-templeuve-en-pevele-59242/59-14767",
         "description": "Cabinet infirmier",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:30-12:30",
+                "13:30-18:00"
+            ],
+            "mardi": [
+                "08:30-12:30",
+                "13:30-18:00"
+            ],
+            "mercredi": [
+                "08:30-12:30",
+                "13:30-18:00"
+            ],
+            "jeudi": [
+                "08:30-12:30",
+                "13:30-18:00"
+            ],
+            "vendredi": [
+                "08:30-12:30",
+                "13:30-18:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.528859,
         "longitude": 3.175084
@@ -1522,13 +1693,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "mercredi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "jeudi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "vendredi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "samedi": [
+                "09:30-12:30",
+                "15:00-18:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.530203,
         "longitude": 3.174667
@@ -1612,10 +1804,11 @@
         "nom": "CROSS Formatio,",
         "vedette": false,
         "categorie": "Service",
+        "sousCategorie": "",
         "adresse": "6, rue d'Orchies",
         "telephone": "06 15 50 70 12",
-        "mail": "",
-        "site": "",
+        "mail": "contact-crossformation@gmail.com",
+        "site": "https://crossformation.fr/",
         "description": "Centre de formations",
         "photo": "",
         "dateFin": "",
@@ -1670,13 +1863,27 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "16:00-19:00"
+            ],
+            "mardi": [
+                "16:00-19:00"
+            ],
+            "mercredi": [
+                "16:00-19:00"
+            ],
+            "jeudi": [
+                "16:00-19:00"
+            ],
+            "vendredi": [
+                "16:00-19:00"
+            ],
+            "samedi": [
+                "10:00-12:30"
+            ],
+            "dimanche": [
+                "16:00-19:00"
+            ]
         },
         "latitude": 50.526652,
         "longitude": 3.168527
@@ -1685,7 +1892,7 @@
         "id": 72,
         "nom": "Nomad Riders",
         "vedette": false,
-        "categorie": "Entreprises/artisans",
+        "categorie": "Auto & Transport",
         "sousCategorie": "",
         "adresse": "12, rue Delattre",
         "telephone": "07 84 12 58 49",
@@ -1720,13 +1927,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:30-12:00",
+                "13:00-19:00"
+            ],
+            "mercredi": [
+                "09:30-12:00",
+                "13:00-19:00"
+            ],
+            "jeudi": [
+                "09:30-12:00",
+                "13:00-19:00"
+            ],
+            "vendredi": [
+                "09:30-12:00",
+                "13:00-20:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.525494,
         "longitude": 3.168602
@@ -1910,7 +2138,7 @@
         "id": 82,
         "nom": "Médiathèque Entre les lignes",
         "vedette": false,
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "5, rue Grande campagne",
         "telephone": "03 20 84 04 28",
@@ -2081,7 +2309,7 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "- Kowalski Anne, Rocher Olivier : Psychopraticiens\n- Storme Emilie, Houel Delphine : Psychologues\n- Nowicki Chantal : Sophrologue",
+        "description": "- Kowalski Anne, Rocher Olivier : Psychopraticiens\n- Storme Emilie, Houel Delphine : Psychologues\n- Nowicki Chantal : Sophrologue\nHoraires selon les praticiens",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -2281,17 +2509,38 @@
         "telephone": "03 20 34 70 70",
         "mail": "",
         "site": "",
-        "description": "Médecins généralistes :\n- Boilot Frédéric\n- Delbrouque Caroline\n- Florian Jean-Paul\n- Delecroix Vincent\n- Depersin Claire",
+        "description": "Médecins généralistes :\n- Boilot Frédéric\n- Delbrouque Caroline\n- Florian Jean-Paul\n- Delecroix Vincent\n- Depersin Claire\nHoraires différents selon le praticien",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:00-00:00",
+                "00:00-20:00"
+            ],
+            "mardi": [
+                "08:00-00:00",
+                "00:00-20:00"
+            ],
+            "mercredi": [
+                "08:00-00:00",
+                "00:00-20:00"
+            ],
+            "jeudi": [
+                "08:00-00:00",
+                "00:00-20:00"
+            ],
+            "vendredi": [
+                "08:00-00:00",
+                "00:00-20:00"
+            ],
+            "samedi": [
+                "08:00-00:00",
+                "00:00-20:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526861,
         "longitude": 3.175106
@@ -2303,7 +2552,7 @@
         "categorie": "Santé",
         "sousCategorie": "Médecin",
         "adresse": "11, rue du Maresquel",
-        "telephone": "",
+        "telephone": "03 76 04 47 47",
         "mail": "",
         "site": "",
         "description": "Centre Médivie",
@@ -2769,7 +3018,7 @@
         "adresse": "2, rue du Moulin d'eau",
         "telephone": "06 85 24 72 32",
         "mail": "",
-        "site": "",
+        "site": "https://www.facebook.com/ameliebrocart59242/?locale=fr_FR",
         "description": "Club de dressage canin",
         "photo": "",
         "dateFin": "",
@@ -2822,8 +3071,8 @@
         "site": "",
         "photo": "",
         "horaires": {},
-        "latitude": 50.52610091577086,
-        "longitude": 3.1737238168716435
+        "latitude": 50.52878133816202,
+        "longitude": 3.173884749412537
     },
     {
         "id": 122,
@@ -2840,9 +3089,13 @@
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
+            "mardi": [
+                "17:30-19:30"
+            ],
             "mercredi": [],
-            "jeudi": [],
+            "jeudi": [
+                "17:30-19:30"
+            ],
             "vendredi": [],
             "samedi": [],
             "dimanche": []
@@ -2859,18 +3112,39 @@
         "adresse": "8, rue Demesmay",
         "telephone": "03 20 05 11 12",
         "mail": "",
-        "site": "",
+        "site": "https://www.credit-agricole.fr/particulier/agence/nord-de-france/templeuve-3399.html",
         "description": "Banque",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "08:45-12:45",
+                "13:45-18:05"
+            ],
+            "mercredi": [
+                "08:45-12:45",
+                "13:45-18:05"
+            ],
+            "jeudi": [
+                "00:00-00:00",
+                "14:30-18:05"
+            ],
+            "vendredi": [
+                "08:45-12:45",
+                "00:00-00:00"
+            ],
+            "samedi": [
+                "08:45-12:50",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526612,
         "longitude": 3.168368
@@ -2954,7 +3228,7 @@
         "id": 127,
         "nom": "Dubois d'Olivier",
         "vedette": false,
-        "categorie": "Bâtiment & travaux",
+        "categorie": "Professions spécialisées",
         "sousCategorie": "",
         "adresse": "28 bis, rue Delmer",
         "telephone": "09 53 44 44 08",
@@ -3526,31 +3800,6 @@
         "longitude": 3.170547
     },
     {
-        "id": 150,
-        "nom": "Au paradis des crins",
-        "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
-        "adresse": "133, rue de Péronne",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "description": "Elevage de chevaux",
-        "photo": "",
-        "dateFin": "",
-        "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
-        },
-        "latitude": 50.541396,
-        "longitude": 3.17465
-    },
-    {
         "id": 151,
         "nom": "Crombet Jean-Michel",
         "vedette": false,
@@ -3758,9 +4007,9 @@
         "sousCategorie": "profession auxiliaire",
         "adresse": "51, rue de Roubaix",
         "telephone": "06 19 25 76 30",
-        "mail": "",
-        "site": "",
-        "description": "Graphothérapeute, Psychopédagogue, éducatrice Montéssori",
+        "mail": "petitesracines@outlook.fr",
+        "site": "https://www.lespetitesracines.com/",
+        "description": "Graphothérapeute, Psychopédagogue, éducatrice Montéssori. Réservation par téléphone.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -3779,7 +4028,7 @@
         "id": 160,
         "nom": "IN - Club de sport",
         "vedette": false,
-        "categorie": "Sport",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "2, Place de l'étoile",
         "telephone": "06 22 13 45 34",
@@ -3979,7 +4228,7 @@
         "id": 168,
         "nom": "Stade Baratte",
         "vedette": false,
-        "categorie": "Sport",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "1, rue Georges Baratte",
         "telephone": "",
@@ -4004,7 +4253,7 @@
         "id": 169,
         "nom": "TCM Templeuve",
         "vedette": false,
-        "categorie": "Sport",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "8 bis,  rue de Péronne",
         "telephone": "06 20 62 51 48",
@@ -4162,8 +4411,8 @@
         "site": "",
         "photo": "",
         "horaires": {},
-        "latitude": 50.523,
-        "longitude": 3.171
+        "latitude": 50.5261895835777,
+        "longitude": 3.1735521554946904
     },
     {
         "id": 176,
@@ -4227,7 +4476,7 @@
         "id": 178,
         "nom": "Le petit théâtre",
         "vedette": false,
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "77 bis, rue de Roubaix",
         "telephone": "06 04 18 79 73",
@@ -4252,7 +4501,7 @@
         "id": 179,
         "nom": "Boulodrome",
         "vedette": false,
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "rue de la Passementerie",
         "telephone": "06.80.47.66.05",
@@ -4277,7 +4526,7 @@
         "id": 180,
         "nom": "City stade",
         "vedette": false,
-        "categorie": "Sport",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "Mairie de Templeuve",
         "telephone": "",
@@ -4307,18 +4556,39 @@
         "adresse": "36, rue Gauthier",
         "telephone": "03 20 61 46 06",
         "mail": "",
-        "site": "",
+        "site": "https://www.bdn.fr/briqueterie/usine-de-templeuve/",
         "description": "Fabricant de briques",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "07:00-12:00",
+                "12:30-16:00"
+            ],
+            "mardi": [
+                "07:00-12:00",
+                "12:30-16:00"
+            ],
+            "mercredi": [
+                "07:00-12:00",
+                "12:30-16:00"
+            ],
+            "jeudi": [
+                "07:00-12:00",
+                "12:30-16:00"
+            ],
+            "vendredi": [
+                "07:00-12:00",
+                "12:30-16:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.519034,
         "longitude": 3.151585
@@ -4327,12 +4597,12 @@
         "id": 182,
         "nom": "Chant de l'eau",
         "vedette": false,
-        "categorie": "Sport",
+        "categorie": "Culture/Loisir",
         "sousCategorie": "",
         "adresse": "Rue Gauthier",
         "telephone": "03 74 03 02 79",
         "mail": "",
-        "site": "",
+        "site": "https://www.lechantdeleau.com/horaires/",
         "description": "Centre aquatique",
         "photo": "",
         "dateFin": "",
@@ -4527,7 +4797,7 @@
         "id": 190,
         "nom": "Olivier studio",
         "vedette": false,
-        "categorie": "Entreprises/artisans",
+        "categorie": "Professions spécialisées",
         "sousCategorie": "",
         "adresse": "6, rue Victor Hugo",
         "telephone": "06 42 57 22 60",
@@ -4577,7 +4847,7 @@
         "id": 192,
         "nom": "Brabant Michel",
         "vedette": false,
-        "categorie": "Entreprises/artisans",
+        "categorie": "Professions spécialisées",
         "sousCategorie": "",
         "adresse": "5, rue Simone Veil",
         "telephone": "06 14 52 03 06",
@@ -4627,7 +4897,7 @@
         "id": 194,
         "nom": "Cordonnerie du Pévèle",
         "vedette": false,
-        "categorie": "Entreprises/artisans",
+        "categorie": "Professions spécialisées",
         "sousCategorie": "",
         "adresse": "Centre commercial Leclerc",
         "telephone": "",

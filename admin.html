@@ -36,7 +36,7 @@
         <input
             id="motDePasseSaisi"
             type="password"
-            placeholder="Mot de passe"
+            placeholder="mot de passe"
             autocomplete="current-password"
             autofocus>
 
@@ -199,6 +199,29 @@
                 </button>
 
             </div>
+
+            <div class="ligneCsv">
+
+                <button id="btnExporterCsv" class="btnSecondaire">
+                    📊 Exporter en CSV (Excel)
+                </button>
+
+                <label for="champImportCsv" class="btnSecondaire btnImportCsv">
+                    📥 Importer un CSV
+                </label>
+                <input id="champImportCsv" type="file" accept=".csv" hidden>
+
+            </div>
+
+            <p class="astuce">
+                💡 Le CSV couvre les champs simples (nom, adresse,
+                téléphone...). Les horaires d'ouverture détaillés ne sont
+                pas inclus — modifie-les directement dans ce formulaire.
+                À l'import, les lignes avec un ID existant mettent à jour
+                le lieu correspondant ; les lignes sans ID (ou avec un ID
+                inconnu) créent un nouveau lieu. Rien n'est supprimé
+                automatiquement.
+            </p>
 
             <p id="etatLieux" class="etatSauvegarde"></p>
 
@@ -510,6 +533,8 @@ src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin="">
 </script>
+
+<script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 
 <script src="js/admin.js"></script>
 

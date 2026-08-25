@@ -954,6 +954,154 @@ document.getElementById("btnTelechargerLieux").addEventListener("click", ()=>{
 });
 
 //==================================================
+// Export / Import CSV (pour édition en masse dans Excel/tableur)
+//
+// Ne couvre que les champs "simples" (texte, nombre, oui/non) — les
+// horaires d'ouverture hebdomadaires (objet imbriqué) ne sont pas
+// inclus et restent inchangés lors d'un import.
+//==================================================
+
+const COLONNES_CSV = [
+    "id","nom","vedette","categorie","sousCategorie","adresse",
+    "telephone","mail","site","description","photo",
+    "latitude","longitude",
+    "estEvenement","dateDebut","dateFin","horairesEvenement"
+];
+
+document.getElementById("btnExporterCsv").addEventListener("click", ()=>{
+
+    const lignes = lieux.map(l=>({
+        id: l.id,
+        nom: l.nom ?? "",
+        vedette: l.vedette ? "oui" : "non",
+        categorie: l.categorie ?? "",
+        sousCategorie: l.sousCategorie ?? "",
+        adresse: l.adresse ?? "",
+        telephone: l.telephone ?? "",
+        mail: l.mail ?? "",
+        site: l.site ?? "",
+        description: l.description ?? "",
+        photo: l.photo ?? "",
+        latitude: l.latitude,
+        longitude: l.longitude,
+        estEvenement: l.estEvenement ? "oui" : "non",
+        dateDebut: l.dateDebut ?? "",
+        dateFin: l.dateFin ?? "",
+        horairesEvenement: l.horairesEvenement ?? ""
+    }));
+
+    // Le "\uFEFF" (BOM) en tête assure que les accents s'affichent
+    // correctement à l'ouverture dans Excel sous Windows
+    const csv = "\uFEFF" + Papa.unparse(lignes, { columns: COLONNES_CSV });
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const lien = document.createElement("a");
+    lien.href = url;
+    lien.download = "lieux.csv";
+    document.body.appendChild(lien);
+    lien.click();
+    document.body.removeChild(lien);
+
+    URL.revokeObjectURL(url);
+
+});
+
+document.getElementById("champImportCsv").addEventListener("change", (e)=>{
+
+    const fichier = e.target.files[0];
+    if(!fichier) return;
+
+    Papa.parse(fichier, {
+
+        header: true,
+        skipEmptyLines: true,
+
+        complete: (resultat)=>{
+
+            let nbCrees = 0;
+            let nbMisAJour = 0;
+            const lignesIgnorees = [];
+
+            resultat.data.forEach((ligne, index)=>{
+
+                const nom = (ligne.nom ?? "").trim();
+                const latitude = parseFloat(ligne.latitude);
+                const longitude = parseFloat(ligne.longitude);
+
+                if(!nom || !Number.isFinite(latitude) || !Number.isFinite(longitude)){
+                    lignesIgnorees.push(`Ligne ${index+2} : nom ou coordonnées manquants/invalides`);
+                    return;
+                }
+
+                const idSaisi = parseInt(ligne.id, 10);
+                const existant = Number.isFinite(idSaisi)
+                    ? lieux.find(l=>l.id===idSaisi)
+                    : null;
+
+                const lieu = {
+                    id: existant ? existant.id : prochainId(),
+                    nom,
+                    vedette: (ligne.vedette ?? "").trim().toLowerCase()==="oui",
+                    categorie: (ligne.categorie ?? "").trim(),
+                    sousCategorie: (ligne.sousCategorie ?? "").trim(),
+                    adresse: (ligne.adresse ?? "").trim(),
+                    telephone: (ligne.telephone ?? "").trim(),
+                    mail: (ligne.mail ?? "").trim(),
+                    site: (ligne.site ?? "").trim(),
+                    description: (ligne.description ?? "").trim(),
+                    photo: (ligne.photo ?? "").trim(),
+                    latitude,
+                    longitude,
+                    estEvenement: (ligne.estEvenement ?? "").trim().toLowerCase()==="oui",
+                    dateDebut: (ligne.dateDebut ?? "").trim(),
+                    dateFin: (ligne.dateFin ?? "").trim(),
+                    horairesEvenement: (ligne.horairesEvenement ?? "").trim(),
+                    // Les horaires hebdomadaires détaillés ne sont pas gérés par
+                    // le CSV : on conserve ceux déjà existants, sinon vide.
+                    horaires: existant ? existant.horaires : {}
+                };
+
+                if(existant){
+                    const indexLieu = lieux.findIndex(l=>l.id===existant.id);
+                    lieux[indexLieu] = lieu;
+                    nbMisAJour++;
+                }else{
+                    lieux.push(lieu);
+                    nbCrees++;
+                }
+
+            });
+
+            let message = `Import terminé : ${nbCrees} lieu(x) créé(s), ${nbMisAJour} mis à jour.`;
+
+            if(lignesIgnorees.length>0){
+                message += `\n\n${lignesIgnorees.length} ligne(s) ignorée(s) :\n` + lignesIgnorees.join("\n");
+            }
+
+            alert(message);
+
+            rafraichirListeLieux();
+            rafraichirListeEvenements();
+            remplirSelectCategories();
+            sauvegarderAutomatiquement();
+
+        },
+
+        error: (erreur)=>{
+            alert("Erreur de lecture du fichier CSV : " + erreur.message);
+        }
+
+    });
+
+    // Permet de réimporter le même fichier une seconde fois si besoin
+    // (sinon le navigateur ignore un second choix du fichier identique)
+    e.target.value = "";
+
+});
+
+//==================================================
 // Formulaire Événements
 //
 // Les événements sont enregistrés dans le même tableau `lieux` (donc le
