@@ -1226,3 +1226,26 @@ select{
     background:var(--couleur-fond);
 
 }
+
+.lienConfidentialite{
+
+    text-align:center;
+    margin-top:14px;
+    padding-top:10px;
+    border-top:1px solid var(--couleur-bordure);
+
+}
+
+.lienConfidentialite a{
+
+    color:var(--couleur-texte-att);
+    font-size:11px;
+    text-decoration:none;
+
+}
+
+.lienConfidentialite a:hover{
+
+    text-decoration:underline;
+
+}
