@@ -1,5 +1,6 @@
 {
-    "name": "Templeuve Interactive",
+    "id": ".",
+    "name": "Templeuve en Pévèle Interactif",
     "short_name": "Templeuve",
     "description": "Carte interactive des lieux et services de Templeuve",
     "start_url": "./index.html",
@@ -9,6 +10,30 @@
     "theme_color": "#2c7be5",
     "orientation": "portrait-primary",
     "lang": "fr",
+    "categories": ["navigation", "lifestyle", "travel"],
+    "prefer_related_applications": false,
+    "screenshots": [
+        {
+            "src": "assets/screenshots/carte-generale.jpg",
+            "sizes": "1592x773",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Vue générale de la carte avec les lieux de Templeuve"
+        },
+        {
+            "src": "assets/screenshots/fiche-lieu.jpg",
+            "sizes": "1590x766",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Fiche détaillée d'un lieu avec ses horaires"
+        },
+        {
+            "src": "assets/screenshots/ecran-accueil.jpg",
+            "sizes": "769x767",
+            "type": "image/jpeg",
+            "label": "Écran d'accueil avec les événements en vedette"
+        }
+    ],
     "icons": [
         {
             "src": "assets/icon-192.png",

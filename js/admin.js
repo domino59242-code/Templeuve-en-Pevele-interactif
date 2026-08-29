@@ -20,7 +20,7 @@
 // Pour changer le mot de passe : remplace simplement la valeur ci-dessous.
 //==================================================
 
-const MOT_DE_PASSE_ADMIN = "CHANGE_MOI";
+const MOT_DE_PASSE_ADMIN = "Templeuve59242";
 
 const CLE_SESSION_CONNEXION = "templeuve_admin_connecte";
 
