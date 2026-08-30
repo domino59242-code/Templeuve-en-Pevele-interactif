@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "A_REMPLACER_apres_pwabuilder",
+      "package_name": "io.github.domino59242_code.twa",
       "sha256_cert_fingerprints": [
-        "A_REMPLACER_apres_pwabuilder"
+        "20:61:2E:7B:34:19:AA:E7:68:76:BD:83:D2:26:F8:3D:8D:75:72:FD:B9:0B:13:97:9E:70:72:7A:8D:E5:B1:7D"
       ]
     }
   }

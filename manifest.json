@@ -12,6 +12,12 @@
     "lang": "fr",
     "categories": ["navigation", "lifestyle", "travel"],
     "prefer_related_applications": false,
+    "related_applications": [
+        {
+            "platform": "play",
+            "id": "io.github.domino59242_code.twa"
+        }
+    ],
     "screenshots": [
         {
             "src": "assets/screenshots/carte-generale.jpg",
