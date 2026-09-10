@@ -910,8 +910,8 @@
         "sousCategorie": "",
         "adresse": "21bis, rue de Lille",
         "telephone": "06 46 44 87 09",
-        "mail": "",
-        "site": "",
+        "mail": "Contact@elys-meubles.com",
+        "site": "https://elys-meubles.com/",
         "description": "Cuisiniste",
         "photo": "",
         "dateFin": "",
@@ -935,9 +935,9 @@
         "sousCategorie": "Alimentation",
         "adresse": "22, rue Demesmay",
         "telephone": "03 20 59 30 62",
-        "mail": "",
-        "site": "",
-        "description": "Boulangerie",
+        "mail": "entremets.creations@gmail.com",
+        "site": "https://www.facebook.com/entremetscreations",
+        "description": "Boulangerie Pâtisserie Chocolatier Artisanale",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -947,7 +947,9 @@
             "jeudi": [],
             "vendredi": [],
             "samedi": [],
-            "dimanche": []
+            "dimanche": [
+                "07:00-13:00"
+            ]
         },
         "latitude": 50.526382,
         "longitude": 3.167296
@@ -2019,7 +2021,7 @@
         "telephone": "03 20 79 22 23",
         "mail": "",
         "site": "",
-        "description": "Dentiste",
+        "description": "Dentiste. Sur Rendez-vous",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -2048,13 +2050,32 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:30-13:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:30-13:00",
+                "14:00-18:30"
+            ],
+            "mercredi": [
+                "09:30-13:00",
+                "14:00-18:30"
+            ],
+            "jeudi": [
+                "09:30-13:00",
+                "14:00-18:30"
+            ],
+            "vendredi": [
+                "09:30-13:00",
+                "14:00-18:30"
+            ],
+            "samedi": [
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.528561,
         "longitude": 3.169348
@@ -2073,13 +2094,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:30-13:00",
+                "14:00-17:00"
+            ],
+            "mardi": [
+                "08:30-13:00",
+                "14:00-17:00"
+            ],
+            "mercredi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "jeudi": [
+                "08:30-13:00",
+                "14:00-17:00"
+            ],
+            "vendredi": [
+                "08:30-13:00",
+                "14:00-17:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.524085,
         "longitude": 3.173054
@@ -2098,13 +2140,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "mercredi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-16:30"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "14:00-17:00"
+            ]
         },
         "latitude": 50.522909,
         "longitude": 3.171952
@@ -2353,7 +2416,9 @@
             "mercredi": [],
             "jeudi": [],
             "vendredi": [],
-            "samedi": [],
+            "samedi": [
+                "09:00-13:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.528396,
@@ -3168,18 +3233,39 @@
         "adresse": "1, rue de la Caillère",
         "telephone": "03 20 41 77 93",
         "mail": "",
-        "site": "",
+        "site": "http://lesdecorsconseils.com/",
         "description": "Pose de carrelage et dallage",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.521009,
         "longitude": 3.181276
@@ -3193,18 +3279,39 @@
         "adresse": "28 bis, rue Delmer",
         "telephone": "09 53 44 44 08",
         "mail": "",
-        "site": "",
+        "site": "https://www.menuiserie-dubois-dolivier.fr/",
         "description": "Miroiterie, menuiserie",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:30-12:00",
+                "13:30-17:30"
+            ],
+            "mardi": [
+                "08:30-12:00",
+                "13:30-17:30"
+            ],
+            "mercredi": [
+                "08:30-12:00",
+                "13:30-17:30"
+            ],
+            "jeudi": [
+                "08:30-12:00",
+                "13:30-17:30"
+            ],
+            "vendredi": [
+                "08:30-12:00",
+                "13:30-17:30"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.528391,
         "longitude": 3.170265
@@ -4060,31 +4167,6 @@
         "longitude": 3.160301
     },
     {
-        "id": 163,
-        "nom": "Descamps Charles",
-        "vedette": false,
-        "categorie": "Bâtiment & travaux",
-        "sousCategorie": "",
-        "adresse": "93, rue de la Quièze",
-        "telephone": "03 20 59 34 89",
-        "mail": "",
-        "site": "",
-        "description": "Couvreur",
-        "photo": "",
-        "dateFin": "",
-        "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
-        },
-        "latitude": 50.531199,
-        "longitude": 3.162205
-    },
-    {
         "id": 164,
         "nom": "Kiné Balnéo Templeuve",
         "vedette": false,
@@ -4586,19 +4668,40 @@
         "sousCategorie": "",
         "adresse": "98, rue de Lille",
         "telephone": "03 20 90 15 80",
-        "mail": "",
-        "site": "",
+        "mail": "accueil@duriez-agencement.com",
+        "site": "https://www.duriez-agencement.com/",
         "description": "Atelier de menuiserie - Agencement",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "mardi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "mercredi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "jeudi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "vendredi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.517022,
         "longitude": 3.156772
@@ -4839,31 +4942,6 @@
         "mail": "",
         "site": "",
         "description": "Blanchisserie, nettoyage à sec et teinturerie de détail.",
-        "photo": "",
-        "dateFin": "",
-        "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
-        },
-        "latitude": 50.523546,
-        "longitude": 3.17419
-    },
-    {
-        "id": 194,
-        "nom": "Cordonnerie du Pévèle",
-        "vedette": false,
-        "categorie": "Professions spécialisées",
-        "sousCategorie": "",
-        "adresse": "Centre commercial Leclerc",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "description": "Réparation de chaussures et d'articles en cuir",
         "photo": "",
         "dateFin": "",
         "horaires": {
