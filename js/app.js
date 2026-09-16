@@ -261,15 +261,20 @@ document.getElementById("btnDecouvrirCarte").addEventListener("click", fermerEcr
 //==================================================
 
 const CLE_PREFS_ACCESSIBILITE = "templeuve_prefs_accessibilite";
-const ECHELLES_POLICE = [1, 1.15, 1.3, 1.45];
+
+// Deux tailles réduites ont été ajoutées (0.8 et 0.9), utiles sur les
+// petits écrans de téléphone où le texte par défaut peut sembler trop
+// grand. L'échelle "1" (taille normale) reste la valeur par défaut.
+const ECHELLES_POLICE = [0.8, 0.9, 1, 1.15, 1.3, 1.45];
+const INDEX_ECHELLE_DEFAUT = 2; // correspond à la valeur 1 (100%)
 
 function chargerPrefsAccessibilite(){
 
     try{
         const brut = localStorage.getItem(CLE_PREFS_ACCESSIBILITE);
-        return brut ? JSON.parse(brut) : { indexEchelle: 0, contraste: false };
+        return brut ? JSON.parse(brut) : { indexEchelle: INDEX_ECHELLE_DEFAUT, contraste: false };
     }catch(erreur){
-        return { indexEchelle: 0, contraste: false };
+        return { indexEchelle: INDEX_ECHELLE_DEFAUT, contraste: false };
     }
 
 }
@@ -326,7 +331,7 @@ function appliquerPrefsAccessibilite(prefs){
     });
 
     document.getElementById("btnPoliceDefaut").addEventListener("click", ()=>{
-        prefs.indexEchelle = 0;
+        prefs.indexEchelle = INDEX_ECHELLE_DEFAUT;
         appliquerPrefsAccessibilite(prefs);
         sauvegarderPrefsAccessibilite(prefs);
     });
@@ -375,7 +380,7 @@ function afficherFiche(lieu){
     ficheLieu.innerHTML = `
 
         <button type="button" class="btnRetourListe" id="btnRetourListe">
-            ← Retour à la liste
+            ✕ Fermer
         </button>
 
         <div class="filAriane">
@@ -538,6 +543,10 @@ function afficherFiche(lieu){
 
     `;
 
+    // Sur mobile, la fiche s'ouvre en plein écran (voir CSS) : on l'active
+    // à chaque nouvelle sélection de lieu.
+    document.getElementById("sectionDetails").classList.add("actif");
+
     // Fil d'Ariane : revenir à la liste complète ou filtrer sur la catégorie
     document.getElementById("filArianeTous").addEventListener("click", ()=>{
         txtRecherche.value = "";
@@ -546,12 +555,14 @@ function afficherFiche(lieu){
         creerSousCategories();
         afficher();
         ficheLieu.innerHTML = "<p>Sélectionnez un lieu sur la carte ou dans la liste.</p>";
+        fermerPanneauDetailsMobile();
     });
 
     document.getElementById("filArianeCategorie").addEventListener("click", ()=>{
         cboCategorie.value = lieu.categorie;
         creerSousCategories();
         afficher();
+        fermerPanneauDetailsMobile();
     });
 
     if(lieu.sousCategorie){
@@ -561,15 +572,26 @@ function afficherFiche(lieu){
             creerSousCategories();
             cboSousCategorie.value = lieu.sousCategorie;
             afficher();
+            fermerPanneauDetailsMobile();
         });
 
     }
 
-    // Bouton retour (visible uniquement sur petit écran, voir CSS) :
-    // remonte simplement en haut de la barre latérale, là où se trouve la liste
+    // Bouton "Fermer" (visible uniquement sur petit écran, voir CSS)
     document.getElementById("btnRetourListe").addEventListener("click", ()=>{
-        liste.scrollIntoView({behavior:"smooth", block:"start"});
+        fermerPanneauDetailsMobile();
     });
+
+}
+
+// Referme le panneau plein écran de la fiche détail sur mobile (sans
+// effet sur desktop, où ce panneau n'est jamais activé en overlay)
+function fermerPanneauDetailsMobile(){
+
+    document.getElementById("sectionDetails").classList.remove("actif");
+
+    // Remet la liste bien en vue une fois le panneau refermé
+    liste.scrollIntoView({behavior:"smooth", block:"start"});
 
 }
 
@@ -880,6 +902,9 @@ function afficher(){
         }
 
         ficheLieu.innerHTML = "<p>Sélectionnez un lieu sur la carte ou dans la liste.</p>";
+
+        const sectionDetails = document.getElementById("sectionDetails");
+        if(sectionDetails) sectionDetails.classList.remove("actif");
 
     }
 
