@@ -348,6 +348,21 @@ function appliquerPrefsAccessibilite(prefs){
 // Création de la carte
 //==================================================
 
+// Sur mobile, la fiche détail est temporairement déplacée en dehors de
+// #application (voir plus bas) pour échapper au CSS "zoom" posé sur cet
+// élément par la fonctionnalité d'accessibilité (Chrome positionne les
+// éléments "position:fixed" à l'intérieur d'un ancêtre zoomé par rapport
+// à cet ancêtre plutôt que par rapport à l'écran réel — d'où un plein
+// écran mobile mal positionné sans ce contournement). On mémorise ici sa
+// position d'origine pour pouvoir l'y remettre une fois refermée.
+const sectionDetails = document.getElementById("sectionDetails");
+const parentOrigineDetails = sectionDetails.parentNode;
+const referenceOrigineDetails = sectionDetails.nextSibling;
+
+function estMobile(){
+    return window.matchMedia("(max-width:700px)").matches;
+}
+
 const carte = L.map("map").setView(CENTRE_VILLE, ZOOM_DEPART);
 
 // Fond de carte Plan IGN : données officielles françaises (IGN), plus
@@ -543,9 +558,14 @@ function afficherFiche(lieu){
 
     `;
 
-    // Sur mobile, la fiche s'ouvre en plein écran (voir CSS) : on l'active
-    // à chaque nouvelle sélection de lieu.
-    document.getElementById("sectionDetails").classList.add("actif");
+    // Sur mobile, la fiche s'ouvre en plein écran (voir CSS) : on la
+    // déplace d'abord au niveau du <body> (voir explication plus haut),
+    // puis on l'active à chaque nouvelle sélection de lieu.
+    if(estMobile() && sectionDetails.parentNode!==document.body){
+        document.body.appendChild(sectionDetails);
+    }
+
+    sectionDetails.classList.add("actif");
 
     // Fil d'Ariane : revenir à la liste complète ou filtrer sur la catégorie
     document.getElementById("filArianeTous").addEventListener("click", ()=>{
@@ -588,7 +608,18 @@ function afficherFiche(lieu){
 // effet sur desktop, où ce panneau n'est jamais activé en overlay)
 function fermerPanneauDetailsMobile(){
 
-    document.getElementById("sectionDetails").classList.remove("actif");
+    sectionDetails.classList.remove("actif");
+
+    // Remet la fiche à sa place normale dans la barre latérale une fois
+    // l'animation de fermeture terminée (250ms, voir le CSS), pour
+    // qu'elle redevienne inline si l'écran repasse en desktop entre-temps
+    setTimeout(()=>{
+
+        if(sectionDetails.parentNode===document.body){
+            parentOrigineDetails.insertBefore(sectionDetails, referenceOrigineDetails);
+        }
+
+    }, 300);
 
     // Remet la liste bien en vue une fois le panneau refermé
     liste.scrollIntoView({behavior:"smooth", block:"start"});
@@ -903,8 +934,13 @@ function afficher(){
 
         ficheLieu.innerHTML = "<p>Sélectionnez un lieu sur la carte ou dans la liste.</p>";
 
-        const sectionDetails = document.getElementById("sectionDetails");
-        if(sectionDetails) sectionDetails.classList.remove("actif");
+        sectionDetails.classList.remove("actif");
+
+        setTimeout(()=>{
+            if(sectionDetails.parentNode===document.body){
+                parentOrigineDetails.insertBefore(sectionDetails, referenceOrigineDetails);
+            }
+        }, 300);
 
     }
 
