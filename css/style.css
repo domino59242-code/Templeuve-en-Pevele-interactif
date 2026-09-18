@@ -1,7 +1,7 @@
 /******************************************************************************
     Templeuve Interactive
     style.css
-    Version 0.8
+    Version 0.9
 ******************************************************************************/
 
 /* ===========================
@@ -1143,6 +1143,23 @@ select{
 
     #sectionDetails h2{
         display:none; /* remplacé par le bouton "Fermer" en haut du panneau */
+    }
+
+    /* #ficheLieu a sa propre mise en forme "carte" (bordure, coins
+       arrondis, hauteur limitée à 200px) pensée pour s'afficher dans la
+       barre latérale sur desktop. En plein écran mobile, le panneau
+       #sectionDetails fournit déjà son propre fond blanc : on neutralise
+       ici cette mise en forme pour que le contenu utilise tout l'espace
+       disponible au lieu de rester coincé dans une petite carte. */
+    #sectionDetails #ficheLieu{
+
+        max-height:none;
+        border:none;
+        border-radius:0;
+        padding:0;
+        margin-top:0;
+        background:none;
+
     }
 
     .btnRetourListe{
