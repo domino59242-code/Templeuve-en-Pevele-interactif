@@ -70,21 +70,45 @@
     {
         "id": 3,
         "nom": "Gare de Templeuve",
+        "vedette": false,
         "categorie": "Auto & Transport",
+        "sousCategorie": "",
         "adresse": "Pl de la gare",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Ligne TER.",
         "photo": "",
+        "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "06:00-13:00",
+                "13:20-20:00"
+            ],
+            "mardi": [
+                "06:00-13:00",
+                "13:20-20:00"
+            ],
+            "mercredi": [
+                "06:00-13:00",
+                "13:20-20:00"
+            ],
+            "jeudi": [
+                "06:00-13:00",
+                "13:20-20:00"
+            ],
+            "vendredi": [
+                "06:00-13:00",
+                "13:20-20:00"
+            ],
+            "samedi": [
+                "09:00-12:30",
+                "13:45-17:15"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:20-00:00"
+            ]
         },
         "latitude": 50.528711,
         "longitude": 3.175672
@@ -885,9 +909,9 @@
         "sousCategorie": "",
         "adresse": "21bis, rue de Lille",
         "telephone": "07 77 73 62 92",
-        "mail": "",
-        "site": "",
-        "description": "Entreprise de construction",
+        "mail": "embtpconcept@gmail.com",
+        "site": "https://embtpconcept.wixsite.com/em-btp",
+        "description": "EM BTP assure la mission de maîtrise d’œuvre sur la région Haut de France pour toute prestation de travaux de construction, d’aménagement ou de rénovation, grâce au regroupement d’artisans et d’entreprises du bâtiment dans tous les corps de métier du bâtiment. Qualification RGE.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -947,9 +971,7 @@
             "jeudi": [],
             "vendredi": [],
             "samedi": [],
-            "dimanche": [
-                "07:00-13:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.526382,
         "longitude": 3.167296
@@ -1169,20 +1191,41 @@
         "categorie": "Professions spécialisées",
         "sousCategorie": "",
         "adresse": "3, rue de Roubaix",
-        "telephone": "03 76 09 01 59",
+        "telephone": "06 76 40 02 95",
         "mail": "",
-        "site": "",
+        "site": "https://www.fraquet-petit-associes.fr/",
         "description": "Expert comptable",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526957,
         "longitude": 3.169941
@@ -1757,6 +1800,7 @@
         "nom": "Garage Minet - Citroën",
         "vedette": false,
         "categorie": "Commerce",
+        "sousCategorie": "",
         "adresse": "18, rue du Riez",
         "telephone": "03 20 79 26 09",
         "mail": "",
@@ -1765,13 +1809,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.530352,
         "longitude": 3.176687
@@ -3501,17 +3566,38 @@
         "telephone": "03 20 34 51 94",
         "mail": "",
         "site": "",
-        "description": "Légumes divers",
+        "description": "Vente de produits frais et de saison (légumes, fruits et œufs).",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:00-12:00",
+                "13:30-19:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "13:30-19:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "13:30-19:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "13:30-19:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "13:30-19:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "13:30-19:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.530768,
         "longitude": 3.175597
@@ -3901,7 +3987,7 @@
         "telephone": "03 20 79 23 44",
         "mail": "",
         "site": "",
-        "description": "Paysagiste",
+        "description": "Aménagement paysager et entretien de jardins",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -4151,7 +4237,7 @@
         "telephone": "03 20 59 33 50",
         "mail": "",
         "site": "",
-        "description": "Fournisseur de bières",
+        "description": "Vins, spiritueux et alcools (négociants en gros)",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -4458,7 +4544,7 @@
     },
     {
         "id": 176,
-        "nom": "GEM \"La Ch'ite boussole\"",
+        "nom": "GEM \"La Ch'tite boussole\"",
         "vedette": false,
         "categorie": "Beauté & bien-être",
         "sousCategorie": "",
@@ -4815,18 +4901,39 @@
         "adresse": "44, rue de Lille",
         "telephone": "03 20 71 70 98",
         "mail": "",
-        "site": "",
+        "site": "https://geoflandres.fr/contact/",
         "description": "Consultant en ingénierie",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "mardi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "mercredi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "jeudi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "vendredi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.522757,
         "longitude": 3.163144

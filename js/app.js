@@ -205,40 +205,44 @@ function afficherEcranAccueil(){
         return;
     }
 
-    const lieuxVedette = lieux.filter(l=>l.vedette).slice(0,4);
+    // Pas de limite de nombre ici : contrairement à une liste de cartes
+    // empilées, un menu déroulant reste utilisable même si de nombreux
+    // lieux/événements sont marqués "en vedette" par l'administrateur.
+    const lieuxVedette = lieux.filter(l=>l.vedette);
 
     // Si aucun lieu n'est marqué "en vedette", on en propose quand même
     // quelques-uns au hasard pour que l'écran d'accueil ne soit pas vide
     const lieuxAffiches = lieuxVedette.length>0
         ? lieuxVedette
-        : [...lieux].sort(()=>Math.random()-0.5).slice(0,3);
+        : [...lieux].sort(()=>Math.random()-0.5).slice(0,5);
 
-    const conteneurVedette = document.getElementById("lieuxVedetteAccueil");
+    const blocVedette = document.getElementById("blocVedetteAccueil");
+    const selectVedette = document.getElementById("selectVedetteAccueil");
 
-    conteneurVedette.innerHTML = lieuxAffiches.map(lieu => `
-        <div class="carteVedette" data-id="${lieu.id}">
-            <span>${rendreIconeLieu(lieu)}</span>
-            <div>
-                <div class="nomVedette">${echapperHtml(lieu.nom)}</div>
-                <div class="categorieVedette">${echapperHtml(lieu.categorie)}</div>
-            </div>
-        </div>
-    `).join("");
+    if(lieuxAffiches.length===0){
+        blocVedette.classList.add("masque");
+        return;
+    }
 
-    conteneurVedette.querySelectorAll(".carteVedette").forEach(elementCarte=>{
+    blocVedette.classList.remove("masque");
 
-        elementCarte.addEventListener("click", ()=>{
+    selectVedette.innerHTML = `<option value="" selected disabled>Choisir dans la liste…</option>` +
+        lieuxAffiches.map(lieu => `
+            <option value="${lieu.id}">
+                ${echapperHtml(rendreIconeLieu(lieu))} ${echapperHtml(lieu.nom)} — ${echapperHtml(lieu.categorie)}
+            </option>
+        `).join("");
 
-            const lieu = lieux.find(l => l.id===Number(elementCarte.dataset.id));
+    selectVedette.addEventListener("change", ()=>{
 
-            fermerEcranAccueil();
+        const lieu = lieux.find(l => l.id===Number(selectVedette.value));
 
-            if(lieu){
-                carte.setView([lieu.latitude, lieu.longitude], 17);
-                afficherFiche(lieu);
-            }
+        fermerEcranAccueil();
 
-        });
+        if(lieu){
+            carte.setView([lieu.latitude, lieu.longitude], 17);
+            afficherFiche(lieu);
+        }
 
     });
 

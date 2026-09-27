@@ -962,49 +962,62 @@ select{
 
 }
 
-.lieuxVedetteAccueil{
+.blocVedetteAccueil{
 
-    display:flex;
-    flex-direction:column;
-    gap:8px;
     margin-bottom:24px;
     text-align:left;
 
 }
 
-.carteVedette{
+.blocVedetteAccueil.masque{
 
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:10px 12px;
+    display:none;
+
+}
+
+.labelVedetteAccueil{
+
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    color:var(--couleur-texte-att);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin-bottom:6px;
+
+}
+
+/*
+   Menu déroulant plutôt qu'une liste de cartes : quel que soit le nombre
+   de lieux/événements mis en avant, le sélecteur reste compact et
+   n'impose aucune limite d'affichage (contrairement à une liste de
+   cartes empilées, difficile à lire au-delà de quelques éléments).
+*/
+.selectVedetteAccueil{
+
+    width:100%;
+    padding:11px 36px 11px 12px;
     border:1px solid var(--couleur-bordure);
     border-radius:10px;
-    cursor:pointer;
     background:white;
-    transition:.15s;
-
-}
-
-.carteVedette:hover{
-
-    background:var(--couleur-principale-clair);
-    border-color:var(--couleur-principale);
-
-}
-
-.carteVedette .nomVedette{
-
-    font-weight:bold;
-    font-size:13px;
     color:var(--couleur-texte);
+    font-size:14px;
+    font-family:inherit;
+    cursor:pointer;
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23666'><path d='M5.5 7.5l4.5 5 4.5-5z'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 10px center;
+    background-size:16px;
 
 }
 
-.carteVedette .categorieVedette{
+.selectVedetteAccueil:hover,
+.selectVedetteAccueil:focus{
 
-    font-size:11px;
-    color:var(--couleur-texte-att);
+    border-color:var(--couleur-principale);
+    outline:none;
 
 }
 
