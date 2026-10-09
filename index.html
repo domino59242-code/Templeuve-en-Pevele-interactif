@@ -51,37 +51,56 @@
 
 <div id="ecranAccueil">
 
-    <script>
-        // Exécuté immédiatement (avant l'affichage) pour éviter un effet
-        // de clignotement si l'utilisateur a déjà vu l'accueil cette session
-        if(sessionStorage.getItem("templeuve_accueil_vu")==="true"){
-            document.write('<style>#ecranAccueil{display:none;}</style>');
-        }
-    </script>
+    <div class="conteneurAccueil">
 
-    <div class="carteAccueil">
+        <header class="heroAccueil">
+            <h1 class="sr-only">Templeuve en Pévèle Interactif</h1>
+            <img
+                src="assets/feature-graphic.png"
+                width="1024" height="500"
+                alt="Templeuve en Pévèle Interactif : carte interactive des commerces, services et événements de votre commune">
+        </header>
 
-        <img src="assets/blason-96.png" alt="Blason de Templeuve" class="blasonAccueil">
+        <div class="panneauAccueil">
 
-        <h1>Bienvenue sur Templeuve en Pévèle</h1>
+            <p class="titreChoixAccueil">Que souhaitez-vous découvrir ?</p>
 
-        <p class="introAccueil">
-            Découvrez les commerces, services et lieux de patrimoine de
-            votre commune, en un coup d'œil sur la carte.
-        </p>
+            <div class="boutonsPrincipauxAccueil">
 
-        <div id="blocVedetteAccueil" class="blocVedetteAccueil">
-            <label for="selectVedetteAccueil" class="labelVedetteAccueil">
-                À la une en ce moment
-            </label>
-            <select id="selectVedetteAccueil" class="selectVedetteAccueil">
-                <option value="" selected disabled>Choisir dans la liste…</option>
-            </select>
+                <button id="btnAccueilToutes" type="button" class="btnAccueil btnAccueilPrincipal">
+                    <span class="pastilleAccueil" aria-hidden="true">🗺️</span>
+                    <span class="libelleAccueil">
+                        Toutes catégories
+                        <span class="nbAccueil" id="nbAccueilToutes"></span>
+                    </span>
+                </button>
+
+                <button id="btnAccueilEvenements" type="button" class="btnAccueil btnAccueilEvenement">
+                    <span class="pastilleAccueil" aria-hidden="true">🎉</span>
+                    <span class="libelleAccueil">
+                        Événements
+                        <span class="nbAccueil" id="nbAccueilEvenements"></span>
+                    </span>
+                </button>
+
+            </div>
+
+            <p class="sousTitreAccueil">Par catégorie</p>
+
+            <div id="grilleCategoriesAccueil" class="grilleCategoriesAccueil"></div>
+
+            <p id="messageAccueil" class="messageAccueil" role="status" hidden></p>
+
+            <div id="blocVedetteAccueil" class="blocVedetteAccueil masque">
+                <label for="selectVedetteAccueil" class="labelVedetteAccueil">
+                    À la une en ce moment
+                </label>
+                <select id="selectVedetteAccueil" class="selectVedetteAccueil">
+                    <option value="" selected disabled>Choisir dans la liste…</option>
+                </select>
+            </div>
+
         </div>
-
-        <button id="btnDecouvrirCarte" type="button" class="btnPrimaireAccueil">
-            Découvrir la carte →
-        </button>
 
     </div>
 
@@ -102,7 +121,7 @@
                     <h1>Templeuve Interactive</h1>
 
                     <p class="version">
-                        Version 10.0
+                        Version 11.0
                     </p>
 
                 </div>

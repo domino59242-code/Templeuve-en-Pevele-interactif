@@ -3,10 +3,10 @@
         "id": 1,
         "nom": "Mairie de Templeuve",
         "vedette": false,
-        "categorie": "Administration",
-        "sousCategorie": "",
-        "adresse": "Av. G Baratte",
-        "telephone": "03 20 00 00 00",
+        "categorie": "Service",
+        "sousCategorie": "Administration",
+        "adresse": "Av. Georges Baratte",
+        "telephone": "03 20 64 65 66",
         "mail": "mairie@templeuve.fr",
         "site": "https://www.templeuve.fr",
         "description": "Accueil du public et services municipaux.",
@@ -48,13 +48,16 @@
     {
         "id": 2,
         "nom": "Église Saint-Martin",
-        "categorie": "Patrimoine",
+        "vedette": false,
+        "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "Pl. du Gl de Gaulle",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Église historique de la commune.",
         "photo": "",
+        "dateFin": "",
         "horaires": {
             "lundi": [],
             "mardi": [],
@@ -154,7 +157,8 @@
         "id": 5,
         "nom": "Annexe Mairie",
         "vedette": false,
-        "categorie": "Administration",
+        "categorie": "Service",
+        "sousCategorie": "Administration",
         "adresse": "Pl. du Gl de Gaulle",
         "telephone": "",
         "mail": "",
@@ -181,20 +185,41 @@
         "categorie": "Restaurant/bar",
         "sousCategorie": "",
         "adresse": "1, Rue Neuve",
-        "telephone": "",
+        "telephone": "03 20 64 83 65",
         "mail": "",
-        "site": "",
+        "site": "https://lafleurdehoublon.fr/",
         "description": "Estaminet",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "mercredi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "jeudi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "vendredi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "samedi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "dimanche": [
+                "12:00-14:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.52703,
         "longitude": 3.1689
@@ -271,21 +296,45 @@
     {
         "id": 10,
         "nom": "La Frite Templeuvoise",
+        "vedette": false,
         "categorie": "Restaurant/bar",
+        "sousCategorie": "",
         "adresse": "2, Rue Gde campagne",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Friterie",
         "photo": "",
+        "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "11:30-14:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "11:30-14:00",
+                "18:30-21:30"
+            ],
+            "mercredi": [
+                "11:30-14:00",
+                "18:30-21:30"
+            ],
+            "jeudi": [
+                "11:30-14:00",
+                "18:30-21:30"
+            ],
+            "vendredi": [
+                "11:30-14:00",
+                "18:30-21:30"
+            ],
+            "samedi": [
+                "11:30-14:00",
+                "18:30-21:30"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "18:30-21:30"
+            ]
         },
         "latitude": 50.528393,
         "longitude": 3.174244
@@ -346,18 +395,39 @@
         "adresse": "2, Rue de Nomain",
         "telephone": "09 79 63 59 95",
         "mail": "",
-        "site": "",
+        "site": "https://www.larabouillere-restaurant.fr/",
         "description": "Bar - Estaminet",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "11:30-15:00",
+                "18:30-22:30"
+            ],
+            "mardi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mercredi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "jeudi": [
+                "11:30-15:00",
+                "18:30-22:30"
+            ],
+            "vendredi": [
+                "11:30-15:00",
+                "18:30-23:30"
+            ],
+            "samedi": [
+                "11:30-15:00",
+                "18:30-23:30"
+            ],
+            "dimanche": [
+                "11:30-15:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.521973,
         "longitude": 3.175343
@@ -365,13 +435,16 @@
     {
         "id": 14,
         "nom": "Le Comptoir de la Pévèle",
+        "vedette": false,
         "categorie": "Restaurant/bar",
+        "sousCategorie": "",
         "adresse": "2, Place de l'Etoile",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Restauration rapide",
         "photo": "",
+        "dateFin": "",
         "horaires": {
             "lundi": [],
             "mardi": [],
@@ -453,13 +526,16 @@
     {
         "id": 18,
         "nom": "Parc de la Mairie",
-        "categorie": "Administration",
+        "vedette": false,
+        "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "Av. G Baratte",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Parc avec jeux enfants",
         "photo": "",
+        "dateFin": "",
         "horaires": {
             "lundi": [],
             "mardi": [],
@@ -574,9 +650,9 @@
         "sousCategorie": "",
         "adresse": "27 bis, rue Grande campagne",
         "telephone": "06 51 35 11 99",
-        "mail": "",
-        "site": "",
-        "description": "Bar - Distillerie",
+        "mail": "contact@lagueulede.fr",
+        "site": "https://www.lagueulede.fr/",
+        "description": "Bar - Distillerie\nLe Chope\nMardi au Samedi : 10h-19h\nLe Taproom/Bar : Jeudi : 17h-21h\nVendredi et Samedi : 17h-23h",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -595,8 +671,8 @@
         "id": 26,
         "nom": "Ecole Marie Navart",
         "vedette": false,
-        "categorie": "Education",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Education",
         "adresse": "71, rue de la Passementerie",
         "telephone": "",
         "mail": "",
@@ -620,8 +696,8 @@
         "id": 27,
         "nom": "Ecole St Martin",
         "vedette": false,
-        "categorie": "Education",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Education",
         "adresse": "1, rue Henriette Gerekens",
         "telephone": "",
         "mail": "",
@@ -645,8 +721,8 @@
         "id": 28,
         "nom": "Ecole Jules Verne",
         "vedette": false,
-        "categorie": "Education",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Education",
         "adresse": "Rue Chateaubriand",
         "telephone": "",
         "mail": "",
@@ -669,13 +745,16 @@
     {
         "id": 29,
         "nom": "Resto du coeur",
-        "categorie": "Aide sociale",
+        "vedette": false,
+        "categorie": "Service",
+        "sousCategorie": "Aide sociale",
         "adresse": "Rue de la passementerie",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Association d'aide aux familles",
         "photo": "",
+        "dateFin": "",
         "horaires": {
             "lundi": [],
             "mardi": [],
@@ -692,8 +771,8 @@
         "id": 30,
         "nom": "ADMR",
         "vedette": false,
-        "categorie": "Aide sociale",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Aide sociale",
         "adresse": "20, rue Delmer",
         "telephone": "03 20 34 70 12",
         "mail": "contact.templeuve@fede59.admr.org",
@@ -814,18 +893,32 @@
         "adresse": "Place du Gl de Gaulle - Annexe Mairie",
         "telephone": "",
         "mail": "",
-        "site": "",
+        "site": "https://localiser.laposte.fr/nord/templeuve-en-pevele/templeuve-mairie-590278",
         "description": "Agence bancaire",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "08:45-12:45"
+            ],
+            "mercredi": [
+                "08:45-12:45"
+            ],
+            "jeudi": [
+                "08:45-12:45"
+            ],
+            "vendredi": [
+                "08:45-12:45"
+            ],
+            "samedi": [
+                "08:45-12:45"
+            ],
+            "dimanche": [
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526788,
         "longitude": 3.168935
@@ -940,7 +1033,9 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
+            "lundi": [
+                "09:00-00:00"
+            ],
             "mardi": [],
             "mercredi": [],
             "jeudi": [],
@@ -981,7 +1076,7 @@
         "nom": "4M l'Agence",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Logement",
         "adresse": "11, rue Demesmay",
         "telephone": "09 78 80 65 38",
         "mail": "accueil@4mlagence.fr",
@@ -1140,6 +1235,7 @@
         "nom": "Orpi Immo",
         "vedette": false,
         "categorie": "Service",
+        "sousCategorie": "Logement",
         "adresse": "14, Place du Gl de Gaulle",
         "telephone": "03 20 96 15 06",
         "mail": "",
@@ -1156,8 +1252,8 @@
             "samedi": [],
             "dimanche": []
         },
-        "latitude": 50.526566,
-        "longitude": 3.169675
+        "latitude": 50.526594,
+        "longitude": 3.16975
     },
     {
         "id": 46,
@@ -1167,22 +1263,43 @@
         "sousCategorie": "Mode & accessoires",
         "adresse": "14, Place du Gl de Gaulle",
         "telephone": "09 73 63 49 03",
-        "mail": "",
-        "site": "",
+        "mail": "contact@lutece-shop.fr",
+        "site": "https://lutece-shop.fr/",
         "description": "Vêtements féminins",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:30-13:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:30-13:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:30-13:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:30-13:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "09:30-13:00",
+                "14:00-18:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
-        "latitude": 50.526609,
-        "longitude": 3.169772
+        "latitude": 50.526606,
+        "longitude": 3.169809
     },
     {
         "id": 47,
@@ -1234,7 +1351,7 @@
         "id": 48,
         "nom": "La pierre aux sorcières",
         "vedette": false,
-        "categorie": "Patrimoine",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "1, rue d'Orchies",
         "telephone": "",
@@ -1333,13 +1450,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.527237,
         "longitude": 3.171495
@@ -1353,7 +1491,7 @@
         "adresse": "5, rue de Roubaix",
         "telephone": "03 20 84 38 54",
         "mail": "",
-        "site": "",
+        "site": "https://app.reservation-en-ligne.fr/le-concept-coiffure-by-alex-et-chris-59242-templeuve-en-pevele",
         "description": "Barbier  - Coiffeur mixte",
         "photo": "",
         "dateFin": "",
@@ -1559,22 +1697,43 @@
         "nom": "La Cense immobilier",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Logement",
         "adresse": "1, rue de la gare",
         "telephone": "03 20 41 50 50",
         "mail": "",
-        "site": "",
+        "site": "https://www.immo-lacense.com/",
         "description": "Agence immobilière",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.528786,
         "longitude": 3.174246
@@ -1588,7 +1747,7 @@
         "adresse": "56, rue de Roubaix",
         "telephone": "03 20 79 24 41",
         "mail": "",
-        "site": "",
+        "site": "https://www.facebook.com/p/Lescale-Templeuve-61554235431761/",
         "description": "Tabac - Bar - FDJ - PMU",
         "photo": "",
         "dateFin": "",
@@ -1598,8 +1757,14 @@
             "mercredi": [],
             "jeudi": [],
             "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "samedi": [
+                "09:00-14:00",
+                "17:00-20:00"
+            ],
+            "dimanche": [
+                "09:00-14:00",
+                "17:00-20:00"
+            ]
         },
         "latitude": 50.529073,
         "longitude": 3.174414
@@ -1799,7 +1964,7 @@
         "id": 67,
         "nom": "Garage Minet - Citroën",
         "vedette": false,
-        "categorie": "Commerce",
+        "categorie": "Auto & Transport",
         "sousCategorie": "",
         "adresse": "18, rue du Riez",
         "telephone": "03 20 79 26 09",
@@ -1846,22 +2011,43 @@
         "nom": "Le Jardin d'Hélène",
         "vedette": false,
         "categorie": "Commerce",
-        "sousCategorie": "",
+        "sousCategorie": "Alimentation",
         "adresse": "57 bis, rue du Riez",
         "telephone": "",
-        "mail": "",
-        "site": "",
+        "mail": "helene.lejardin@gmail.com",
+        "site": "https://www.facebook.com/jardinhelene/",
         "description": "Fleuriste",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:30-19:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:30-19:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:30-19:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:30-19:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "14:30-19:00"
+            ],
+            "dimanche": [
+                "09:00-13:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.530502,
         "longitude": 3.178282
@@ -1985,7 +2171,7 @@
         "nom": "Au comptoir de Gwen",
         "vedette": false,
         "categorie": "Commerce",
-        "sousCategorie": "",
+        "sousCategorie": "Mode & accessoires",
         "adresse": "16, rue Delattre",
         "telephone": "",
         "mail": "",
@@ -2246,7 +2432,7 @@
         "adresse": "72, rue de la Baille",
         "telephone": "06 05 94 93 87",
         "mail": "",
-        "site": "",
+        "site": "https://franatelecom.com/",
         "description": "Assistance et services informatiques",
         "photo": "",
         "dateFin": "",
@@ -2291,8 +2477,8 @@
         "id": 83,
         "nom": "Pével'Vet",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "11, rue Grande campagne",
         "telephone": "03 20 59 03 03",
         "mail": "",
@@ -2420,8 +2606,8 @@
         "sousCategorie": "profession auxiliaire",
         "adresse": "1bis, rue d'Anchin",
         "telephone": "06 67 76 25 00",
-        "mail": "",
-        "site": "",
+        "mail": "psyhenno@gmail.com",
+        "site": "https://psyhenno.fr/",
         "description": "Psychologue",
         "photo": "",
         "dateFin": "",
@@ -2928,8 +3114,8 @@
         "id": 112,
         "nom": "Ecurie de Vertain",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "48, rue de Péronne",
         "telephone": "06 22 10 63 90",
         "mail": "",
@@ -2953,8 +3139,8 @@
         "id": 113,
         "nom": "Ecurie Bois le Ville",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "Rue de la Fourmisière",
         "telephone": "",
         "mail": "",
@@ -2978,8 +3164,8 @@
         "id": 114,
         "nom": "Haras de Beaume",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "3, rue Bois le Ville",
         "telephone": "03 20 79 28 01",
         "mail": "",
@@ -3003,8 +3189,8 @@
         "id": 115,
         "nom": "Ecurie du Courant",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "Allée de la Taraille",
         "telephone": "06 44 96 18 91",
         "mail": "",
@@ -3028,8 +3214,8 @@
         "id": 116,
         "nom": "Sellerie Bois le Ville",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "51, rue de Wachemy",
         "telephone": "03 20 64 53 94",
         "mail": "",
@@ -3053,8 +3239,8 @@
         "id": 117,
         "nom": "O'Prestige",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "Route de Cysoing",
         "telephone": "06 03 27 94 83",
         "mail": "",
@@ -3078,8 +3264,8 @@
         "id": 118,
         "nom": "Toilettage du Pévèle",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "7 ter, rue grande campagne",
         "telephone": "03 20 71 72 73",
         "mail": "",
@@ -3103,8 +3289,8 @@
         "id": 119,
         "nom": "Cocoonin Dog",
         "vedette": false,
-        "categorie": "Soin animal",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
         "adresse": "2, rue du Moulin d'eau",
         "telephone": "06 85 24 72 32",
         "mail": "",
@@ -3123,46 +3309,6 @@
         },
         "latitude": 50.535214,
         "longitude": 3.200295
-    },
-    {
-        "id": 120,
-        "estEvenement": true,
-        "nom": "Exposition photos : Lumière du Marais",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Marais de Bonnance",
-        "description": "",
-        "horairesEvenement": "de 9h à 18h",
-        "dateDebut": "2026-08-30",
-        "dateFin": "2026-08-30",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.55794240049447,
-        "longitude": 3.1627187132835393
-    },
-    {
-        "id": 121,
-        "estEvenement": true,
-        "nom": "Village des associations",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Espace socio-culturel",
-        "description": "Forum des associations",
-        "horairesEvenement": "",
-        "dateDebut": "2026-09-05",
-        "dateFin": "2026-09-05",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.52878133816202,
-        "longitude": 3.173884749412537
     },
     {
         "id": 122,
@@ -3389,8 +3535,8 @@
         "sousCategorie": "",
         "adresse": "71, rue Neuve",
         "telephone": "",
-        "mail": "",
-        "site": "",
+        "mail": "thierry.heras@laposte.net",
+        "site": "https://www.facebook.com/herastp/?_rdr",
         "description": "Travaux publics",
         "photo": "",
         "dateFin": "",
@@ -3706,8 +3852,8 @@
         "id": 140,
         "nom": "Manège à bijoux",
         "vedette": false,
-        "categorie": "Administration",
-        "sousCategorie": "",
+        "categorie": "Commerce",
+        "sousCategorie": "Mode & accessoires",
         "adresse": "Centre commercial Leclerc",
         "telephone": "03 20 59 10 10",
         "mail": "",
@@ -3785,19 +3931,33 @@
         "sousCategorie": "",
         "adresse": "45, rue du Paradis",
         "telephone": "06 30 99 12 30",
-        "mail": "",
-        "site": "",
+        "mail": "charlottepollet59@gmail.com",
+        "site": "https://www.facebook.com/p/L%C3%AEle-du-bien-%C3%AAtre-100056915574016/",
         "description": "Institut de beauté",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:30-12:00"
+            ],
+            "mardi": [
+                "08:30-00:00"
+            ],
+            "mercredi": [
+                "08:30-00:00"
+            ],
+            "jeudi": [
+                "08:30-00:00"
+            ],
+            "vendredi": [
+                "08:30-00:00"
+            ],
+            "samedi": [
+                "08:30-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.540439,
         "longitude": 3.163525
@@ -3856,12 +4016,12 @@
         "id": 146,
         "nom": "Leclerc Voyages",
         "vedette": false,
-        "categorie": "Service",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "Centre commercial Leclerc",
         "telephone": "03 20 59 10 18",
         "mail": "",
-        "site": "",
+        "site": "https://www.voyages.leclerc/?agency=119&utm_campaign=GMB_Lien_site&utm_source=GoogleMyBusiness",
         "description": "Agence de voyages",
         "photo": "",
         "dateFin": "",
@@ -3882,11 +4042,11 @@
         "nom": "Laforêt",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Logement",
         "adresse": "5 bis, rue Demesmay",
         "telephone": "03 20 05 10 06",
         "mail": "",
-        "site": "",
+        "site": "https://www.laforet.com/agence-immobiliere/templeuve",
         "description": "Agence immobilière",
         "photo": "",
         "dateFin": "",
@@ -3907,7 +4067,7 @@
         "nom": "Le gîte de Jean-Yves",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Logement",
         "adresse": "65, rue de la Caillère",
         "telephone": "03 20 34 30 44",
         "mail": "",
@@ -4011,7 +4171,7 @@
         "adresse": "54B, rue Lesrues",
         "telephone": "06 49 16 60 23",
         "mail": "",
-        "site": "",
+        "site": "https://lesjardinsdeluthie.wixsite.com/luthie",
         "description": "Paysagiste",
         "photo": "",
         "dateFin": "",
@@ -4036,18 +4196,39 @@
         "adresse": "49 bis, rue de Wachemy",
         "telephone": "03 59 08 34 41",
         "mail": "",
-        "site": "",
+        "site": "https://www.jardi-bois.fr/",
         "description": "Paysagiste",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:00-12:30",
+                "13:30-18:00"
+            ],
+            "mardi": [
+                "09:00-12:30",
+                "13:30-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:30",
+                "13:30-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:30",
+                "13:30-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:30",
+                "13:30-18:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.542087,
         "longitude": 3.187694
@@ -4060,8 +4241,8 @@
         "sousCategorie": "Alimentation",
         "adresse": "51, rue de Péronne",
         "telephone": "06 60 64 91 60",
-        "mail": "",
-        "site": "",
+        "mail": "lilleosaveurs@numericable.fr",
+        "site": "https://lilleosaveurs.fr/",
         "description": "Traiteur et chef à domicile",
         "photo": "",
         "dateFin": "",
@@ -4110,18 +4291,30 @@
         "sousCategorie": "Alimentation",
         "adresse": "50, rue Lesrues",
         "telephone": "06 08 24 89 77",
-        "mail": "",
-        "site": "",
+        "mail": "chrisantrop@gmail.com",
+        "site": "https://www.facebook.com/lagrangeosaveurs/?locale=fr_FR",
         "description": "Fromagerie",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mardi": [
+                "15:00-19:30"
+            ],
+            "mercredi": [
+                "15:00-19:30"
+            ],
+            "jeudi": [
+                "15:00-19:30"
+            ],
+            "vendredi": [
+                "09:30-13:00",
+                "15:00-19:30"
+            ],
+            "samedi": [
+                "09:30-13:00",
+                "15:00-18:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.536147,
@@ -4228,31 +4421,6 @@
         "longitude": 3.173503
     },
     {
-        "id": 162,
-        "nom": "Firmin Bruno",
-        "vedette": false,
-        "categorie": "Commerce",
-        "sousCategorie": "Alimentation",
-        "adresse": "69, rue de la Quièze",
-        "telephone": "03 20 59 33 50",
-        "mail": "",
-        "site": "",
-        "description": "Vins, spiritueux et alcools (négociants en gros)",
-        "photo": "",
-        "dateFin": "",
-        "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
-        },
-        "latitude": 50.529827,
-        "longitude": 3.160301
-    },
-    {
         "id": 164,
         "nom": "Kiné Balnéo Templeuve",
         "vedette": false,
@@ -4268,8 +4436,12 @@
         "horaires": {
             "lundi": [],
             "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
+            "mercredi": [
+                "00:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-00:00"
+            ],
             "vendredi": [],
             "samedi": [],
             "dimanche": []
@@ -4456,8 +4628,8 @@
         "id": 172,
         "nom": "La Grange du Riez",
         "vedette": false,
-        "categorie": "Locations",
-        "sousCategorie": "Gîte",
+        "categorie": "Service",
+        "sousCategorie": "Logement",
         "adresse": "58, rue du Riez",
         "telephone": "07 62 83 68 09",
         "mail": "",
@@ -4481,8 +4653,8 @@
         "id": 173,
         "nom": "Gîtes de la Caillère",
         "vedette": false,
-        "categorie": "Locations",
-        "sousCategorie": "Gîte",
+        "categorie": "Service",
+        "sousCategorie": "Logement",
         "adresse": "65, rue de la Caillère",
         "telephone": "07 69 37 27 42",
         "mail": "",
@@ -4503,46 +4675,6 @@
         "longitude": 3.189974
     },
     {
-        "id": 174,
-        "estEvenement": true,
-        "nom": "Braderie du Maresquel",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Quartier du Maresquel",
-        "description": "Inscriptions uniquement par e-mail : almtempleuve@gmail.com\nTarif : 5 € les 4 mètres",
-        "horairesEvenement": "de 8h à 13h",
-        "dateDebut": "2026-09-13",
-        "dateFin": "2026-09-13",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.52269048906928,
-        "longitude": 3.179179430007935
-    },
-    {
-        "id": 175,
-        "estEvenement": true,
-        "nom": "L'Eté des créateurs",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Parc d'Anchin",
-        "description": "marché des créateurs  va se poursuivre tous les vendredis de cet été.",
-        "horairesEvenement": "18h/22h",
-        "dateDebut": "2026-07-03",
-        "dateFin": "2026-08-28",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.5261895835777,
-        "longitude": 3.1735521554946904
-    },
-    {
         "id": 176,
         "nom": "GEM \"La Ch'tite boussole\"",
         "vedette": false,
@@ -4550,8 +4682,8 @@
         "sousCategorie": "",
         "adresse": "5, place de la gare",
         "telephone": "07 60 45 87 44",
-        "mail": "",
-        "site": "",
+        "mail": "gem.templeuve@gmail.com",
+        "site": "https://www.facebook.com/people/GEM-La-Chtite-Boussole/61585439737771/",
         "description": "Lieu d'entraide, de lien social et de créativité  dédié aux personnes victimes de lésions cérébrales",
         "photo": "",
         "dateFin": "",
@@ -4599,31 +4731,6 @@
         },
         "latitude": 50.528795,
         "longitude": 3.175592
-    },
-    {
-        "id": 178,
-        "nom": "Le petit théâtre",
-        "vedette": false,
-        "categorie": "Culture/Loisir/Sport",
-        "sousCategorie": "",
-        "adresse": "77 bis, rue de Roubaix",
-        "telephone": "06 04 18 79 73",
-        "mail": "",
-        "site": "",
-        "description": "Salle de spectacles",
-        "photo": "",
-        "dateFin": "",
-        "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
-        },
-        "latitude": 50.529051,
-        "longitude": 3.173405
     },
     {
         "id": 179,
@@ -4725,7 +4832,7 @@
         "id": 182,
         "nom": "Chant de l'eau",
         "vedette": false,
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "Rue Gauthier",
         "telephone": "03 74 03 02 79",
@@ -4796,8 +4903,8 @@
         "id": 184,
         "nom": "La maisons des skys",
         "vedette": false,
-        "categorie": "Locations",
-        "sousCategorie": "Gîte",
+        "categorie": "Service",
+        "sousCategorie": "Logement",
         "adresse": "34 ter, rue Lesrues",
         "telephone": "",
         "mail": "",
@@ -4846,8 +4953,8 @@
         "id": 186,
         "nom": "Services techniques de Templeuve",
         "vedette": false,
-        "categorie": "Administration",
-        "sousCategorie": "",
+        "categorie": "Service",
+        "sousCategorie": "Administration",
         "adresse": "3, rue de Fretin",
         "telephone": "",
         "mail": "",
@@ -5167,7 +5274,7 @@
         "id": 199,
         "nom": "Parking du centre ville",
         "vedette": false,
-        "categorie": "Administration",
+        "categorie": "Auto & Transport",
         "sousCategorie": "",
         "adresse": "Place du Gl de Gaulle",
         "telephone": "",
@@ -5187,46 +5294,6 @@
         },
         "latitude": 50.526667,
         "longitude": 3.169254
-    },
-    {
-        "id": 200,
-        "estEvenement": true,
-        "nom": "Grande braderie de Templeuve",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Rue de Roubaix et Centre",
-        "description": "Braderie de 6h à 16h",
-        "horairesEvenement": "",
-        "dateDebut": "2026-10-04",
-        "dateFin": "2026-10-04",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.5268579970669,
-        "longitude": 3.16993921995163
-    },
-    {
-        "id": 201,
-        "estEvenement": true,
-        "nom": "Ch'ti Lyrics",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Petit théatre",
-        "description": "Récital saugrenu et émouvant par la compagnie On Off",
-        "horairesEvenement": "de 20h à 21h",
-        "dateDebut": "2026-09-25",
-        "dateFin": "2026-09-25",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.52902686542473,
-        "longitude": 3.1734260916709904
     },
     {
         "id": 202,
@@ -5249,50 +5316,10 @@
         "longitude": 3.1727716326713566
     },
     {
-        "id": 203,
-        "estEvenement": true,
-        "nom": "Concert Kingsport Head",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Salle polyvalente",
-        "description": "Une décennie de Rock Progressif de 1969 à 1979. Boisson sur place. réservation sur kingsport-head.com",
-        "horairesEvenement": "20h30",
-        "dateDebut": "2026-09-19",
-        "dateFin": "2026-09-19",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.52904732597226,
-        "longitude": 3.1727716326713566
-    },
-    {
-        "id": 204,
-        "estEvenement": true,
-        "nom": "Fête de la pomme",
-        "categorie": "Événement",
-        "sousCategorie": "",
-        "vedette": true,
-        "adresse": "Plaine du château Baratte",
-        "description": "4ème édition. Plus d'infos : contact@templeuve-en-transition.fr",
-        "horairesEvenement": "de 14h à 20h",
-        "dateDebut": "2026-10-03",
-        "dateFin": "2026-10-03",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "photo": "",
-        "horaires": {},
-        "latitude": 50.533575708854144,
-        "longitude": 3.1744748353958134
-    },
-    {
         "id": 205,
         "nom": "Au petit théatre de Templeuve",
         "vedette": false,
-        "categorie": "Culture/Loisir",
+        "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "75, rue de Roubaix",
         "telephone": "",
@@ -5370,5 +5397,176 @@
         },
         "latitude": 50.527649,
         "longitude": 3.175572
+    },
+    {
+        "id": 208,
+        "estEvenement": true,
+        "nom": "Le Championnat Régional d'Improvisation",
+        "categorie": "Événement",
+        "sousCategorie": "",
+        "vedette": true,
+        "adresse": "Petit théatre",
+        "description": "à partir de 8 €",
+        "horairesEvenement": "",
+        "dateDebut": "2026-10-17",
+        "dateFin": "2026-10-17",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "photo": "",
+        "horaires": {},
+        "latitude": 50.52903539065393,
+        "longitude": 3.1734167039394383
+    },
+    {
+        "id": 209,
+        "estEvenement": true,
+        "nom": "Soirée Entre Copines - Spécial Halloween",
+        "categorie": "Événement",
+        "sousCategorie": "",
+        "vedette": true,
+        "adresse": "Petit théatre",
+        "description": "à partir de 12 €",
+        "horairesEvenement": "",
+        "dateDebut": "2026-10-31",
+        "dateFin": "2026-10-31",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "photo": "",
+        "horaires": {},
+        "latitude": 50.529040505790746,
+        "longitude": 3.1734167039394383
+    },
+    {
+        "id": 210,
+        "estEvenement": true,
+        "nom": "Exposition Playmobil",
+        "categorie": "Événement",
+        "sousCategorie": "",
+        "vedette": true,
+        "adresse": "Salle polyvalente",
+        "description": "L'association PlayNoMord organise son exposition-vente. Venez profiter des magnifiques dioramas. Entrée gratuite.",
+        "horairesEvenement": "de 10h à 18h le samedi et de 10h à 17h le dimanche",
+        "dateDebut": "2026-10-24",
+        "dateFin": "2026-10-25",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "photo": "",
+        "horaires": {},
+        "latitude": 50.528856360516734,
+        "longitude": 3.1729191541671757
+    },
+    {
+        "id": 211,
+        "estEvenement": true,
+        "nom": "Loto",
+        "categorie": "Événement",
+        "sousCategorie": "",
+        "vedette": true,
+        "adresse": "Salle polyvalente",
+        "description": "Loto de l'association Un petit coin de ciel bleu",
+        "horairesEvenement": "à partir de 19h",
+        "dateDebut": "2026-10-31",
+        "dateFin": "2026-10-31",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "photo": "",
+        "horaires": {},
+        "latitude": 50.529057556242726,
+        "longitude": 3.172787725925446
+    },
+    {
+        "id": 212,
+        "estEvenement": true,
+        "nom": "La Boum d'Halloween",
+        "categorie": "Événement",
+        "sousCategorie": "",
+        "vedette": true,
+        "adresse": "Place du Général de Gaulle",
+        "description": "Distribution de soupe et bonbons.",
+        "horairesEvenement": "de 19h à 20h30",
+        "dateDebut": "2026-10-31",
+        "dateFin": "2026-10-31",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "photo": "",
+        "horaires": {},
+        "latitude": 50.5266653176191,
+        "longitude": 3.169379979372025
+    },
+    {
+        "id": 213,
+        "nom": "AED Groupe",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "8, rue de la Grande campagne",
+        "telephone": "03 59 61 64 30",
+        "mail": "",
+        "site": "https://www.aed-groupe.fr/nous-contacter",
+        "description": "cabinet spécialisé en diagnostic énergétique.\nAgence régionale du Nord-Pas de Calais",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "mardi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "mercredi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "jeudi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "vendredi": [
+                "08:30-12:30",
+                "13:30-16:30"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
+        },
+        "latitude": 50.526689,
+        "longitude": 3.174752
+    },
+    {
+        "id": 214,
+        "nom": "Moulin de Vertain",
+        "vedette": false,
+        "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
+        "adresse": "Plaine de Vertain",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [],
+            "mardi": [],
+            "mercredi": [],
+            "jeudi": [],
+            "vendredi": [],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.536065,
+        "longitude": 3.177735
     }
 ]

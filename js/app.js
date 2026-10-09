@@ -194,68 +194,226 @@ function tableauHorairesHtml(horaires){
 
 //==================================================
 // Écran d'accueil
+//
+// L'accueil est une vue à part entière : un clic sur un bouton de
+// catégorie ouvre le plan filtré sur cette catégorie, et la flèche
+// "Accueil" du plan (ou le bouton Retour du téléphone) ramène ici.
 //==================================================
 
-function afficherEcranAccueil(){
+// Nom de la catégorie utilisée par les événements dans lieux.json
+const CATEGORIE_EVENEMENTS = "Événement";
 
-    const conteneur = document.getElementById("ecranAccueil");
+const ecranAccueil = document.getElementById("ecranAccueil");
+const grilleCategoriesAccueil = document.getElementById("grilleCategoriesAccueil");
+const messageAccueil = document.getElementById("messageAccueil");
+const blocVedetteAccueil = document.getElementById("blocVedetteAccueil");
+const selectVedetteAccueil = document.getElementById("selectVedetteAccueil");
 
-    if(sessionStorage.getItem("templeuve_accueil_vu")==="true"){
-        conteneur.classList.add("masque");
-        return;
+let donneesChargees = false;
+
+function afficherMessageAccueil(texte){
+    messageAccueil.textContent = texte;
+    messageAccueil.hidden = !texte;
+}
+
+function nombreDeLieux(categorie){
+    return categorie==="Toutes"
+        ? lieux.length
+        : lieux.filter(l => l.categorie===categorie).length;
+}
+
+function texteNombreLieux(n){
+    return `${n} lieu${n>1 ? "x" : ""}`;
+}
+
+// Affiche l'accueil (retour depuis le plan)
+function afficherAccueil(){
+
+    carte.closePopup();
+    fermerPanneauDetailsMobile(true);
+
+    afficherMessageAccueil("");
+    selectVedetteAccueil.selectedIndex = 0;
+
+    ecranAccueil.classList.remove("masque");
+    ecranAccueil.scrollTop = 0;
+
+}
+
+// Masque l'accueil pour montrer le plan
+function masquerAccueil(){
+
+    ecranAccueil.classList.add("masque");
+    carte.invalidateSize();
+
+}
+
+// Passe de l'accueil au plan, en ajoutant une étape dans l'historique
+// du navigateur pour que le bouton Retour du téléphone revienne à l'accueil
+function ouvrirCarte(){
+
+    masquerAccueil();
+    history.pushState({ vue:"carte" }, "");
+
+}
+
+// Flèche du plan : revient à l'accueil
+function retourAccueil(){
+
+    if(history.state && history.state.vue==="carte"){
+        history.back();
+    }else{
+        afficherAccueil();
     }
 
-    // Pas de limite de nombre ici : contrairement à une liste de cartes
-    // empilées, un menu déroulant reste utilisable même si de nombreux
-    // lieux/événements sont marqués "en vedette" par l'administrateur.
+}
+
+history.replaceState({ vue:"accueil" }, "");
+
+window.addEventListener("popstate", (e)=>{
+
+    if(e.state && e.state.vue==="carte"){
+        masquerAccueil();
+    }else{
+        afficherAccueil();
+    }
+
+});
+
+// Ouvre le plan en n'affichant que la catégorie choisie ("Toutes" = tout)
+function ouvrirCarteCategorie(categorie){
+
+    afficherMessageAccueil("");
+
+    txtRecherche.value = "";
+    btnEffacerRecherche.hidden = true;
+
+    cboCategorie.value = categorie;
+    creerSousCategories();
+    afficher();
+
+    ouvrirCarte();
+
+}
+
+// Construit les boutons de l'accueil une fois les données chargées
+function initialiserAccueil(){
+
+    donneesChargees = true;
+
+    // Compteurs des deux boutons principaux
+    document.getElementById("nbAccueilToutes").textContent = texteNombreLieux(lieux.length);
+
+    const nbEvenements = nombreDeLieux(CATEGORIE_EVENEMENTS);
+
+    document.getElementById("nbAccueilEvenements").textContent =
+        nbEvenements===0
+            ? "Aucun pour l'instant"
+            : `${nbEvenements} à venir`;
+
+    // Un bouton par catégorie réellement utilisée (hors événements, qui
+    // ont leur propre bouton), dans l'ordre alphabétique
+    const noms = [...new Set(lieux.map(l => l.categorie))]
+        .filter(nom => nom && nom!==CATEGORIE_EVENEMENTS)
+        .sort((a,b) => a.localeCompare(b, "fr"));
+
+    grilleCategoriesAccueil.innerHTML = "";
+
+    noms.forEach(nom=>{
+
+        const bouton = document.createElement("button");
+        bouton.type = "button";
+        bouton.className = "btnAccueil btnCategorieAccueil";
+        bouton.dataset.categorie = nom;
+
+        const pastille = document.createElement("span");
+        pastille.className = "pastilleAccueil";
+        pastille.setAttribute("aria-hidden", "true");
+        pastille.style.background = couleurCategorie(nom);
+        pastille.innerHTML = rendreIcone(nom);
+
+        const libelle = document.createElement("span");
+        libelle.className = "libelleAccueil";
+        libelle.textContent = nom;
+
+        const nb = document.createElement("span");
+        nb.className = "nbAccueil";
+        nb.textContent = texteNombreLieux(nombreDeLieux(nom));
+        libelle.appendChild(nb);
+
+        bouton.append(pastille, libelle);
+
+        bouton.addEventListener("click", ()=> ouvrirCarteCategorie(nom));
+
+        grilleCategoriesAccueil.appendChild(bouton);
+
+    });
+
+    // Menu "À la une". Pas de limite de nombre : un menu déroulant reste
+    // utilisable même avec beaucoup de lieux mis en vedette.
     const lieuxVedette = lieux.filter(l=>l.vedette);
 
     // Si aucun lieu n'est marqué "en vedette", on en propose quand même
-    // quelques-uns au hasard pour que l'écran d'accueil ne soit pas vide
+    // quelques-uns au hasard pour que le menu ne soit pas vide
     const lieuxAffiches = lieuxVedette.length>0
         ? lieuxVedette
         : [...lieux].sort(()=>Math.random()-0.5).slice(0,5);
 
-    const blocVedette = document.getElementById("blocVedetteAccueil");
-    const selectVedette = document.getElementById("selectVedetteAccueil");
-
     if(lieuxAffiches.length===0){
-        blocVedette.classList.add("masque");
+        blocVedetteAccueil.classList.add("masque");
         return;
     }
 
-    blocVedette.classList.remove("masque");
+    blocVedetteAccueil.classList.remove("masque");
 
-    selectVedette.innerHTML = `<option value="" selected disabled>Choisir dans la liste…</option>` +
+    selectVedetteAccueil.innerHTML = `<option value="" selected disabled>Choisir dans la liste…</option>` +
         lieuxAffiches.map(lieu => `
             <option value="${lieu.id}">
-                ${echapperHtml(rendreIconeLieu(lieu))} ${echapperHtml(lieu.nom)} — ${echapperHtml(lieu.categorie)}
+                ${echapperHtml(iconeLieu(lieu))} ${echapperHtml(lieu.nom)} — ${echapperHtml(lieu.categorie)}
             </option>
         `).join("");
 
-    selectVedette.addEventListener("change", ()=>{
-
-        const lieu = lieux.find(l => l.id===Number(selectVedette.value));
-
-        fermerEcranAccueil();
-
-        if(lieu){
-            carte.setView([lieu.latitude, lieu.longitude], 17);
-            afficherFiche(lieu);
-        }
-
-    });
-
 }
 
-function fermerEcranAccueil(){
+selectVedetteAccueil.addEventListener("change", ()=>{
 
-    sessionStorage.setItem("templeuve_accueil_vu", "true");
-    document.getElementById("ecranAccueil").classList.add("masque");
+    const lieu = lieux.find(l => l.id===Number(selectVedetteAccueil.value));
 
-}
+    if(!lieu) return;
 
-document.getElementById("btnDecouvrirCarte").addEventListener("click", fermerEcranAccueil);
+    // On repart d'un plan complet pour que le lieu choisi soit visible
+    txtRecherche.value = "";
+    btnEffacerRecherche.hidden = true;
+    cboCategorie.value = "Toutes";
+    creerSousCategories();
+    afficher();
+
+    ouvrirCarte();
+
+    carte.setView([lieu.latitude, lieu.longitude], 17);
+    afficherFiche(lieu);
+
+});
+
+document.getElementById("btnAccueilToutes").addEventListener("click", ()=>{
+    ouvrirCarteCategorie("Toutes");
+});
+
+document.getElementById("btnAccueilEvenements").addEventListener("click", ()=>{
+
+    if(!donneesChargees){
+        afficherMessageAccueil("Chargement en cours, merci de patienter…");
+        return;
+    }
+
+    if(nombreDeLieux(CATEGORIE_EVENEMENTS)===0){
+        afficherMessageAccueil("Aucun événement à venir pour le moment.");
+        return;
+    }
+
+    ouvrirCarteCategorie(CATEGORIE_EVENEMENTS);
+
+});
 
 //==================================================
 // Accessibilité : taille du texte et contraste élevé
@@ -367,7 +525,7 @@ function estMobile(){
     return window.matchMedia("(max-width:700px)").matches;
 }
 
-const carte = L.map("map").setView(CENTRE_VILLE, ZOOM_DEPART);
+const carte = L.map("map", { zoomControl:false }).setView(CENTRE_VILLE, ZOOM_DEPART);
 
 // Fond de carte Plan IGN : données officielles françaises (IGN), plus
 // précises sur les petites communes que les fonds génériques mondiaux
@@ -379,6 +537,39 @@ const coucheFond = L.tileLayer(
         maxZoom: 19
     }
 ).addTo(carte);
+
+// Flèche de retour vers l'écran d'accueil, placée en haut à gauche du plan
+// (au-dessus des boutons de zoom)
+const ControleAccueil = L.Control.extend({
+
+    options: { position:"topleft" },
+
+    onAdd: function(){
+
+        const conteneur = L.DomUtil.create("div", "leaflet-control controleAccueil");
+
+        const bouton = L.DomUtil.create("button", "btnRetourAccueil", conteneur);
+        bouton.type = "button";
+        bouton.title = "Retour à l'accueil";
+        bouton.setAttribute("aria-label", "Retour à l'accueil");
+        bouton.innerHTML = `
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z" fill="currentColor"/>
+            </svg>
+            <span>Accueil</span>
+        `;
+
+        L.DomEvent.disableClickPropagation(conteneur);
+        L.DomEvent.on(bouton, "click", retourAccueil);
+
+        return conteneur;
+
+    }
+
+});
+
+carte.addControl(new ControleAccueil());
+L.control.zoom({ position:"topleft" }).addTo(carte);
 
 //==================================================
 // Eléments HTML
@@ -610,7 +801,7 @@ function afficherFiche(lieu){
 
 // Referme le panneau plein écran de la fiche détail sur mobile (sans
 // effet sur desktop, où ce panneau n'est jamais activé en overlay)
-function fermerPanneauDetailsMobile(){
+function fermerPanneauDetailsMobile(sansDefilement){
 
     sectionDetails.classList.remove("actif");
 
@@ -626,7 +817,9 @@ function fermerPanneauDetailsMobile(){
     }, 300);
 
     // Remet la liste bien en vue une fois le panneau refermé
-    liste.scrollIntoView({behavior:"smooth", block:"start"});
+    if(sansDefilement!==true){
+        liste.scrollIntoView({behavior:"smooth", block:"start"});
+    }
 
 }
 
@@ -773,7 +966,7 @@ async function chargerLieux(){
 
         afficher();
 
-        afficherEcranAccueil();
+        initialiserAccueil();
 
     }catch(erreur){
 
@@ -787,6 +980,8 @@ async function chargerLieux(){
         `;
 
         compteur.textContent = "Erreur de chargement";
+
+        afficherMessageAccueil("Impossible de charger les données. Vérifiez votre connexion ou réessayez plus tard.");
 
     }
 
