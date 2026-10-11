@@ -906,7 +906,10 @@ select{
 
     position:fixed;
     inset:0;
-    z-index:1000;
+
+    /* Au-dessus des contrôles du plan (zoom + flèche d'accueil, z-index 1000)
+       et de la fiche mobile (1800), sous le bandeau de mise à jour (2000) */
+    z-index:1900;
 
     background:linear-gradient(160deg, var(--couleur-principale-fonce), var(--couleur-principale));
 
