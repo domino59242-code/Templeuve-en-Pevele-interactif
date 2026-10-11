@@ -84,7 +84,8 @@ body{
     display:grid;
 }
 
-#vueAide.actif{
+#vueAide.actif,
+#vueIncomplets.actif{
     display:block;
 }
 
@@ -782,3 +783,189 @@ body{
     margin-top:14px;
 
 }
+
+
+/* ===========================
+   Rapport des fiches incomplètes
+=========================== */
+
+.badgeOnglet{
+
+    display:inline-block;
+    min-width:20px;
+    margin-left:6px;
+    padding:1px 7px;
+
+    border-radius:999px;
+    background:#c0392b;
+    color:white;
+
+    font-size:12px;
+    line-height:1.5;
+    text-align:center;
+
+}
+
+.badgeOnglet[hidden]{
+
+    display:none;
+
+}
+
+.syntheseRapport{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:12px;
+    margin-bottom:16px;
+
+}
+
+.carteSynthese{
+
+    background:white;
+    border:1px solid #e0e0e0;
+    border-radius:10px;
+    padding:14px 16px;
+
+}
+
+.valeurSynthese{
+
+    font-size:26px;
+    font-weight:bold;
+    color:#205081;
+
+}
+
+.libelleSynthese{
+
+    margin-top:2px;
+    font-size:13px;
+    color:#666;
+
+}
+
+.barreScore{
+
+    margin-top:10px;
+    height:8px;
+    border-radius:4px;
+    background:#e6ebf2;
+    overflow:hidden;
+
+}
+
+.barreScore span{
+
+    display:block;
+    height:100%;
+    background:#2c7be5;
+
+}
+
+.criteresRapport{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:16px;
+
+}
+
+.pastilleCritere{
+
+    padding:7px 13px;
+    border:1px solid #cfd6e0;
+    border-radius:999px;
+    background:white;
+    color:#333;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+
+}
+
+.pastilleCritere:hover:not(:disabled){
+
+    border-color:#2c7be5;
+    background:#eef4fd;
+
+}
+
+.pastilleCritere.actif{
+
+    background:#2c7be5;
+    border-color:#2c7be5;
+    color:white;
+
+}
+
+.pastilleCritere:disabled{
+
+    opacity:.5;
+    cursor:default;
+
+}
+
+#vueIncomplets .ligneFiltreTri{
+
+    margin-bottom:10px;
+
+}
+
+#vueIncomplets .checkboxLigne{
+
+    margin-bottom:14px;
+
+}
+
+.ligneRapport .manquants{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    margin-top:7px;
+
+}
+
+.etiquetteManquant{
+
+    padding:2px 9px;
+    border-radius:999px;
+    background:#eef0f3;
+    color:#555;
+    font-size:12px;
+
+}
+
+.etiquetteManquant.essentiel{
+
+    background:#fdeaea;
+    color:#b03024;
+    font-weight:bold;
+
+}
+
+.ligneRapport .actions{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.scoreFiche{
+
+    min-width:48px;
+    padding:3px 8px;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:bold;
+    text-align:center;
+
+}
+
+.scoreFiche.faible{ background:#fdeaea; color:#b03024; }
+.scoreFiche.moyen{ background:#fff3d6; color:#8a5a00; }
+.scoreFiche.bon{ background:#e3f6e5; color:#1e7e34; }

@@ -126,12 +126,23 @@ const JOURS_SEMAINE = [
     { cle:"dimanche", label:"Dimanche" }
 ];
 
+// Un créneau dont le début est égal à la fin (ex. "00:00-00:00") signifie
+// "non renseigné / fermé" : on l'ignore partout.
+function creneauxValides(creneaux){
+
+    return (creneaux ?? []).filter(c=>{
+        const [debut, fin] = c.split("-");
+        return debut && fin && debut!==fin;
+    });
+
+}
+
 // Un lieu "a des horaires" seulement si au moins un jour a un créneau
 function aDesHoraires(horaires){
 
     if(!horaires) return false;
 
-    return JOURS_SEMAINE.some(j => (horaires[j.cle] ?? []).length>0);
+    return JOURS_SEMAINE.some(j => creneauxValides(horaires[j.cle]).length>0);
 
 }
 
@@ -145,7 +156,7 @@ function estOuvertMaintenant(horaires){
     // getDay() renvoie 0 pour dimanche ; on décale pour retomber sur
     // notre tableau JOURS_SEMAINE qui commence le lundi (index 0)
     const indexJour = (maintenant.getDay()+6)%7;
-    const creneaux = horaires[JOURS_SEMAINE[indexJour].cle] ?? [];
+    const creneaux = creneauxValides(horaires[JOURS_SEMAINE[indexJour].cle]);
 
     const minutesActuelles = maintenant.getHours()*60 + maintenant.getMinutes();
 
@@ -171,7 +182,7 @@ function tableauHorairesHtml(horaires){
 
     const lignes = JOURS_SEMAINE.map((jour,index)=>{
 
-        const creneaux = horaires[jour.cle] ?? [];
+        const creneaux = creneauxValides(horaires[jour.cle]);
 
         const texte = creneaux.length>0
             ? creneaux.map(c=>echapperHtml(c.replace("-"," - "))).join(", ")
@@ -281,9 +292,16 @@ window.addEventListener("popstate", (e)=>{
 });
 
 // Ouvre le plan en n'affichant que la catégorie choisie ("Toutes" = tout)
-function ouvrirCarteCategorie(categorie){
+function ouvrirCarteCategorie(categorie, options = {}){
 
     afficherMessageAccueil("");
+
+    // Sauf demande contraire, on repart de filtres rapides désactivés
+    if(!options.conserverFiltres){
+        filtreOuvert = false;
+        desactiverProximite();
+        majPucesFiltres();
+    }
 
     txtRecherche.value = "";
     btnEffacerRecherche.hidden = true;
@@ -349,6 +367,13 @@ function initialiserAccueil(){
 
     });
 
+    // Prochains événements en cartes ; le menu "À la une" ne sert plus
+    // que de solution de repli quand aucun événement n'est à venir.
+    if(construireEvenementsAccueil()>0){
+        blocVedetteAccueil.classList.add("masque");
+        return;
+    }
+
     // Menu "À la une". Pas de limite de nombre : un menu déroulant reste
     // utilisable même avec beaucoup de lieux mis en vedette.
     const lieuxVedette = lieux.filter(l=>l.vedette);
@@ -375,28 +400,124 @@ function initialiserAccueil(){
 
 }
 
+// Ouvre le plan centré sur un lieu précis, avec sa fiche
+function ouvrirLieuDepuisAccueil(lieu, categorie){
+
+    ouvrirCarteCategorie(categorie);
+
+    idLieuSelectionne = lieu.id;
+    placerMarqueurSelection(lieu);
+
+    carte.setView([lieu.latitude, lieu.longitude], 17);
+    afficherFiche(lieu);
+
+}
+
 selectVedetteAccueil.addEventListener("change", ()=>{
 
     const lieu = lieux.find(l => l.id===Number(selectVedetteAccueil.value));
 
     if(!lieu) return;
 
-    // On repart d'un plan complet pour que le lieu choisi soit visible
-    txtRecherche.value = "";
-    btnEffacerRecherche.hidden = true;
-    cboCategorie.value = "Toutes";
-    creerSousCategories();
-    afficher();
-
-    ouvrirCarte();
-
-    carte.setView([lieu.latitude, lieu.longitude], 17);
-    afficherFiche(lieu);
+    // Plan complet pour que le lieu choisi soit forcément visible
+    ouvrirLieuDepuisAccueil(lieu, "Toutes");
 
 });
 
+const MOIS_COURTS = ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
+
+// Affiche les 3 prochains événements (en cours ou à venir) sur l'accueil
+function construireEvenementsAccueil(){
+
+    const bloc = document.getElementById("blocEvenementsAccueil");
+    const conteneur = document.getElementById("listeEvenementsAccueil");
+
+    const evenements = lieux
+        .filter(l => l.estEvenement)
+        .sort((a,b) => (a.dateDebut || a.dateFin || "").localeCompare(b.dateDebut || b.dateFin || ""))
+        .slice(0,3);
+
+    conteneur.innerHTML = "";
+    bloc.hidden = evenements.length===0;
+
+    evenements.forEach(evt=>{
+
+        const bouton = document.createElement("button");
+        bouton.type = "button";
+        bouton.className = "carteEvenementAccueil";
+
+        const iso = evt.dateDebut || evt.dateFin;
+        const [, mois, jour] = (iso || "").split("-").map(Number);
+
+        const date = document.createElement("span");
+        date.className = "dateEvenementAccueil";
+        date.setAttribute("aria-hidden", "true");
+        date.innerHTML = iso
+            ? `<span class="jourEvenement">${jour}</span><span class="moisEvenement">${MOIS_COURTS[mois-1]}</span>`
+            : "🎉";
+
+        const texte = document.createElement("span");
+        texte.className = "texteEvenementAccueil";
+
+        const nom = document.createElement("span");
+        nom.className = "nomEvenementAccueil";
+        nom.textContent = evt.nom;
+
+        const info = document.createElement("span");
+        info.className = "infoEvenementAccueil";
+        info.textContent = [
+            evt.dateFin ? texteJoursRestants(evt) : "",
+            evt.horairesEvenement
+        ].filter(Boolean).join(" · ");
+
+        texte.append(nom, info);
+        bouton.append(date, texte);
+
+        bouton.setAttribute(
+            "aria-label",
+            `${evt.nom}${iso ? ", " + formaterDateFrLongue(iso) : ""}`
+        );
+
+        bouton.addEventListener("click", ()=> ouvrirLieuDepuisAccueil(evt, evt.categorie));
+
+        conteneur.appendChild(bouton);
+
+    });
+
+    return evenements.length;
+
+}
+
 document.getElementById("btnAccueilToutes").addEventListener("click", ()=>{
     ouvrirCarteCategorie("Toutes");
+});
+
+document.getElementById("btnAccueilOuvert").addEventListener("click", ()=>{
+
+    filtreOuvert = true;
+    majPucesFiltres();
+
+    ouvrirCarteCategorie("Toutes", { conserverFiltres:true });
+
+});
+
+document.getElementById("btnAccueilPres").addEventListener("click", async ()=>{
+
+    afficherMessageAccueil("Recherche de votre position…");
+
+    try{
+
+        await activerProximite();
+
+        filtreOuvert = false;
+        majPucesFiltres();
+
+        ouvrirCarteCategorie("Toutes", { conserverFiltres:true });
+
+    }catch(erreur){
+        afficherMessageAccueil(erreur.message);
+    }
+
 });
 
 document.getElementById("btnAccueilEvenements").addEventListener("click", ()=>{
@@ -582,6 +703,164 @@ const cboSousCategorie = document.getElementById("sousCategorie");
 const liste = document.getElementById("listeLieux");
 const compteur = document.getElementById("compteur");
 const ficheLieu = document.getElementById("ficheLieu");
+const btnFiltreOuvert = document.getElementById("btnFiltreOuvert");
+const btnFiltrePres = document.getElementById("btnFiltrePres");
+const noteGeoloc = document.getElementById("noteGeoloc");
+
+//==================================================
+// Filtres rapides : "Ouvert maintenant" et "Près de moi"
+//==================================================
+
+let filtreOuvert = false;
+// Position de l'utilisateur ({lat, lng}) quand "Près de moi" est actif
+let positionUtilisateur = null;
+let marqueurPosition = null;
+
+// Au-delà de cette distance au centre de Templeuve, on ne recadre pas la
+// carte sur l'utilisateur (il consulte probablement l'appli de loin)
+const DISTANCE_MAX_RECADRAGE_M = 10000;
+
+function distanceMetres(a, b){
+
+    const R = 6371000;
+    const rad = x => x*Math.PI/180;
+
+    const dLat = rad(b.lat-a.lat);
+    const dLng = rad(b.lng-a.lng);
+
+    const h = Math.sin(dLat/2)**2 +
+        Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLng/2)**2;
+
+    return 2*R*Math.asin(Math.sqrt(h));
+
+}
+
+function texteDistance(metres){
+
+    if(metres<1000){
+        return `${Math.max(10, Math.round(metres/10)*10)} m`;
+    }
+
+    return `${(metres/1000).toFixed(1).replace(".", ",")} km`;
+
+}
+
+function afficherNoteGeoloc(texte){
+
+    noteGeoloc.textContent = texte;
+    noteGeoloc.hidden = !texte;
+
+}
+
+function majPucesFiltres(){
+
+    btnFiltreOuvert.setAttribute("aria-pressed", String(filtreOuvert));
+    btnFiltrePres.setAttribute("aria-pressed", String(positionUtilisateur!==null));
+
+}
+
+function demanderPosition(){
+
+    return new Promise((resolve, reject)=>{
+
+        if(!navigator.geolocation){
+            reject(new Error("La localisation n'est pas disponible sur cet appareil."));
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            p => resolve({ lat:p.coords.latitude, lng:p.coords.longitude }),
+            err => reject(new Error(
+                err.code===1
+                    ? "Localisation refusée. Autorisez-la dans les réglages de votre navigateur ou de l'application."
+                    : "Position introuvable. Réessayez dans un instant."
+            )),
+            { enableHighAccuracy:true, timeout:10000, maximumAge:60000 }
+        );
+
+    });
+
+}
+
+// Active "Près de moi" (lève une erreur si la position est indisponible)
+async function activerProximite(){
+
+    positionUtilisateur = await demanderPosition();
+
+    if(marqueurPosition){
+        marqueurPosition.setLatLng([positionUtilisateur.lat, positionUtilisateur.lng]);
+    }else{
+        marqueurPosition = L.circleMarker(
+            [positionUtilisateur.lat, positionUtilisateur.lng],
+            {
+                radius:9,
+                color:"white",
+                weight:3,
+                fillColor:"#2c7be5",
+                fillOpacity:1,
+                interactive:false
+            }
+        ).addTo(carte);
+    }
+
+    const loin = distanceMetres(
+        positionUtilisateur,
+        { lat:CENTRE_VILLE[0], lng:CENTRE_VILLE[1] }
+    ) > DISTANCE_MAX_RECADRAGE_M;
+
+    afficherNoteGeoloc(
+        loin
+            ? "Vous êtes loin de Templeuve : les distances sont calculées depuis votre position."
+            : "Lieux classés du plus proche au plus éloigné."
+    );
+
+    majPucesFiltres();
+
+}
+
+function desactiverProximite(){
+
+    positionUtilisateur = null;
+
+    if(marqueurPosition){
+        carte.removeLayer(marqueurPosition);
+        marqueurPosition = null;
+    }
+
+    afficherNoteGeoloc("");
+    majPucesFiltres();
+
+}
+
+btnFiltreOuvert.addEventListener("click", ()=>{
+
+    filtreOuvert = !filtreOuvert;
+    majPucesFiltres();
+    afficher();
+
+});
+
+btnFiltrePres.addEventListener("click", async ()=>{
+
+    if(positionUtilisateur){
+        desactiverProximite();
+        afficher();
+        return;
+    }
+
+    afficherNoteGeoloc("Recherche de votre position…");
+    btnFiltrePres.disabled = true;
+
+    try{
+        await activerProximite();
+        afficher();
+    }catch(erreur){
+        afficherNoteGeoloc(erreur.message);
+    }finally{
+        btnFiltrePres.disabled = false;
+    }
+
+});
 
 function afficherFiche(lieu){
 
@@ -1081,6 +1360,8 @@ function afficher(){
 
         if(!okSousCategorie) return false;
 
+        if(filtreOuvert && estOuvertMaintenant(l.horaires)!==true) return false;
+
         if(texte===""){
             return true;
         }
@@ -1093,8 +1374,31 @@ function afficher(){
 
     });
 
+    // "Près de moi" : calcule la distance de chaque lieu et trie du plus proche au plus loin
+    const distances = new Map();
+
+    if(positionUtilisateur){
+
+        resultat.forEach(l=>{
+            distances.set(l.id, distanceMetres(positionUtilisateur, { lat:l.latitude, lng:l.longitude }));
+        });
+
+        resultat.sort((a,b)=> distances.get(a.id)-distances.get(b.id));
+
+    }
+
     compteur.textContent =
         resultat.length + (resultat.length>1 ? " lieux" : " lieu");
+
+    if(resultat.length===0){
+
+        liste.innerHTML = `<p class="aucunResultat">${
+            filtreOuvert
+                ? "Aucun lieu n'est ouvert actuellement avec ces critères."
+                : "Aucun lieu ne correspond à votre recherche."
+        }</p>`;
+
+    }
 
     let lieuSelectionneEncoreVisible = false;
 
@@ -1111,7 +1415,7 @@ function afficher(){
             placerMarqueurSelection(lieu);
         });
 
-        ajouterDansListe(lieu,marker);
+        ajouterDansListe(lieu, marker, distances.get(lieu.id));
 
         if(lieu.id===idLieuSelectionne){
             lieuSelectionneEncoreVisible = true;
@@ -1145,8 +1449,17 @@ function afficher(){
 
     if(resultat.length){
 
+        const limites = groupe.getBounds();
+
+        if(
+            positionUtilisateur &&
+            distanceMetres(positionUtilisateur, { lat:CENTRE_VILLE[0], lng:CENTRE_VILLE[1] }) <= DISTANCE_MAX_RECADRAGE_M
+        ){
+            limites.extend([positionUtilisateur.lat, positionUtilisateur.lng]);
+        }
+
         carte.fitBounds(
-            groupe.getBounds(),
+            limites,
             {
                 padding:[40,40],
                 maxZoom:15
@@ -1205,7 +1518,7 @@ function creerPopup(lieu){
 
 //==================================================
 
-function ajouterDansListe(lieu,marker){
+function ajouterDansListe(lieu, marker, distance){
 
     const div=document.createElement("div");
 
@@ -1230,8 +1543,15 @@ function ajouterDansListe(lieu,marker){
         <div class="categorieLieu">
 
             ${echapperHtml(lieu.categorie)}${lieu.sousCategorie ? ` › ${echapperHtml(lieu.sousCategorie)}` : ""}
+            ${estOuvertMaintenant(lieu.horaires)===true ? `<span class="ouvertListe">· 🟢 Ouvert</span>` : ""}
 
         </div>
+
+        ${
+            distance!==undefined
+            ? `<div class="distanceLieu">📍 à ${texteDistance(distance)}</div>`
+            : ""
+        }
     `;
 
     const selectionner = () => {

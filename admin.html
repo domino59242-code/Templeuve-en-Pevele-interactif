@@ -79,6 +79,11 @@
             🎉 Événements
         </button>
 
+        <button class="ongletBtn" data-onglet="incomplets">
+            📋 Fiches incomplètes
+            <span id="badgeIncomplets" class="badgeOnglet" hidden>0</span>
+        </button>
+
         <button class="ongletBtn" data-onglet="aide">
             ❓ Comment ça marche
         </button>
@@ -467,6 +472,56 @@
             <div id="listeAdminEvenements"></div>
 
         </div>
+
+    </section>
+
+    <!-- ============================================== -->
+    <!-- Onglet Fiches incomplètes                        -->
+    <!-- ============================================== -->
+
+    <section id="vueIncomplets" class="vue">
+
+        <div class="enteteListe">
+
+            <h2>Fiches incomplètes (<span id="compteurIncomplets">0</span>)</h2>
+
+            <button id="btnExporterRapport" type="button" class="btnSecondaire">
+                📊 Exporter le rapport (CSV)
+            </button>
+
+        </div>
+
+        <div id="syntheseRapport" class="syntheseRapport"></div>
+
+        <p class="astuce">
+            💡 Une fiche est signalée comme incomplète quand il lui manque un
+            critère <b>essentiel</b> (⚠ adresse, téléphone, horaires,
+            description). Les critères souhaitables (photo, e-mail, site web,
+            sous-catégorie) sont facultatifs. Clique sur un critère pour ne voir
+            que les fiches concernées. Le rapport se met à jour dès que tu
+            modifies une fiche.
+        </p>
+
+        <div id="criteresRapport" class="criteresRapport"></div>
+
+        <div class="ligneFiltreTri">
+
+            <input
+                id="filtreRapportTexte"
+                type="text"
+                placeholder="🔎 Filtrer (nom, adresse...)"
+                class="champFiltre">
+
+            <select id="filtreRapportCategorie" class="champTri"></select>
+
+        </div>
+
+        <label class="checkboxLigne">
+            <input type="checkbox" id="inclureSouhaitables">
+            Signaler aussi les fiches auxquelles il ne manque que des critères souhaitables
+        </label>
+
+        <div id="listeRapport"></div>
 
     </section>
 

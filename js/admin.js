@@ -567,8 +567,8 @@ function lireHorairesForm(){
         const d2 = ligne.querySelector(".creneau2Debut").value;
         const f2 = ligne.querySelector(".creneau2Fin").value;
 
-        if(d1 && f1) creneaux.push(`${d1}-${f1}`);
-        if(d2 && f2) creneaux.push(`${d2}-${f2}`);
+        if(d1 && f1 && d1!==f1) creneaux.push(`${d1}-${f1}`);
+        if(d2 && f2 && d2!==f2) creneaux.push(`${d2}-${f2}`);
 
         horaires[jour.cle] = creneaux;
 
@@ -585,7 +585,11 @@ function remplirHorairesForm(horaires){
     JOURS_SEMAINE.forEach(jour=>{
 
         const ligne = conteneurHoraires.querySelector(`[data-jour="${jour.cle}"]`);
-        const creneaux = (horaires && horaires[jour.cle]) || [];
+        // Ignore les anciens créneaux "00:00-00:00" (début = fin = non renseigné)
+        const creneaux = ((horaires && horaires[jour.cle]) || []).filter(c => {
+            const [deb, fin] = c.split("-");
+            return deb && fin && deb!==fin;
+        });
 
         const [c1, c2] = creneaux;
         const [d1="", f1=""] = c1 ? c1.split("-") : [];
@@ -865,6 +869,8 @@ function supprimerLieu(id){
 }
 
 function rafraichirListeLieux(){
+
+    rafraichirRapport();
 
     const conteneur = document.getElementById("listeAdminLieux");
 
@@ -1253,6 +1259,8 @@ function supprimerEvenement(id){
 }
 
 function rafraichirListeEvenements(){
+
+    rafraichirRapport();
 
     const conteneur = document.getElementById("listeAdminEvenements");
     const evenements = lieux.filter(l => l.estEvenement);
@@ -1757,6 +1765,346 @@ document.getElementById("btnTelechargerCategories").addEventListener("click", ()
 
 document.getElementById("filtreListeLieux").addEventListener("input", debounce(rafraichirListeLieux, 150));
 document.getElementById("triListeLieux").addEventListener("change", rafraichirListeLieux);
+
+//==================================================
+// Rapport des fiches incomplètes
+//
+// Chaque fiche (lieu ou événement) est évaluée sur une liste de critères.
+// Les critères "essentiels" comptent double dans le score de complétude.
+//==================================================
+
+function texteRenseigne(valeur){
+    return typeof valeur==="string" && valeur.trim()!=="";
+}
+
+// Même règle que sur le site : un créneau dont le début est égal à la fin
+// (ex. "00:00-00:00") signifie "non renseigné"
+function aDesHorairesValides(horaires){
+
+    if(!horaires) return false;
+
+    return JOURS_SEMAINE.some(jour =>
+        (horaires[jour.cle] ?? []).some(c=>{
+            const [debut, fin] = c.split("-");
+            return debut && fin && debut!==fin;
+        })
+    );
+
+}
+
+// "pour" : types de fiches concernés par le critère
+const CRITERES_FICHE = [
+    {
+        cle:"adresse", label:"Adresse", essentiel:true, pour:["lieu","evenement"],
+        ok: l => texteRenseigne(l.adresse)
+    },
+    {
+        cle:"telephone", label:"Téléphone", essentiel:true, pour:["lieu"],
+        ok: l => texteRenseigne(l.telephone)
+    },
+    {
+        cle:"horaires", label:"Horaires", essentiel:true, pour:["lieu","evenement"],
+        ok: l => l.estEvenement
+            ? texteRenseigne(l.horairesEvenement)
+            : aDesHorairesValides(l.horaires)
+    },
+    {
+        cle:"description", label:"Description", essentiel:true, pour:["lieu","evenement"],
+        ok: l => texteRenseigne(l.description)
+    },
+    {
+        cle:"photo", label:"Photo", essentiel:false, pour:["lieu"],
+        ok: l => texteRenseigne(l.photo)
+    },
+    {
+        cle:"mail", label:"E-mail", essentiel:false, pour:["lieu"],
+        ok: l => texteRenseigne(l.mail)
+    },
+    {
+        cle:"site", label:"Site web", essentiel:false, pour:["lieu"],
+        ok: l => texteRenseigne(l.site)
+    },
+    {
+        cle:"sousCategorie", label:"Sous-catégorie", essentiel:false, pour:["lieu"],
+        // Concerne seulement les catégories qui proposent des sous-catégories
+        applicable: l => {
+            const cat = categories.find(c => c.nom===l.categorie);
+            return !!cat && (cat.sousCategories ?? []).length>0;
+        },
+        ok: l => texteRenseigne(l.sousCategorie)
+    }
+];
+
+// Évalue une fiche : critères manquants, score (0-100) et type
+function evaluerFiche(fiche){
+
+    const type = fiche.estEvenement ? "evenement" : "lieu";
+
+    const criteres = CRITERES_FICHE.filter(c =>
+        c.pour.includes(type) && (!c.applicable || c.applicable(fiche))
+    );
+
+    let points = 0;
+    let total = 0;
+    const manquants = [];
+
+    criteres.forEach(c=>{
+
+        const poids = c.essentiel ? 2 : 1;
+
+        total += poids;
+
+        if(c.ok(fiche)){
+            points += poids;
+        }else{
+            manquants.push(c);
+        }
+
+    });
+
+    return {
+        fiche,
+        type,
+        manquants,
+        score: total===0 ? 100 : Math.round(points/total*100),
+        essentielManquant: manquants.some(c => c.essentiel)
+    };
+
+}
+
+// Critère sélectionné en cliquant sur une pastille (null = aucun)
+let critereRapportActif = null;
+
+// Fiches à signaler selon le mode choisi : par défaut seulement celles
+// auxquelles il manque un critère essentiel ; avec la case cochée, toutes
+// celles auxquelles il manque quoi que ce soit
+function fichesASignaler(evaluations){
+
+    const inclureSouhaitables = document.getElementById("inclureSouhaitables").checked;
+
+    return evaluations.filter(e =>
+        inclureSouhaitables ? e.manquants.length>0 : e.essentielManquant
+    );
+
+}
+
+function rafraichirRapport(){
+
+    const conteneur = document.getElementById("listeRapport");
+
+    // Appelé très tôt : on attend que la page soit prête
+    if(!conteneur) return;
+
+    const evaluations = lieux.map(evaluerFiche);
+    const asignaler = fichesASignaler(evaluations);
+
+    // --- Pastille de l'onglet : toujours le nombre de fiches avec un essentiel manquant ---
+    const nbEssentielsManquants = evaluations.filter(e => e.essentielManquant).length;
+
+    const badge = document.getElementById("badgeIncomplets");
+    badge.textContent = nbEssentielsManquants;
+    badge.hidden = nbEssentielsManquants===0;
+
+    // --- Synthèse globale ---
+    const nbTotal = evaluations.length;
+    const nbCompletes = evaluations.filter(e => e.manquants.length===0).length;
+    const moyenne = nbTotal===0
+        ? 0
+        : Math.round(evaluations.reduce((somme,e)=>somme+e.score, 0)/nbTotal);
+
+    document.getElementById("syntheseRapport").innerHTML = `
+        <div class="carteSynthese">
+            <div class="valeurSynthese">${moyenne} %</div>
+            <div class="libelleSynthese">complétude moyenne</div>
+            <div class="barreScore"><span style="width:${moyenne}%"></span></div>
+        </div>
+        <div class="carteSynthese">
+            <div class="valeurSynthese">${nbTotal-nbEssentielsManquants} / ${nbTotal}</div>
+            <div class="libelleSynthese">fiches avec toutes les infos essentielles</div>
+        </div>
+        <div class="carteSynthese">
+            <div class="valeurSynthese">${nbCompletes} / ${nbTotal}</div>
+            <div class="libelleSynthese">fiches totalement complètes</div>
+        </div>
+    `;
+
+    // --- Pastilles par critère (nombre de fiches où il manque, toutes fiches confondues) ---
+    const conteneurCriteres = document.getElementById("criteresRapport");
+    conteneurCriteres.innerHTML = "";
+
+    CRITERES_FICHE.forEach(critere=>{
+
+        const nb = evaluations.filter(e => e.manquants.includes(critere)).length;
+        const actif = critereRapportActif===critere.cle;
+
+        const bouton = document.createElement("button");
+        bouton.type = "button";
+        bouton.className = "pastilleCritere" + (actif ? " actif" : "");
+        bouton.setAttribute("aria-pressed", String(actif));
+        bouton.textContent = `${critere.essentiel ? "⚠ " : ""}Sans ${critere.label.toLowerCase()} — ${nb}`;
+        bouton.disabled = nb===0 && !actif;
+
+        bouton.addEventListener("click", ()=>{
+            critereRapportActif = actif ? null : critere.cle;
+            rafraichirRapport();
+        });
+
+        conteneurCriteres.appendChild(bouton);
+
+    });
+
+    // Base de la liste : fiches auxquelles il manque le critère choisi,
+    // sinon les fiches à signaler selon le mode
+    const base = critereRapportActif
+        ? evaluations.filter(e => e.manquants.some(c => c.cle===critereRapportActif))
+        : asignaler;
+
+    document.getElementById("compteurIncomplets").textContent = base.length;
+
+    // --- Menu des catégories (conserve le choix en cours) ---
+    const selectCategorie = document.getElementById("filtreRapportCategorie");
+    const categorieChoisie = selectCategorie.value || "Toutes";
+
+    const nomsCategories = [...new Set(base.map(e => e.fiche.categorie))]
+        .sort((a,b)=>a.localeCompare(b,"fr"));
+
+    selectCategorie.innerHTML = "";
+    selectCategorie.add(new Option("Toutes les catégories", "Toutes"));
+    nomsCategories.forEach(nom=>{
+        const nb = base.filter(e => e.fiche.categorie===nom).length;
+        selectCategorie.add(new Option(`${nom} (${nb})`, nom));
+    });
+    selectCategorie.value = nomsCategories.includes(categorieChoisie) ? categorieChoisie : "Toutes";
+
+    // --- Filtres ---
+    const texte = document.getElementById("filtreRapportTexte").value.trim().toLowerCase();
+
+    const affichees = base.filter(e=>{
+
+        if(selectCategorie.value!=="Toutes" && e.fiche.categorie!==selectCategorie.value) return false;
+
+        if(texte!==""){
+            const champs = [e.fiche.nom, e.fiche.adresse, e.fiche.categorie];
+            if(!champs.some(c => (c ?? "").toLowerCase().includes(texte))) return false;
+        }
+
+        return true;
+
+    });
+
+    // Les fiches les moins complètes d'abord
+    affichees.sort((a,b)=> a.score-b.score || a.fiche.nom.localeCompare(b.fiche.nom,"fr"));
+
+    // --- Liste ---
+    conteneur.innerHTML = "";
+
+    if(base.length===0){
+        conteneur.innerHTML = `<p class="listeVide">🎉 Aucune fiche à compléter. Bravo !</p>`;
+        return;
+    }
+
+    if(affichees.length===0){
+        conteneur.innerHTML = `<p class="listeVide">Aucune fiche ne correspond à ces filtres.</p>`;
+        return;
+    }
+
+    affichees.forEach(e=>{
+
+        const fiche = e.fiche;
+        const cat = categories.find(c => c.nom===fiche.categorie);
+        const icone = fiche.estEvenement ? "🎉" : (cat ? cat.icone : "📍");
+        const couleurScore = e.score>=75 ? "bon" : e.score>=50 ? "moyen" : "faible";
+
+        const div = document.createElement("div");
+        div.className = "ligneAdmin ligneRapport";
+
+        div.innerHTML = `
+            <div class="infos">
+                <div class="nom">${rendreIcone(icone)} ${echapperHtml(fiche.nom)}</div>
+                <div class="details">
+                    ${echapperHtml(fiche.categorie)}${fiche.sousCategorie ? ` › ${echapperHtml(fiche.sousCategorie)}` : ""}
+                    ${fiche.adresse ? ` — ${echapperHtml(fiche.adresse)}` : ""}
+                </div>
+                <div class="manquants">
+                    ${e.manquants.map(c => `
+                        <span class="etiquetteManquant ${c.essentiel ? "essentiel" : ""}">
+                            ${c.essentiel ? "⚠ " : ""}${echapperHtml(c.label)}
+                        </span>
+                    `).join("")}
+                </div>
+            </div>
+            <div class="actions">
+                <span class="scoreFiche ${couleurScore}" title="Score de complétude">${e.score} %</span>
+                <button type="button" class="modifier">✏ Compléter</button>
+            </div>
+        `;
+
+        div.querySelector(".modifier").addEventListener("click", ()=>completerFiche(fiche));
+
+        conteneur.appendChild(div);
+
+    });
+
+}
+
+// Ouvre la fiche dans l'onglet adapté (Lieux ou Événements)
+function completerFiche(fiche){
+
+    const onglet = fiche.estEvenement ? "evenements" : "lieux";
+
+    document.querySelector(`.ongletBtn[data-onglet="${onglet}"]`).click();
+
+    // Petit délai : le temps que l'onglet s'affiche et que sa mini-carte
+    // recalcule sa taille, pour qu'elle se centre correctement
+    setTimeout(()=>{
+        if(fiche.estEvenement){
+            modifierEvenement(fiche.id);
+        }else{
+            modifierLieu(fiche.id);
+        }
+    }, 120);
+
+}
+
+document.getElementById("filtreRapportTexte").addEventListener("input", debounce(rafraichirRapport, 150));
+document.getElementById("filtreRapportCategorie").addEventListener("change", rafraichirRapport);
+document.getElementById("inclureSouhaitables").addEventListener("change", rafraichirRapport);
+
+document.getElementById("btnExporterRapport").addEventListener("click", ()=>{
+
+    // Exporte les fiches signalées selon le mode choisi (essentiels par défaut)
+    const incompletes = fichesASignaler(lieux.map(evaluerFiche));
+
+    const lignes = incompletes
+        .sort((a,b)=> a.score-b.score || a.fiche.nom.localeCompare(b.fiche.nom,"fr"))
+        .map(e=>({
+            id: e.fiche.id,
+            nom: e.fiche.nom ?? "",
+            type: e.type==="evenement" ? "Événement" : "Lieu",
+            categorie: e.fiche.categorie ?? "",
+            adresse: e.fiche.adresse ?? "",
+            telephone: e.fiche.telephone ?? "",
+            score: e.score + " %",
+            essentiels_manquants: e.manquants.filter(c=>c.essentiel).map(c=>c.label).join(", "),
+            autres_manquants: e.manquants.filter(c=>!c.essentiel).map(c=>c.label).join(", ")
+        }));
+
+    // BOM en tête pour l'affichage correct des accents dans Excel
+    const csv = "\uFEFF" + Papa.unparse(lignes, { delimiter:";" });
+
+    const blob = new Blob([csv], { type:"text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const lien = document.createElement("a");
+    lien.href = url;
+    lien.download = "fiches-incompletes.csv";
+    document.body.appendChild(lien);
+    lien.click();
+    document.body.removeChild(lien);
+
+    URL.revokeObjectURL(url);
+
+});
 
 //==================================================
 // Démarrage

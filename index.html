@@ -83,6 +83,21 @@
                     </span>
                 </button>
 
+                <button id="btnAccueilOuvert" type="button" class="btnAccueil btnAccueilRapide">
+                    <span class="pastilleAccueil" aria-hidden="true">🟢</span>
+                    <span class="libelleAccueil">Ouvert maintenant</span>
+                </button>
+
+                <button id="btnAccueilPres" type="button" class="btnAccueil btnAccueilRapide">
+                    <span class="pastilleAccueil" aria-hidden="true">📍</span>
+                    <span class="libelleAccueil">Près de moi</span>
+                </button>
+
+            </div>
+
+            <div id="blocEvenementsAccueil" class="blocEvenementsAccueil" hidden>
+                <p class="sousTitreAccueil">Prochains événements</p>
+                <div id="listeEvenementsAccueil" class="listeEvenementsAccueil"></div>
             </div>
 
             <p class="sousTitreAccueil">Par catégorie</p>
@@ -121,7 +136,7 @@
                     <h1>Templeuve Interactive</h1>
 
                     <p class="version">
-                        Version 11.0
+                        Version 11.1
                     </p>
 
                 </div>
@@ -212,6 +227,21 @@
                 </option>
 
             </select>
+
+        </section>
+
+        <section class="filtresRapides">
+
+            <button type="button" id="btnFiltreOuvert" class="puceFiltre" aria-pressed="false"
+                    title="Seuls les lieux dont les horaires sont renseignés sont concernés">
+                🟢 Ouvert maintenant
+            </button>
+
+            <button type="button" id="btnFiltrePres" class="puceFiltre" aria-pressed="false">
+                📍 Près de moi
+            </button>
+
+            <p id="noteGeoloc" class="noteGeoloc" role="status" hidden></p>
 
         </section>
 

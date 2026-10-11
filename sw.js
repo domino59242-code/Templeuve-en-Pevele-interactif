@@ -9,7 +9,7 @@
  * site pour forcer les visiteurs à recharger les nouveaux fichiers.
  ******************************************************************************/
 
-const NOM_CACHE = "templeuve-interactive-v11.0";
+const NOM_CACHE = "templeuve-interactive-v11.2";
 
 const FICHIERS_A_METTRE_EN_CACHE = [
     "./",

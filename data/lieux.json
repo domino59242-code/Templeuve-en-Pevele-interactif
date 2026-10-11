@@ -983,13 +983,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "08:00-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.52423,
         "longitude": 3.16379
@@ -1126,18 +1147,39 @@
         "adresse": "1, Place du Gl de Gaulle",
         "telephone": "03 20 59 33 88",
         "mail": "",
-        "site": "",
-        "description": "Agence d'assurances",
+        "site": "https://agence.mma.fr/templeuve-en-pevele/",
+        "description": "Agence d'assurances\nMercredi sur rendez-vous",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "10:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "10:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "jeudi": [
+                "10:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "10:00-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526556,
         "longitude": 3.168951
@@ -1175,19 +1217,40 @@
         "sousCategorie": "Alimentation",
         "adresse": "4, rue Demesmay",
         "telephone": "07 69 68 68 61",
-        "mail": "",
-        "site": "",
-        "description": "Traiteur, spécialités italiennes",
+        "mail": "nonno-luigi@outlook.com",
+        "site": "https://www.facebook.com/nonnoluigi.epicerie.traiteur",
+        "description": "Traiteur, spécialités italiennes\n- Produits d'épicerie fine italiens et siciliens\n- Charcuterie et fromage à la découpe\n- Plats traiteurs 100% faits maison\n- Focaccias garnies à emporter - Formule du midi",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "mardi": [
+                "00:00-00:00",
+                "15:30-19:00"
+            ],
+            "mercredi": [
+                "10:30-12:30",
+                "15:30-19:00"
+            ],
+            "jeudi": [
+                "10:30-12:30",
+                "15:30-19:00"
+            ],
+            "vendredi": [
+                "10:30-12:30",
+                "15:30-19:00"
+            ],
+            "samedi": [
+                "10:30-12:30",
+                "15:30-19:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526664,
         "longitude": 3.168591
@@ -2085,19 +2148,40 @@
         "sousCategorie": "Mode & accessoires",
         "adresse": "1 bis, rue Demesmay",
         "telephone": "06 47 49 82 78",
-        "mail": "",
-        "site": "",
+        "mail": "loriginelletempleuve@gmail.com",
+        "site": "https://www.facebook.com/p/lOriginelle-61553414015874/",
         "description": "Vêtements femmes",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "10:00-12:30",
+                "14:30-18:30"
+            ],
+            "mardi": [
+                "10:00-12:30",
+                "14:30-18:30"
+            ],
+            "mercredi": [
+                "10:00-12:30",
+                "14:30-18:30"
+            ],
+            "jeudi": [
+                "10:00-12:30",
+                "14:30-18:30"
+            ],
+            "vendredi": [
+                "10:00-12:30",
+                "14:30-18:30"
+            ],
+            "samedi": [
+                "10:00-13:00",
+                "14:00-18:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.526585,
         "longitude": 3.168862
@@ -2149,9 +2233,9 @@
         "sousCategorie": "",
         "adresse": "12, rue Delattre",
         "telephone": "07 84 12 58 49",
-        "mail": "",
-        "site": "",
-        "description": "Atelier réparation motos",
+        "mail": "contact@nomadriders.fr",
+        "site": "https://nomadriders.fr/",
+        "description": "Implanté depuis 4 ans à Templeuve-en-Pévèle, Nomad Riders vous propose des prestations artisanales de qualité pour l’entretien et la réparation de vos motos. Nous vous recevons sur rendez-vous uniquement avec des prestations sur mesure adaptées à chaque moto.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -2456,17 +2540,24 @@
         "sousCategorie": "",
         "adresse": "5, rue Grande campagne",
         "telephone": "03 20 84 04 28",
-        "mail": "",
-        "site": "",
+        "mail": "mediatheque@ville-templeuve.fr",
+        "site": "https://mediatheques.pevelecarembault.fr/accueil/templeuve_en_pevele",
         "description": "Médiathèque",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
+            "mardi": [
+                "15:00-19:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
             "jeudi": [],
-            "vendredi": [],
+            "vendredi": [
+                "15:00-19:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -2567,7 +2658,9 @@
             "mercredi": [],
             "jeudi": [],
             "vendredi": [],
-            "samedi": [],
+            "samedi": [
+                "08:00-12:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.524172,
@@ -3030,7 +3123,7 @@
         "adresse": "1, rue Simone Veil",
         "telephone": "09 67 38 05 62",
         "mail": "",
-        "site": "",
+        "site": "https://www.graines-dartistes.fr/mc-templeuve",
         "description": "Micro-crèche",
         "photo": "",
         "dateFin": "",
@@ -3054,8 +3147,8 @@
         "sousCategorie": "",
         "adresse": "3, rue Georges Sand",
         "telephone": "07 49 50 15 12",
-        "mail": "",
-        "site": "",
+        "mail": "contact@microcrechecoollavie.fr",
+        "site": "https://microcrechecoollavie.fr/templeuve-en-pevele/",
         "description": "Micro-crèche",
         "photo": "",
         "dateFin": "",
@@ -3561,18 +3654,39 @@
         "adresse": "50, rue du Fayel",
         "telephone": "03 20 61 53 55",
         "mail": "",
-        "site": "",
+        "site": "https://www.facebook.com/p/Mysoet-B%C3%A2timent-100054285830855/",
         "description": "Maçonnerie et gros oeuvre",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:00-12:00",
+                "13:00-18:00"
+            ],
+            "mardi": [
+                "08:00-12:00",
+                "13:00-18:00"
+            ],
+            "mercredi": [
+                "08:00-12:00",
+                "13:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-12:00",
+                "13:00-18:00"
+            ],
+            "vendredi": [
+                "08:00-12:00",
+                "13:00-18:00"
+            ],
+            "samedi": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ],
+            "dimanche": [
+                "00:00-00:00",
+                "00:00-00:00"
+            ]
         },
         "latitude": 50.524198,
         "longitude": 3.160421
@@ -3586,7 +3700,7 @@
         "adresse": "137, rue de Péronne",
         "telephone": "03 20 33 88 88",
         "mail": "",
-        "site": "",
+        "site": "https://nordcouverture.fr/lp/couvreur-local?gad_source=1&gad_campaignid=22944541900&gbraid=0AAAAAoVmBjGL5lJ0CFBv4bCmfqSSk_BdX&gclid=Cj0KCQjwxKfWBhDkARIsAMKwkNbybRK8QIJN-UbAjrO0Y0BzY9MQvobByeS13g9KBjj-NS-ahS_7qvMaAganEALw_wcB",
         "description": "Couvreur",
         "photo": "",
         "dateFin": "",
@@ -3857,7 +3971,7 @@
         "adresse": "Centre commercial Leclerc",
         "telephone": "03 20 59 10 10",
         "mail": "",
-        "site": "",
+        "site": "https://lemanegeabijoux.leclerc/",
         "description": "Bijouterie",
         "photo": "",
         "dateFin": "",
@@ -3938,7 +4052,8 @@
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "08:30-12:00"
+                "08:30-12:00",
+                "13:30-16:00"
             ],
             "mardi": [
                 "08:30-00:00"
@@ -3953,7 +4068,7 @@
                 "08:30-00:00"
             ],
             "samedi": [
-                "08:30-00:00"
+                "08:30-13:30"
             ],
             "dimanche": [
                 "00:00-00:00"
@@ -4436,12 +4551,8 @@
         "horaires": {
             "lundi": [],
             "mardi": [],
-            "mercredi": [
-                "00:00-18:00"
-            ],
-            "jeudi": [
-                "08:00-00:00"
-            ],
+            "mercredi": [],
+            "jeudi": [],
             "vendredi": [],
             "samedi": [],
             "dimanche": []
@@ -5053,8 +5164,8 @@
         "sousCategorie": "",
         "adresse": "3, rue du Joncquois",
         "telephone": "07 88 38 19 07",
-        "mail": "",
-        "site": "",
+        "mail": "hello@nord-fermetures.fr",
+        "site": "https://nord-fermetures.fr/menuiserie-templeuve",
         "description": "Menuisier",
         "photo": "",
         "dateFin": "",
@@ -5189,7 +5300,9 @@
             "mercredi": [],
             "jeudi": [],
             "vendredi": [],
-            "samedi": [],
+            "samedi": [
+                "09:00-12:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.528768,
@@ -5209,13 +5322,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "mardi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "mercredi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "jeudi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "vendredi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "samedi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "dimanche": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ]
         },
         "latitude": 50.527765,
         "longitude": 3.176334
@@ -5234,13 +5368,34 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "mardi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "mercredi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "jeudi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "vendredi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "samedi": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ],
+            "dimanche": [
+                "00:01-12:00",
+                "12:00-23:59"
+            ]
         },
         "latitude": 50.527179,
         "longitude": 3.178348
@@ -5255,7 +5410,7 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "",
+        "description": "Le parking de la Rue d'Anchin (situé au niveau du 18 rue d'Anchin) est un petit parking public gratuit situé en centre-ville de Templeuve-en-Pévèle, à proximité immédiate de la gare et des commerces",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -5280,7 +5435,7 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "",
+        "description": "En partie zone bleue. Stationnement interdit le jour de marché le dimanche matin.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -5354,13 +5509,33 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "09:00-12:00",
+                "12:00-17:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "12:00-17:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "12:00-17:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "12:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "12:00-17:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "12:00-18:00"
+            ],
+            "dimanche": [
+                "09:00-13:00"
+            ]
         },
         "latitude": 50.534176,
         "longitude": 3.200932
@@ -5554,7 +5729,7 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "",
+        "description": "Situé à Templeuve, au cœur de la Pévèle, ce moulin TOUR et PIVOT est unique en France.\nL origine du premier moulin de Templeuve remonte à une époque très ancienne: il est mentionné en 1328 dans les rentes de l'abbaye d'Anchin sous le nom de \"Moulin de Viertain\".",
         "photo": "",
         "dateFin": "",
         "horaires": {
