@@ -1405,32 +1405,127 @@ select{
 
 @media(max-width:700px){
 
+    /* Le bouton "Fermer" du contenu est remplacé par la poignée de la fiche */
     .btnRetourListe{
-        display:flex;
+        display:none;
     }
 
-    /* Sur petit écran, la fiche détail s'ouvre en plein écran par-dessus
-       tout le reste (liste, carte) au lieu de s'afficher tout en bas de
-       la barre latérale — bien plus rapide à consulter, sans avoir à
-       faire défiler pour la trouver. */
+    /* Sur petit écran, la fiche détail s'ouvre en bas d'écran ("bottom
+       sheet") : réduite elle laisse la carte visible au-dessus, et on peut
+       la déployer presque en plein écran en tapant ou en glissant sa
+       poignée. Sa hauteur est fixe : on la fait seulement glisser
+       (translateY) pour ne pas recalculer la mise en page. */
     #sectionDetails{
 
         position:fixed;
-        inset:0;
+        left:0;
+        right:0;
+        bottom:0;
+        height:92vh;
+        height:92dvh;
         z-index:1800;
 
-        background:white;
+        display:flex;
+        flex-direction:column;
 
-        padding:16px;
-        overflow-y:auto;
+        background:white;
+        border-radius:18px 18px 0 0;
+        box-shadow:0 -4px 22px rgba(0,0,0,.28);
+
+        padding:0;
+        overflow:hidden;
 
         transform:translateY(100%);
-        transition:transform .25s ease;
+        visibility:hidden;
+        transition:transform .28s ease, visibility 0s .28s;
 
     }
 
     #sectionDetails.actif{
+
+        /* hauteur réduite : 46 % de l'écran (voir PART_FICHE_REDUITE dans app.js) */
+        transform:translateY(calc(100% - 46vh));
+        transform:translateY(calc(100% - 46dvh));
+        visibility:visible;
+        transition:transform .28s ease, visibility 0s;
+
+        /* Réduite, la fiche ne défile pas : un glissement la déploie */
+        touch-action:none;
+
+    }
+
+    #sectionDetails.actif.deploye{
+
         transform:translateY(0);
+        touch-action:auto;
+
+    }
+
+    #sectionDetails.en-glissement{
+
+        transition:none !important;
+
+    }
+
+    .poigneePanneau{
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:relative;
+
+        flex:0 0 auto;
+        height:44px;
+
+        cursor:grab;
+        touch-action:none;
+
+    }
+
+    .barrePoignee{
+
+        width:44px;
+        height:5px;
+        border-radius:3px;
+        background:#c4cbd6;
+
+    }
+
+    .btnFermerPanneau{
+
+        position:absolute;
+        right:10px;
+        top:4px;
+
+        width:36px;
+        height:36px;
+
+        border:none;
+        border-radius:50%;
+        background:#eef0f3;
+        color:#444;
+
+        font-size:16px;
+        line-height:1;
+        cursor:pointer;
+
+    }
+
+    .btnFermerPanneau:hover,
+    .btnFermerPanneau:focus-visible{
+
+        background:#dde2e9;
+
+    }
+
+    /* Pendant que la fiche est ouverte, la carte occupe tout l'écran
+       derrière elle (la liste reparaît à la fermeture) */
+    body.fiche-ouverte #sidebar{
+        display:none;
+    }
+
+    body.fiche-ouverte #map{
+        height:100vh;
     }
 
     #sectionDetails h2{
@@ -1445,10 +1540,16 @@ select{
        disponible au lieu de rester coincé dans une petite carte. */
     #sectionDetails #ficheLieu{
 
+        flex:1;
+        min-height:0;
+
         max-height:none;
+        overflow-y:auto;
+        overscroll-behavior:contain;
+
         border:none;
         border-radius:0;
-        padding:0;
+        padding:0 16px 28px;
         margin-top:0;
         background:none;
 
@@ -1485,8 +1586,8 @@ select{
 
 .pulseSelection{
 
-    width:34px;
-    height:34px;
+    width:56px;
+    height:56px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -1512,7 +1613,7 @@ select{
 
     content:"";
     position:absolute;
-    inset:-10px;
+    inset:-14px;
     border-radius:50%;
     border:3px solid #ff3b30;
     animation:pulseSelectionAnim 1.4s ease-out infinite;
@@ -1835,5 +1936,61 @@ select{
     line-clamp:2;
     -webkit-box-orient:vertical;
     overflow:hidden;
+
+}
+
+
+/* La poignée de la fiche n'existe que sur mobile (voir plus haut) */
+@media(min-width:701px){
+
+    .poigneePanneau{
+
+        display:none;
+
+    }
+
+}
+
+/* ===========================
+   Marqueurs de la carte (pastilles)
+=========================== */
+
+.pastilleMarqueur{
+
+    width:36px;
+    height:36px;
+    box-sizing:border-box;
+
+    border:3px solid white;
+    border-radius:50%;
+    box-shadow:0 1px 6px rgba(0,0,0,.4);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:transform .12s ease;
+
+}
+
+.pastilleMarqueur span{
+
+    font-size:18px;
+    line-height:1;
+
+}
+
+.pastilleMarqueur img{
+
+    width:24px;
+    height:24px;
+    object-fit:cover;
+    border-radius:50%;
+
+}
+
+.marqueurLieu:hover .pastilleMarqueur{
+
+    transform:scale(1.15);
 
 }

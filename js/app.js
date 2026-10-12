@@ -408,8 +408,8 @@ function ouvrirLieuDepuisAccueil(lieu, categorie){
     idLieuSelectionne = lieu.id;
     placerMarqueurSelection(lieu);
 
-    carte.setView([lieu.latitude, lieu.longitude], 17);
     afficherFiche(lieu);
+    centrerSurLieu(lieu, 17);
 
 }
 
@@ -641,6 +641,11 @@ function appliquerPrefsAccessibilite(prefs){
 const sectionDetails = document.getElementById("sectionDetails");
 const parentOrigineDetails = sectionDetails.parentNode;
 const referenceOrigineDetails = sectionDetails.nextSibling;
+
+// Lieu actuellement affiché dans la fiche, et minuterie qui remet la fiche
+// dans la barre latérale après sa fermeture (annulée si on la rouvre vite)
+let lieuFiche = null;
+let minuterieReplacement = null;
 
 function estMobile(){
     return window.matchMedia("(max-width:700px)").matches;
@@ -1032,14 +1037,39 @@ function afficherFiche(lieu){
 
     `;
 
-    // Sur mobile, la fiche s'ouvre en plein écran (voir CSS) : on la
-    // déplace d'abord au niveau du <body> (voir explication plus haut),
-    // puis on l'active à chaque nouvelle sélection de lieu.
-    if(estMobile() && sectionDetails.parentNode!==document.body){
-        document.body.appendChild(sectionDetails);
-    }
+    lieuFiche = lieu;
+    ficheLieu.scrollTop = 0;
 
-    sectionDetails.classList.add("actif");
+    if(estMobile()){
+
+        // Sur mobile, la fiche s'ouvre en bas d'écran (voir CSS) : on la
+        // déplace d'abord au niveau du <body> (voir explication plus haut)
+        clearTimeout(minuterieReplacement);
+
+        if(sectionDetails.parentNode!==document.body){
+            document.body.appendChild(sectionDetails);
+        }
+
+        const dejaOuverte = document.body.classList.contains("fiche-ouverte");
+
+        // La liste est masquée pendant que la fiche est ouverte : la carte
+        // occupe alors tout l'écran derrière la fiche
+        document.body.classList.add("fiche-ouverte");
+        sectionDetails.classList.add("actif");
+
+        if(!dejaOuverte){
+            sectionDetails.classList.remove("deploye");
+            mettreAJourPoignee();
+            carte.invalidateSize({ animate:false });
+        }
+
+        centrerSurLieu(lieu, carte.getZoom());
+
+    }else{
+
+        sectionDetails.classList.add("actif");
+
+    }
 
     // Fil d'Ariane : revenir à la liste complète ou filtrer sur la catégorie
     document.getElementById("filArianeTous").addEventListener("click", ()=>{
@@ -1078,22 +1108,35 @@ function afficherFiche(lieu){
 
 }
 
-// Referme le panneau plein écran de la fiche détail sur mobile (sans
-// effet sur desktop, où ce panneau n'est jamais activé en overlay)
+// Referme la fiche détail (sans effet visible sur desktop, où elle reste
+// dans la barre latérale)
 function fermerPanneauDetailsMobile(sansDefilement){
 
-    sectionDetails.classList.remove("actif");
+    const etaitOuverte = document.body.classList.contains("fiche-ouverte");
+
+    sectionDetails.classList.remove("actif", "deploye");
+    sectionDetails.style.transform = "";
+    mettreAJourPoignee();
+
+    // La liste réapparaît et la carte retrouve sa hauteur d'origine
+    document.body.classList.remove("fiche-ouverte");
+
+    if(etaitOuverte){
+        carte.invalidateSize({ animate:false });
+    }
 
     // Remet la fiche à sa place normale dans la barre latérale une fois
-    // l'animation de fermeture terminée (250ms, voir le CSS), pour
-    // qu'elle redevienne inline si l'écran repasse en desktop entre-temps
-    setTimeout(()=>{
+    // l'animation de fermeture terminée (voir le CSS), pour qu'elle
+    // redevienne inline si l'écran repasse en desktop entre-temps
+    clearTimeout(minuterieReplacement);
+
+    minuterieReplacement = setTimeout(()=>{
 
         if(sectionDetails.parentNode===document.body){
             parentOrigineDetails.insertBefore(sectionDetails, referenceOrigineDetails);
         }
 
-    }, 300);
+    }, 350);
 
     // Remet la liste bien en vue une fois le panneau refermé
     if(sansDefilement!==true){
@@ -1101,6 +1144,179 @@ function fermerPanneauDetailsMobile(sansDefilement){
     }
 
 }
+
+//==================================================
+// Fiche en bas d'écran (mobile) : deux hauteurs, "réduite" (la carte reste
+// visible au-dessus) et "déployée" (quasi plein écran). On passe de l'une à
+// l'autre en tapant ou en faisant glisser la poignée, ou en faisant glisser
+// la fiche réduite vers le haut ; un glissement vers le bas la referme.
+//==================================================
+
+const poigneePanneau = document.getElementById("poigneePanneau");
+const btnFermerPanneau = document.getElementById("btnFermerPanneau");
+
+// Part de la hauteur de l'écran occupée par la fiche réduite (voir le CSS)
+const PART_FICHE_REDUITE = 0.46;
+
+function mettreAJourPoignee(){
+    poigneePanneau.setAttribute(
+        "aria-expanded",
+        String(sectionDetails.classList.contains("deploye"))
+    );
+}
+
+// Centre la carte sur un lieu. Quand la fiche réduite masque le bas de la
+// carte, on remonte le lieu au milieu de la partie encore visible.
+function centrerSurLieu(lieu, zoom){
+
+    carte.setView([lieu.latitude, lieu.longitude], zoom, { animate:false });
+
+    if(
+        estMobile() &&
+        sectionDetails.classList.contains("actif") &&
+        !sectionDetails.classList.contains("deploye")
+    ){
+        carte.panBy([0, window.innerHeight*PART_FICHE_REDUITE/2], { animate:false });
+    }
+
+}
+
+function definirPanneauDeploye(deploye){
+
+    sectionDetails.classList.toggle("deploye", deploye);
+    mettreAJourPoignee();
+
+    // Revenu à la hauteur réduite : on recentre le lieu dans la partie visible
+    if(!deploye && lieuFiche){
+        centrerSurLieu(lieuFiche, carte.getZoom());
+    }
+
+}
+
+// Décalage vertical (px) du panneau dans son état actuel
+function decalagePanneauActuel(){
+
+    return sectionDetails.classList.contains("deploye")
+        ? 0
+        : sectionDetails.offsetHeight - window.innerHeight*PART_FICHE_REDUITE;
+
+}
+
+let glissement = null;
+
+sectionDetails.addEventListener("pointerdown", (e)=>{
+
+    if(!estMobile() || !sectionDetails.classList.contains("actif")) return;
+    if(e.target.closest("#btnFermerPanneau")) return;
+
+    const surPoignee = !!e.target.closest("#poigneePanneau");
+    const deploye = sectionDetails.classList.contains("deploye");
+
+    // Déployée, le contenu défile normalement : seule la poignée fait glisser
+    if(deploye && !surPoignee) return;
+
+    glissement = {
+        id: e.pointerId,
+        y0: e.clientY,
+        t0: performance.now(),
+        depart: decalagePanneauActuel(),
+        deplace: false,
+        surPoignee
+    };
+
+});
+
+sectionDetails.addEventListener("pointermove", (e)=>{
+
+    if(!glissement) return;
+
+    const dy = e.clientY - glissement.y0;
+
+    if(!glissement.deplace){
+
+        // Petit seuil pour ne pas confondre un tap avec un glissement
+        if(Math.abs(dy)<6) return;
+
+        glissement.deplace = true;
+        sectionDetails.classList.add("en-glissement");
+
+        if(sectionDetails.setPointerCapture && glissement.id!==undefined){
+            sectionDetails.setPointerCapture(glissement.id);
+        }
+
+    }
+
+    sectionDetails.style.transform = `translateY(${Math.max(0, glissement.depart+dy)}px)`;
+
+});
+
+function terminerGlissement(e, annule){
+
+    if(!glissement) return;
+
+    const g = glissement;
+    glissement = null;
+
+    sectionDetails.classList.remove("en-glissement");
+    sectionDetails.style.transform = "";
+
+    if(annule) return;
+
+    if(!g.deplace){
+
+        // Simple tap sur la poignée : on bascule entre réduit et déployé
+        if(g.surPoignee){
+            definirPanneauDeploye(!sectionDetails.classList.contains("deploye"));
+        }
+
+        return;
+
+    }
+
+    const dy = e.clientY - g.y0;
+    const vitesse = dy/Math.max(1, performance.now()-g.t0); // px par ms
+    const deploye = sectionDetails.classList.contains("deploye");
+
+    if(dy<-40 || vitesse<-0.5){
+
+        if(!deploye) definirPanneauDeploye(true);
+
+    }else if(deploye){
+
+        if(dy>40 || vitesse>0.5) definirPanneauDeploye(false);
+
+    }else if(dy>60 || vitesse>0.5){
+
+        fermerPanneauDetailsMobile(true);
+
+    }
+
+}
+
+sectionDetails.addEventListener("pointerup", (e)=> terminerGlissement(e, false));
+sectionDetails.addEventListener("pointercancel", (e)=> terminerGlissement(e, true));
+
+// Accessibilité clavier : Entrée / Espace sur la poignée
+poigneePanneau.addEventListener("keydown", (e)=>{
+
+    if(e.key==="Enter" || e.key===" "){
+        e.preventDefault();
+        definirPanneauDeploye(!sectionDetails.classList.contains("deploye"));
+    }
+
+});
+
+btnFermerPanneau.addEventListener("click", ()=> fermerPanneauDetailsMobile());
+
+// Si l'écran devient large (rotation, redimensionnement), la fiche
+// retrouve sa place normale dans la barre latérale
+window.addEventListener("resize", ()=>{
+
+    if(!estMobile() && document.body.classList.contains("fiche-ouverte")){
+        fermerPanneauDetailsMobile(true);
+    }
+
+});
 
 // Texte du badge "événement" : nombre de jours restants avant la fin
 // Formate une date ISO (YYYY-MM-DD) en "31 juillet 2026"
@@ -1174,6 +1390,9 @@ let groupe = L.markerClusterGroup({
     maxClusterRadius: 50
 }).addTo(carte);
 let elementSelectionne = null;
+// Lignes de la liste, retrouvées par identifiant de lieu (pour surligner
+// le lieu choisi quand on touche son marqueur sur la carte)
+const elementsListe = new Map();
 let idLieuSelectionne = null;
 
 // Marqueur de sélection : un repère distinct qui pulse, ajouté directement
@@ -1186,8 +1405,8 @@ function placerMarqueurSelection(lieu){
     const icone = L.divIcon({
         className: "",
         html: `<div class="pulseSelection"><div class="pointSelection"></div></div>`,
-        iconSize:[34,34],
-        iconAnchor:[17,17]
+        iconSize:[56,56],
+        iconAnchor:[28,28]
     });
 
     if(marqueurSelection){
@@ -1340,6 +1559,7 @@ function afficher(){
     groupe.clearLayers();
 
     liste.innerHTML="";
+    elementsListe.clear();
 
     const texte = txtRecherche.value.trim().toLowerCase();
 
@@ -1409,10 +1629,34 @@ function afficher(){
             { icon: creerIcone(lieu) }
         ).addTo(groupe);
 
-        marker.bindPopup(creerPopup(lieu));
+        // Sur mobile, la fiche en bas d'écran remplace la bulle d'information
+        if(!estMobile()){
+            marker.bindPopup(creerPopup(lieu));
+        }
 
         marker.on("click", ()=>{
+
             placerMarqueurSelection(lieu);
+
+            if(estMobile()){
+
+                // Surligne aussi le lieu dans la liste, comme un clic sur la liste
+                if(elementSelectionne){
+                    elementSelectionne.style.background="white";
+                }
+
+                const ligne = elementsListe.get(lieu.id);
+
+                if(ligne){
+                    ligne.style.background="#d9ebff";
+                    elementSelectionne = ligne;
+                }
+
+                idLieuSelectionne = lieu.id;
+                afficherFiche(lieu);
+
+            }
+
         });
 
         ajouterDansListe(lieu, marker, distances.get(lieu.id));
@@ -1437,13 +1681,7 @@ function afficher(){
 
         ficheLieu.innerHTML = "<p>Sélectionnez un lieu sur la carte ou dans la liste.</p>";
 
-        sectionDetails.classList.remove("actif");
-
-        setTimeout(()=>{
-            if(sectionDetails.parentNode===document.body){
-                parentOrigineDetails.insertBefore(sectionDetails, referenceOrigineDetails);
-            }
-        }, 300);
+        fermerPanneauDetailsMobile(true);
 
     }
 
@@ -1579,7 +1817,7 @@ function ajouterDansListe(lieu, marker, distance){
             // l'utilisateur zoomer manuellement plus loin s'il le souhaite.
             const zoomCible = Math.min(Math.max(carte.getZoom(), 17), 18);
 
-            carte.setView([lieu.latitude, lieu.longitude], zoomCible);
+            centrerSurLieu(lieu, zoomCible);
 
             marker.openPopup();
 
@@ -1599,6 +1837,7 @@ function ajouterDansListe(lieu, marker, distance){
 
     });
 
+    elementsListe.set(lieu.id, div);
     liste.appendChild(div);
 
 }
@@ -1610,33 +1849,20 @@ function creerIcone(lieu){
     const valeur = iconeLieu(lieu);
 
     const contenu = estImageIcone(valeur)
-        ? `<img src="${valeur}" style="width:14px;height:14px;object-fit:cover;border-radius:50%;">`
-        : `<span style="font-size:11px;line-height:1;">${echapperHtml(valeur)}</span>`;
+        ? `<img src="${valeur}" alt="">`
+        : `<span>${echapperHtml(valeur)}</span>`;
 
+    // Pastille de 36 px (bordure blanche comprise) : l'icône y reste lisible
+    // et assez large pour être touchée facilement du doigt
     return L.divIcon({
 
-        className: "",
+        className: "marqueurLieu",
 
-        html: `
-            <div
-                style="
-                    width:22px;
-                    height:22px;
-                    border-radius:50%;
-                    background:${couleurLieu(lieu)};
-                    border:3px solid white;
-                    box-shadow:0 0 6px rgba(0,0,0,.35);
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                ">
-                ${contenu}
-            </div>
-        `,
+        html: `<div class="pastilleMarqueur" style="background:${couleurLieu(lieu)};">${contenu}</div>`,
 
-        iconSize:[22,22],
-        iconAnchor:[11,11],
-        popupAnchor:[0,-10]
+        iconSize:[36,36],
+        iconAnchor:[18,18],
+        popupAnchor:[0,-18]
 
     });
 
