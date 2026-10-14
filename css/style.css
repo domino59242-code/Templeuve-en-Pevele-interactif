@@ -1518,6 +1518,13 @@ select{
 
     }
 
+    /* La photo de la fiche déborde du cadre de 15 px (voir .fichePhoto) :
+       dans la fiche en bas d'écran, le cadre fait 16 px et la poignée
+       est au-dessus, donc on ne remonte pas la photo */
+    #sectionDetails .fichePhoto{
+        margin:0 -16px 12px;
+    }
+
     /* Pendant que la fiche est ouverte, la carte occupe tout l'écran
        derrière elle (la liste reparaît à la fermeture) */
     body.fiche-ouverte #sidebar{

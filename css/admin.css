@@ -969,3 +969,60 @@ body{
 .scoreFiche.faible{ background:#fdeaea; color:#b03024; }
 .scoreFiche.moyen{ background:#fff3d6; color:#8a5a00; }
 .scoreFiche.bon{ background:#e3f6e5; color:#1e7e34; }
+
+
+/* ===========================
+   Photo d'un lieu : choix du fichier et aperçu
+=========================== */
+
+.blocPhotoLieu{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:8px 0 12px;
+
+}
+
+.aidePhotoLieu{
+
+    flex-basis:100%;
+    margin:0;
+    padding:8px 10px;
+    border-radius:6px;
+    background:#eef4fd;
+    color:#205081;
+    font-size:13px;
+
+}
+
+.aidePhotoLieu.erreurPhoto{
+
+    background:#fdeaea;
+    color:#b03024;
+
+}
+
+.aidePhotoLieu[hidden],
+.apercuPhotoLieu[hidden]{
+
+    display:none;
+
+}
+
+.apercuPhotoLieu{
+
+    flex-basis:100%;
+    max-width:100%;
+    max-height:180px;
+    object-fit:cover;
+    border-radius:8px;
+    border:1px solid #d9dee6;
+
+}
+
+.btnSecondaire[hidden]{
+
+    display:none;
+
+}

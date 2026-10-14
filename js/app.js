@@ -146,7 +146,45 @@ function aDesHoraires(horaires){
 
 }
 
-// Détermine si un lieu est ouvert à l'instant présent (heure du navigateur)
+// Convertit un créneau "HH:MM-HH:MM" en minutes depuis minuit.
+// - "23:59" comme heure de fin compte jusqu'à minuit (créneau 00:00-23:59 =
+//   ouvert 24h/24).
+// - Si la fin est avant le début (ex. "18:00-02:00", ou "20:00-00:00"),
+//   le créneau passe minuit : la fin est comptée le lendemain (> 1440).
+function bornesCreneau(creneau){
+
+    const [debut, fin] = creneau.split("-");
+    const [hD,mD] = debut.split(":").map(Number);
+    const [hF,mF] = fin.split(":").map(Number);
+
+    const minDebut = hD*60+mD;
+    let minFin = hF*60+mF;
+
+    if(fin==="23:59"){
+        minFin = 24*60;
+    }else if(minFin<minDebut){
+        minFin += 24*60;
+    }
+
+    return { minDebut, minFin };
+
+}
+
+// Créneau couvrant toute la journée, affiché "24h/24"
+function estCreneau24h(creneau){
+    return creneau==="00:00-23:59";
+}
+
+function texteCreneau(creneau){
+
+    return estCreneau24h(creneau)
+        ? "24h/24"
+        : creneau.replace("-", " - ");
+
+}
+
+// Détermine si un lieu est ouvert à l'instant présent (heure du navigateur) :
+// true si ouvert, false si fermé, null si aucun horaire n'est renseigné
 function estOuvertMaintenant(horaires){
 
     if(!aDesHoraires(horaires)) return null;
@@ -156,22 +194,25 @@ function estOuvertMaintenant(horaires){
     // getDay() renvoie 0 pour dimanche ; on décale pour retomber sur
     // notre tableau JOURS_SEMAINE qui commence le lundi (index 0)
     const indexJour = (maintenant.getDay()+6)%7;
-    const creneaux = creneauxValides(horaires[JOURS_SEMAINE[indexJour].cle]);
+    const indexHier = (indexJour+6)%7;
 
     const minutesActuelles = maintenant.getHours()*60 + maintenant.getMinutes();
 
-    return creneaux.some(creneau=>{
+    // Créneaux du jour (un créneau qui passe minuit est ouvert jusqu'à 24h00)
+    const ouvertAujourdhui = creneauxValides(horaires[JOURS_SEMAINE[indexJour].cle])
+        .some(creneau=>{
+            const { minDebut, minFin } = bornesCreneau(creneau);
+            return minutesActuelles>=minDebut && minutesActuelles<minFin;
+        });
 
-        const [debut, fin] = creneau.split("-");
-        const [hD,mD] = debut.split(":").map(Number);
-        const [hF,mF] = fin.split(":").map(Number);
+    if(ouvertAujourdhui) return true;
 
-        const minDebut = hD*60+mD;
-        const minFin = hF*60+mF;
-
-        return minutesActuelles>=minDebut && minutesActuelles<minFin;
-
-    });
+    // Suite après minuit d'un créneau commencé la veille
+    return creneauxValides(horaires[JOURS_SEMAINE[indexHier].cle])
+        .some(creneau=>{
+            const { minFin } = bornesCreneau(creneau);
+            return minFin>24*60 && minutesActuelles<minFin-24*60;
+        });
 
 }
 
@@ -185,7 +226,7 @@ function tableauHorairesHtml(horaires){
         const creneaux = creneauxValides(horaires[jour.cle]);
 
         const texte = creneaux.length>0
-            ? creneaux.map(c=>echapperHtml(c.replace("-"," - "))).join(", ")
+            ? creneaux.map(c=>echapperHtml(texteCreneau(c))).join(", ")
             : "Fermé";
 
         const classeAujourdhui = index===indexAujourdhui ? " ligneAujourdhui" : "";

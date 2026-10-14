@@ -606,6 +606,310 @@ function remplirHorairesForm(horaires){
 
 construireFormulaireHoraires();
 
+//==================================================
+// Photo d'un lieu : sélection d'un fichier, aperçu et contrôle du chemin
+//
+// Le site est statique : l'admin ne peut pas écrire dans assets/images.
+// Choisir une photo la redimensionne, la télécharge sous un nom propre et
+// remplit le champ avec le chemin à utiliser. Il reste à déposer le fichier
+// téléchargé dans le dossier assets/images du projet.
+//==================================================
+
+const champPhoto = document.getElementById("lieuPhoto");
+const champPhotoFichier = document.getElementById("lieuPhotoFichier");
+const apercuPhoto = document.getElementById("apercuPhotoLieu");
+const aidePhoto = document.getElementById("aidePhotoLieu");
+const btnCorrigerPhoto = document.getElementById("btnCorrigerPhoto");
+
+const TAILLE_MAX_PHOTO = 1000;      // côté le plus long, en pixels
+const QUALITE_PHOTO = 0.82;
+
+function afficherAidePhoto(texte, erreur){
+
+    aidePhoto.textContent = texte;
+    aidePhoto.hidden = !texte;
+    aidePhoto.classList.toggle("erreurPhoto", !!erreur);
+
+}
+
+// Nom de fichier propre à partir du nom du lieu : "Boulangerie Dupré" -> "boulangerie-dupre"
+function nomFichierPhoto(){
+
+    const base = document.getElementById("lieuNom").value
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+    return base || "lieu";
+
+}
+
+// Met à jour l'aperçu et signale les chemins qui ne peuvent pas fonctionner
+function mettreAJourApercuPhoto(){
+
+    const valeur = champPhoto.value.trim();
+
+    apercuPhoto.hidden = true;
+    apercuPhoto.removeAttribute("src");
+    btnCorrigerPhoto.hidden = true;
+
+    if(valeur===""){
+        afficherAidePhoto("");
+        return;
+    }
+
+    // Chemins Windows, file:// ou nom de fichier seul : ne marcheront jamais sur le site
+    if(/^[a-zA-Z]:[\\/]/.test(valeur) || valeur.includes("\\") || /^file:/i.test(valeur)){
+        afficherAidePhoto(
+            "Ce chemin ne fonctionnera pas sur le site. Utilise un chemin du type " +
+            "assets/images/nom-du-lieu.jpg (ou clique sur « Choisir une photo »).",
+            true
+        );
+        return;
+    }
+
+    if(!/^(https?:\/\/|assets\/|\.\/assets\/|\/)/i.test(valeur)){
+        afficherAidePhoto(
+            "Le chemin doit commencer par assets/images/ (ou être une adresse https://). " +
+            "Un simple nom de fichier ne sera pas trouvé.",
+            true
+        );
+        return;
+    }
+
+    afficherAidePhoto("");
+
+    apercuPhoto.onload = ()=>{ apercuPhoto.hidden = false; afficherAidePhoto(""); };
+    apercuPhoto.onerror = async ()=>{
+
+        apercuPhoto.hidden = true;
+
+        // Le fichier existe-t-il sous une autre extension (.webp au lieu de .jpg...) ?
+        const autre = await chercherAutreExtension(valeur);
+
+        // La saisie a pu changer pendant la recherche
+        if(champPhoto.value.trim()!==valeur) return;
+
+        if(autre){
+
+            afficherAidePhoto(
+                `Aucun fichier à ce nom exact, mais « ${autre.split("/").pop()} » existe : ` +
+                `l'extension (.jpg, .jpeg, .png, .webp) doit être identique à celle du fichier.`,
+                true
+            );
+
+            btnCorrigerPhoto.textContent = `Utiliser ${autre.split("/").pop()}`;
+            btnCorrigerPhoto.dataset.chemin = autre;
+            btnCorrigerPhoto.hidden = false;
+
+            return;
+
+        }
+
+        // Adresse exacte demandée au navigateur : on peut la copier dans un
+        // nouvel onglet pour vérifier si le fichier est servi
+        const adresse = new URL(valeur, location.href).href;
+
+        afficherAidePhoto(
+            "Image introuvable. Vérifie que le fichier est bien dans le dossier " +
+            "assets/images du projet, avec exactement ce nom et cette extension " +
+            "(.jpg, .jpeg et .webp sont des fichiers différents), et que l'admin est " +
+            "ouverte depuis le serveur local du projet." +
+            (location.protocol==="file:"
+                ? " ATTENTION : l'admin est ouverte directement depuis le disque (file://) ; lance plutôt le serveur local décrit dans le README."
+                : "") +
+            ` Adresse testée : ${adresse}`,
+            true
+        );
+
+    };
+
+    apercuPhoto.src = urlSansCache(valeur);
+
+}
+
+// Ajoute un paramètre unique à l'adresse pour ne jamais afficher une ancienne
+// réponse mémorisée (par le navigateur ou un service worker), notamment un
+// "introuvable" enregistré avant que le fichier soit déposé dans assets/images.
+function urlSansCache(chemin){
+
+    if(/^(data|blob):/i.test(chemin)) return chemin;
+
+    return chemin + (chemin.includes("?") ? "&" : "?") + "verif=" + Date.now();
+
+}
+
+// Teste si une image se charge à cette adresse
+function imageExiste(chemin){
+
+    return new Promise(resoudre=>{
+        const test = new Image();
+        test.onload = ()=>resoudre(true);
+        test.onerror = ()=>resoudre(false);
+        test.src = urlSansCache(chemin);
+    });
+
+}
+
+// Cherche le même nom de fichier avec une autre extension d'image
+async function chercherAutreExtension(chemin){
+
+    const m = chemin.match(/^(.*)\.([a-zA-Z0-9]+)$/);
+
+    if(!m) return null;
+
+    for(const ext of ["webp","jpg","jpeg","png"]){
+
+        if(ext===m[2].toLowerCase()) continue;
+
+        const candidat = `${m[1]}.${ext}`;
+
+        if(await imageExiste(candidat)) return candidat;
+
+    }
+
+    return null;
+
+}
+
+// Charge, redimensionne et réencode l'image au format demandé
+// (image/webp ou image/jpeg)
+function preparerPhoto(fichier, typeSortie){
+
+    return new Promise((resoudre, rejeter)=>{
+
+        const lecteur = new FileReader();
+
+        lecteur.onerror = ()=>rejeter(new Error("Lecture du fichier impossible"));
+
+        lecteur.onload = ()=>{
+
+            const img = new Image();
+
+            img.onerror = ()=>rejeter(new Error("Image invalide ou illisible"));
+
+            img.onload = ()=>{
+
+                const ratio = Math.min(1, TAILLE_MAX_PHOTO/Math.max(img.width, img.height));
+                const largeur = Math.round(img.width*ratio);
+                const hauteur = Math.round(img.height*ratio);
+
+                const canvas = document.createElement("canvas");
+                canvas.width = largeur;
+                canvas.height = hauteur;
+
+                const ctx = canvas.getContext("2d");
+
+                // Fond blanc : une image transparente deviendrait noire en JPEG
+                if(typeSortie==="image/jpeg"){
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fillRect(0, 0, largeur, hauteur);
+                }
+
+                ctx.drawImage(img, 0, 0, largeur, hauteur);
+
+                canvas.toBlob(blob=>{
+                    if(blob){
+                        resoudre(blob);
+                    }else{
+                        rejeter(new Error("Conversion de l'image impossible"));
+                    }
+                }, typeSortie, QUALITE_PHOTO);
+
+            };
+
+            img.src = lecteur.result;
+
+        };
+
+        lecteur.readAsDataURL(fichier);
+
+    });
+
+}
+
+document.getElementById("btnChoisirPhoto").addEventListener("click", ()=>{
+    champPhotoFichier.click();
+});
+
+champPhotoFichier.addEventListener("change", async ()=>{
+
+    const fichier = champPhotoFichier.files[0];
+
+    if(!fichier) return;
+
+    if(!fichier.type.startsWith("image/")){
+        afficherAidePhoto("Ce fichier n'est pas une image.", true);
+        champPhotoFichier.value = "";
+        return;
+    }
+
+    try{
+
+        afficherAidePhoto("Préparation de la photo…");
+
+        // On garde le format WebP s'il est choisi ; JPEG et PNG deviennent des JPEG
+        const typeSortie = fichier.type==="image/webp" ? "image/webp" : "image/jpeg";
+        const blob = await preparerPhoto(fichier, typeSortie);
+
+        // Certains navigateurs ne savent pas encoder en WebP : l'extension
+        // suit alors le format réellement obtenu
+        const extension = blob.type==="image/webp" ? "webp" : blob.type==="image/png" ? "png" : "jpg";
+        const nom = nomFichierPhoto() + "." + extension;
+
+        // Téléchargement du fichier redimensionné, à déposer dans assets/images
+        const url = URL.createObjectURL(blob);
+        const lien = document.createElement("a");
+        lien.href = url;
+        lien.download = nom;
+        document.body.appendChild(lien);
+        lien.click();
+        document.body.removeChild(lien);
+        setTimeout(()=>URL.revokeObjectURL(url), 10000);
+
+        champPhoto.value = "assets/images/" + nom;
+
+        // Aperçu immédiat depuis le fichier choisi (le chemin ne marchera
+        // qu'une fois le fichier déposé dans assets/images)
+        apercuPhoto.onerror = null;
+        apercuPhoto.onload = ()=>{ apercuPhoto.hidden = false; };
+        apercuPhoto.src = URL.createObjectURL(blob);
+
+        afficherAidePhoto(
+            `Photo préparée (${Math.round(blob.size/1024)} Ko) et téléchargée sous le nom « ${nom} ». ` +
+            `Dépose ce fichier dans le dossier assets/images du projet, puis publie le site.`
+        );
+
+    }catch(erreur){
+
+        afficherAidePhoto("Impossible de traiter cette image : " + erreur.message, true);
+
+    }finally{
+
+        champPhotoFichier.value = "";
+
+    }
+
+});
+
+btnCorrigerPhoto.addEventListener("click", ()=>{
+
+    champPhoto.value = btnCorrigerPhoto.dataset.chemin;
+    mettreAJourApercuPhoto();
+
+});
+
+document.getElementById("btnRetirerPhoto").addEventListener("click", ()=>{
+
+    champPhoto.value = "";
+    mettreAJourApercuPhoto();
+
+});
+
+champPhoto.addEventListener("change", mettreAJourApercuPhoto);
+champPhoto.addEventListener("input", debounce(mettreAJourApercuPhoto, 400));
+
 document.getElementById("btnCopierLundi").addEventListener("click", ()=>{
 
     const ligneLundi = conteneurHoraires.querySelector('[data-jour="lundi"]');
@@ -704,6 +1008,8 @@ function viderFormLieu(){
     formLieu.reset();
     document.getElementById("lieuId").value = "";
     idLieuEnEdition = null;
+
+    mettreAJourApercuPhoto();
 
     remplirHorairesForm(null);
     mettreAJourSelectSousCategorie();
@@ -826,6 +1132,7 @@ function modifierLieu(id){
     document.getElementById("lieuSite").value = lieu.site ?? "";
     document.getElementById("lieuDescription").value = lieu.description ?? "";
     document.getElementById("lieuPhoto").value = lieu.photo ?? "";
+    mettreAJourApercuPhoto();
     document.getElementById("lieuDateFin").value = lieu.dateFin ?? "";
     document.getElementById("lieuLatitude").value = lieu.latitude;
     document.getElementById("lieuLongitude").value = lieu.longitude;
@@ -1792,6 +2099,68 @@ function aDesHorairesValides(horaires){
 
 }
 
+// Repère les créneaux d'horaires qui ont toutes les chances d'être des erreurs
+// de saisie (souvent une heure laissée à 00:00 par défaut). Renvoie la liste
+// des anomalies sous la forme "lundi 14:00-12:00".
+function incoherencesHoraires(horaires){
+
+    const problemes = [];
+
+    if(!horaires) return problemes;
+
+    const enMinutes = h => {
+        const [hh, mm] = h.split(":").map(Number);
+        return hh*60+mm;
+    };
+
+    JOURS_SEMAINE.forEach(jour=>{
+
+        const plages = [];
+
+        (horaires[jour.cle] ?? []).forEach(c=>{
+
+            const [debut, fin] = c.split("-");
+
+            // Créneau vide ou 24h/24 : rien à contrôler
+            if(!debut || !fin || debut===fin || c==="00:00-23:59") return;
+
+            const minDebut = enMinutes(debut);
+            let minFin = enMinutes(fin);
+
+            if(fin==="23:59"){
+                minFin = 24*60;
+            }else if(minFin<minDebut){
+                minFin += 24*60;   // passe minuit
+            }
+
+            const suspect =
+                (minFin-minDebut) > 16*60 ||                        // ouvert plus de 16 h d'affilée
+                (fin==="00:00" && minDebut<12*60) ||                // ouvre le matin, ferme "à minuit"
+                (debut==="00:00" && minFin>6*60);                   // ouvre à minuit, ferme après 6 h
+
+            if(suspect){
+                problemes.push(`${jour.cle} ${c}`);
+            }
+
+            plages.push({ minDebut, minFin, c });
+
+        });
+
+        // Deux créneaux du même jour qui se chevauchent
+        plages.sort((a,b)=> a.minDebut-b.minDebut);
+
+        for(let i=1;i<plages.length;i++){
+            if(plages[i].minDebut < plages[i-1].minFin){
+                problemes.push(`${jour.cle} ${plages[i-1].c} / ${plages[i].c}`);
+            }
+        }
+
+    });
+
+    return [...new Set(problemes)];
+
+}
+
 // "pour" : types de fiches concernés par le critère
 const CRITERES_FICHE = [
     {
@@ -1807,6 +2176,17 @@ const CRITERES_FICHE = [
         ok: l => l.estEvenement
             ? texteRenseigne(l.horairesEvenement)
             : aDesHorairesValides(l.horaires)
+    },
+    {
+        cle:"horairesIncoherents", label:"Horaires incohérents", essentiel:true, pour:["lieu"],
+        libellePastille:"Horaires incohérents",
+        // Ne concerne que les lieux qui ont des horaires saisis
+        applicable: l => aDesHorairesValides(l.horaires),
+        ok: l => incoherencesHoraires(l.horaires).length===0,
+        detail: l => {
+            const liste = incoherencesHoraires(l.horaires);
+            return liste.slice(0,2).join(", ") + (liste.length>2 ? ` +${liste.length-2}` : "");
+        }
     },
     {
         cle:"description", label:"Description", essentiel:true, pour:["lieu","evenement"],
@@ -1847,6 +2227,7 @@ function evaluerFiche(fiche){
     let points = 0;
     let total = 0;
     const manquants = [];
+    const details = {};
 
     criteres.forEach(c=>{
 
@@ -1858,6 +2239,7 @@ function evaluerFiche(fiche){
             points += poids;
         }else{
             manquants.push(c);
+            if(c.detail) details[c.cle] = c.detail(fiche);
         }
 
     });
@@ -1866,6 +2248,7 @@ function evaluerFiche(fiche){
         fiche,
         type,
         manquants,
+        details,
         score: total===0 ? 100 : Math.round(points/total*100),
         essentielManquant: manquants.some(c => c.essentiel)
     };
@@ -1941,7 +2324,7 @@ function rafraichirRapport(){
         bouton.type = "button";
         bouton.className = "pastilleCritere" + (actif ? " actif" : "");
         bouton.setAttribute("aria-pressed", String(actif));
-        bouton.textContent = `${critere.essentiel ? "⚠ " : ""}Sans ${critere.label.toLowerCase()} — ${nb}`;
+        bouton.textContent = `${critere.essentiel ? "⚠ " : ""}${critere.libellePastille ?? "Sans " + critere.label.toLowerCase()} — ${nb}`;
         bouton.disabled = nb===0 && !actif;
 
         bouton.addEventListener("click", ()=>{
@@ -2028,7 +2411,7 @@ function rafraichirRapport(){
                 <div class="manquants">
                     ${e.manquants.map(c => `
                         <span class="etiquetteManquant ${c.essentiel ? "essentiel" : ""}">
-                            ${c.essentiel ? "⚠ " : ""}${echapperHtml(c.label)}
+                            ${c.essentiel ? "⚠ " : ""}${echapperHtml(c.label)}${e.details[c.cle] ? ` : ${echapperHtml(e.details[c.cle])}` : ""}
                         </span>
                     `).join("")}
                 </div>
@@ -2085,7 +2468,7 @@ document.getElementById("btnExporterRapport").addEventListener("click", ()=>{
             adresse: e.fiche.adresse ?? "",
             telephone: e.fiche.telephone ?? "",
             score: e.score + " %",
-            essentiels_manquants: e.manquants.filter(c=>c.essentiel).map(c=>c.label).join(", "),
+            essentiels_manquants: e.manquants.filter(c=>c.essentiel).map(c=>c.label + (e.details[c.cle] ? ` (${e.details[c.cle]})` : "")).join(", "),
             autres_manquants: e.manquants.filter(c=>!c.essentiel).map(c=>c.label).join(", ")
         }));
 

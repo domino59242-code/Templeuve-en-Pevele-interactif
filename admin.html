@@ -142,6 +142,28 @@
                 <label for="lieuPhoto">Photo (chemin ou URL)</label>
                 <input id="lieuPhoto" type="text" placeholder="assets/images/mon-lieu.jpg">
 
+                <div class="blocPhotoLieu">
+
+                    <input id="lieuPhotoFichier" type="file"
+                           accept="image/jpeg,image/png,image/webp" hidden>
+
+                    <button type="button" id="btnChoisirPhoto" class="btnSecondaire">
+                        📷 Choisir une photo…
+                    </button>
+
+                    <button type="button" id="btnRetirerPhoto" class="btnSecondaire">
+                        ✕ Retirer la photo
+                    </button>
+
+                    <p id="aidePhotoLieu" class="aidePhotoLieu" role="status" hidden></p>
+
+                    <button type="button" id="btnCorrigerPhoto" class="btnSecondaire" hidden></button>
+
+                    <img id="apercuPhotoLieu" class="apercuPhotoLieu"
+                         alt="Aperçu de la photo" hidden>
+
+                </div>
+
                 <label for="lieuDateFin">
                     🎉 Date de fin (uniquement pour un événement temporaire — le
                     lieu disparaît automatiquement du site après cette date)
@@ -155,6 +177,14 @@
                 <button type="button" id="btnCopierLundi" class="btnSecondaire btnPleineLargeur">
                     📋 Copier "Lundi" sur tous les autres jours
                 </button>
+
+                <p class="astuce">
+                    💡 <b>Sans coupure le midi</b> : remplis seulement « Matin »
+                    (ex. 09:00 → 19:00) et laisse « A.-midi » vide.<br>
+                    <b>Ouvert 24h/24</b> : saisis 00:00 → 23:59 (affiché « 24h/24 »).<br>
+                    <b>Après minuit</b> : saisis l'heure réelle de fermeture
+                    (ex. 18:00 → 02:00), le lieu reste ouvert après minuit.
+                </p>
 
                 <div class="ligneCoords">
 
@@ -605,6 +635,13 @@ crossorigin="">
         navigator.serviceWorker.getRegistrations().then(registrations=>{
             registrations.forEach(reg=>reg.unregister());
         });
+    }
+
+    // ... et on vide ses caches : ils pourraient contenir d'anciennes
+    // réponses (par exemple une image "introuvable" mémorisée avant que le
+    // fichier ne soit déposé dans assets/images).
+    if(estEnLocal && "caches" in window){
+        caches.keys().then(cles=>cles.forEach(cle=>caches.delete(cle)));
     }
 </script>
 
