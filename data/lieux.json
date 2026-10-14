@@ -56,15 +56,30 @@
         "mail": "",
         "site": "",
         "description": "Église historique de la commune.",
-        "photo": "",
+        "photo": "assets/images/eglise-saint-martin.webp",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
+            "lundi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
             "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mercredi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "jeudi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "vendredi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
+            "samedi": [
+                "08:30-12:30",
+                "13:30-17:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.526935,
@@ -460,13 +475,16 @@
     {
         "id": 15,
         "nom": "Ciné Pévèle",
+        "vedette": false,
         "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "3, Place de l'Etoile",
         "telephone": "",
         "mail": "",
-        "site": "",
+        "site": "https://www.cinepevele.fr/#home",
         "description": "Cinéma 3 salles",
-        "photo": "",
+        "photo": "assets/images/cine-pevele.webp",
+        "dateFin": "",
         "horaires": {
             "lundi": [],
             "mardi": [],
@@ -1736,12 +1754,13 @@
         "nom": "Espace socio culturel",
         "vedette": false,
         "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "75, rue de Roubaix",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Espace socio cilturel",
-        "photo": "",
+        "photo": "assets/images/espace-socio-culturel.webp",
         "dateFin": "",
         "horaires": {
             "lundi": [],
@@ -2328,18 +2347,33 @@
         "categorie": "Professions spécialisées",
         "sousCategorie": "",
         "adresse": "11 bis, rue Neuve",
-        "telephone": "",
-        "mail": "",
-        "site": "",
+        "telephone": "07 68 34 01 64",
+        "mail": "eva.leraut@avocat.fr",
+        "site": "https://www.avocats-lille.com/fr/annuaire/tableau/id-36-leraut-eva",
         "description": "Avocate",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-17:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -4203,31 +4237,6 @@
         "longitude": 3.189977
     },
     {
-        "id": 149,
-        "nom": "Le 11 en Pévèle",
-        "vedette": false,
-        "categorie": "Service",
-        "sousCategorie": "",
-        "adresse": "11, rue de Roubaix",
-        "telephone": "",
-        "mail": "",
-        "site": "",
-        "description": "Chambres d'hôtes",
-        "photo": "",
-        "dateFin": "",
-        "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
-        },
-        "latitude": 50.527054,
-        "longitude": 3.170547
-    },
-    {
         "id": 151,
         "nom": "Crombet Jean-Michel",
         "vedette": false,
@@ -4878,17 +4887,31 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Playground",
-        "photo": "",
+        "description": "Playground. Inauguré en mai 2024, le nouveau city-stade a été installé dans le parc du château Baratte et est le reflet d’un engagement municipal qui vise à offrir à la jeunesse un cadre de vie dynamique, sain et stimulant.",
+        "photo": "assets/images/city-stade.webp",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
         "latitude": 50.533944,
         "longitude": 3.174311
