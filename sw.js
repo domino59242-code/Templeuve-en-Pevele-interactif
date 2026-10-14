@@ -9,7 +9,7 @@
  * site pour forcer les visiteurs à recharger les nouveaux fichiers.
  ******************************************************************************/
 
-const NOM_CACHE = "templeuve-interactive-v11.3";
+const NOM_CACHE = "templeuve-interactive-v11.6";
 
 const FICHIERS_A_METTRE_EN_CACHE = [
     "./",
@@ -77,12 +77,19 @@ self.addEventListener("fetch", (evenement)=>{
 
             return fetch(evenement.request).then(reponseReseau=>{
 
-                // Met aussi en cache les nouveaux fichiers rencontrés
-                const copie = reponseReseau.clone();
+                // Met aussi en cache les nouveaux fichiers rencontrés, mais
+                // seulement les réponses réussies : mémoriser une erreur (404
+                // pour une image pas encore publiée, par exemple) la ferait
+                // reservir pour toujours, même une fois le fichier en ligne.
+                if(reponseReseau.ok && reponseReseau.type==="basic"){
 
-                caches.open(NOM_CACHE).then(cache=>{
-                    cache.put(evenement.request, copie);
-                });
+                    const copie = reponseReseau.clone();
+
+                    caches.open(NOM_CACHE).then(cache=>{
+                        cache.put(evenement.request, copie);
+                    });
+
+                }
 
                 return reponseReseau;
 
