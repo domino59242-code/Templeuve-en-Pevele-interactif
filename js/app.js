@@ -216,6 +216,44 @@ function estOuvertMaintenant(horaires){
 
 }
 
+// Bloc "Horaires" de la fiche d'un lieu :
+// - le tableau hebdomadaire quand des horaires sont saisis ;
+// - la précision libre du lieu (« Sur rendez-vous », « Accès libre »...)
+//   sous le tableau, ou seule quand il n'y a pas de tableau ;
+// - sinon la mention « Horaires non renseignés », pour qu'on ne confonde
+//   pas « horaires inconnus » et « pas de bloc horaires ».
+// Les événements n'ont pas ce bloc : ils ont leur propre ligne d'horaire.
+function blocHorairesFiche(lieu){
+
+    if(lieu.estEvenement) return "";
+
+    const note = (lieu.horairesNote ?? "").trim();
+    const avecTableau = aDesHoraires(lieu.horaires);
+
+    if(!avecTableau && note===""){
+
+        return `
+            <hr>
+
+            <div class="ficheSousTitre">🕒 Horaires</div>
+
+            <div class="horairesNonRenseignes">Horaires non renseignés</div>
+        `;
+
+    }
+
+    return `
+        <hr>
+
+        <div class="ficheSousTitre">🕒 ${avecTableau ? "Horaires d'ouverture" : "Horaires"}</div>
+
+        ${avecTableau ? tableauHorairesHtml(lieu.horaires) : ""}
+
+        ${note!=="" ? `<div class="noteHorairesFiche">${echapperHtml(note)}</div>` : ""}
+    `;
+
+}
+
 // Construit le HTML du tableau hebdomadaire des horaires
 function tableauHorairesHtml(horaires){
 
@@ -1060,19 +1098,7 @@ function afficherFiche(lieu){
                 ""
             }
 
-            ${
-                aDesHoraires(lieu.horaires)
-                ?
-                `
-                <hr>
-
-                <div class="ficheSousTitre">🕒 Horaires d'ouverture</div>
-
-                ${tableauHorairesHtml(lieu.horaires)}
-                `
-                :
-                ""
-            }
+            ${blocHorairesFiche(lieu)}
 
         </div>
 

@@ -2018,3 +2018,22 @@ select{
     transform:scale(1.15);
 
 }
+
+
+/* Horaires : mention "non renseignés" et précision libre du lieu */
+.horairesNonRenseignes{
+
+    font-size:14px;
+    font-style:italic;
+    color:var(--couleur-texte-att);
+
+}
+
+.noteHorairesFiche{
+
+    margin-top:8px;
+    font-size:14px;
+    font-style:italic;
+    color:var(--couleur-texte);
+
+}
