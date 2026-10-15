@@ -772,23 +772,32 @@ select{
    Photo du lieu
 =========================== */
 
+/* La photo est toujours affichée en entier (jamais rognée) : elle est
+   réduite pour tenir dans le cadre en gardant ses proportions, et centrée
+   sur un fond neutre quand elle ne remplit pas toute la largeur. */
 .fichePhoto{
 
     margin:-15px -15px 12px -15px;
+
+    background:#eef0f3;
+    border-radius:8px 8px 0 0;
+    overflow:hidden;
 
 }
 
 .fichePhoto img{
 
-    width:100%;
-
-    max-height:160px;
-
-    object-fit:cover;
-
     display:block;
 
-    border-radius:8px 8px 0 0;
+    width:auto;
+    max-width:100%;
+
+    height:auto;
+    max-height:220px;
+
+    margin:0 auto;
+
+    object-fit:contain;
 
 }
 
@@ -1523,6 +1532,14 @@ select{
        est au-dessus, donc on ne remonte pas la photo */
     #sectionDetails .fichePhoto{
         margin:0 -16px 12px;
+        border-radius:0;
+    }
+
+    /* Sur téléphone, la photo ne doit pas dépasser environ le tiers de la
+       fiche réduite pour laisser voir le titre et les informations */
+    #sectionDetails .fichePhoto img{
+        max-height:240px;
+        max-height:min(240px, 30vh);
     }
 
     /* Pendant que la fiche est ouverte, la carte occupe tout l'écran
