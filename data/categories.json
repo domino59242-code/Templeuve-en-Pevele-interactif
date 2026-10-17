@@ -13,7 +13,8 @@
             "profession auxiliaire",
             "Pharmacie",
             "Médecin",
-            "Dentiste"
+            "Dentiste",
+            "Pluridisciplinaire"
         ]
     },
     {
@@ -54,7 +55,10 @@
             "Aide sociale",
             "Logement",
             "Education",
-            "Animaux"
+            "Animaux",
+            "Pompes funèbres",
+            "Divers autres",
+            "Enfance"
         ]
     },
     {

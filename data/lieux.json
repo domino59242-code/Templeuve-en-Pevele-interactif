@@ -100,8 +100,7 @@
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "06:00-13:00",
-                "13:20-20:00"
+                "06:00-13:00"
             ],
             "mardi": [
                 "06:00-13:00",
@@ -120,13 +119,10 @@
                 "13:20-20:00"
             ],
             "samedi": [
-                "09:00-12:30",
+                "09:00-12:00",
                 "13:45-17:15"
             ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:20-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.528711,
         "longitude": 3.175672
@@ -190,6 +186,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non renseignés",
         "latitude": 50.526772,
         "longitude": 3.168938
     },
@@ -242,21 +239,36 @@
     {
         "id": 7,
         "nom": "Tertous",
+        "vedette": false,
         "categorie": "Restaurant/bar",
+        "sousCategorie": "",
         "adresse": "2, Rue Demesmay",
-        "telephone": "03 20 59 31 88",
-        "mail": "",
-        "site": "",
-        "description": "Bar restaurant FDJ PMU",
+        "telephone": "06 87 79 23 24",
+        "mail": "tertous59242@gmail.com",
+        "site": "https://www.facebook.com/p/Tertous-61591797328362/",
+        "description": "Bar restaurant FDJ PMU\nTERTOUS vous accueille du mardi au dimanche midi pour un verre entre amis, un café, un cookie 🍪 un cocktail🍹ou pour déguster de gourmandes galettes & crêpes dans son espace restaurant à la déco revisitée.",
         "photo": "",
+        "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "mardi": [
+                "08:00-19:30"
+            ],
+            "mercredi": [
+                "08:00-19:30"
+            ],
+            "jeudi": [
+                "08:00-19:30"
+            ],
+            "vendredi": [
+                "08:00-22:00"
+            ],
+            "samedi": [
+                "08:00-22:00"
+            ],
+            "dimanche": [
+                "08:00-13:00"
+            ]
         },
         "latitude": 50.526709,
         "longitude": 3.168678
@@ -264,21 +276,44 @@
     {
         "id": 8,
         "nom": "Pévèle Istanbul",
+        "vedette": false,
         "categorie": "Restaurant/bar",
+        "sousCategorie": "",
         "adresse": "5, Rue Demesmay",
         "telephone": "03 20 41 12 64",
         "mail": "",
-        "site": "",
+        "site": "https://www.instagram.com/pevele_istanbul/",
         "description": "Kebabs - Hamburgers",
         "photo": "",
+        "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "11:00-14:00",
+                "18:00-21:30"
+            ],
+            "mardi": [
+                "11:00-14:00",
+                "18:00-21:30"
+            ],
+            "mercredi": [
+                "11:00-14:00",
+                "18:00-21:30"
+            ],
+            "jeudi": [
+                "11:00-14:00",
+                "18:00-21:30"
+            ],
+            "vendredi": [
+                "11:00-14:00",
+                "18:00-22:00"
+            ],
+            "samedi": [
+                "11:00-14:00",
+                "18:00-22:00"
+            ],
+            "dimanche": [
+                "18:00-21:30"
+            ]
         },
         "latitude": 50.5265,
         "longitude": 3.168499
@@ -291,18 +326,33 @@
         "sousCategorie": "",
         "adresse": "12, Pl du Gl de Gaulle",
         "telephone": "03 20 59 80 24",
-        "mail": "",
-        "site": "",
+        "mail": "rose.caffe@orange.fr",
+        "site": "https://www.facebook.com/lerosecaffe/?locale=fr_FR",
         "description": "Cuisine italienne",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mardi": [
+                "11:30-13:30",
+                "17:30-21:30"
+            ],
+            "mercredi": [
+                "11:30-13:30",
+                "17:30-21:30"
+            ],
+            "jeudi": [
+                "11:30-13:30",
+                "17:30-21:30"
+            ],
+            "vendredi": [
+                "11:30-13:30",
+                "17:30-21:30"
+            ],
+            "samedi": [
+                "11:30-13:30",
+                "17:30-21:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.526575,
@@ -357,21 +407,34 @@
     {
         "id": 11,
         "nom": "Rillons",
+        "vedette": false,
         "categorie": "Restaurant/bar",
+        "sousCategorie": "",
         "adresse": "7, Rue Grande campagne",
         "telephone": "03 20 64 25 60",
         "mail": "",
-        "site": "",
+        "site": "https://www.rillons.fr/",
         "description": "Restaurant traditionnel",
         "photo": "",
+        "dateFin": "",
         "horaires": {
-            "lundi": [],
+            "lundi": [
+                "12:00-22:00"
+            ],
             "mardi": [],
             "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "jeudi": [
+                "12:00-22:00"
+            ],
+            "vendredi": [
+                "12:00-22:00"
+            ],
+            "samedi": [
+                "12:00-22:00"
+            ],
+            "dimanche": [
+                "12:00-17:00"
+            ]
         },
         "latitude": 50.527075,
         "longitude": 3.175064
@@ -390,13 +453,27 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "16:00-23:00"
+            ],
+            "mardi": [
+                "16:00-23:00"
+            ],
+            "mercredi": [
+                "16:00-23:00"
+            ],
+            "jeudi": [
+                "16:00-23:00"
+            ],
+            "vendredi": [
+                "16:00-23:00"
+            ],
+            "samedi": [
+                "16:00-23:00"
+            ],
+            "dimanche": [
+                "16:00-23:00"
+            ]
         },
         "latitude": 50.526977,
         "longitude": 3.175109
@@ -454,19 +531,31 @@
         "categorie": "Restaurant/bar",
         "sousCategorie": "",
         "adresse": "2, Place de l'Etoile",
-        "telephone": "",
+        "telephone": "03 20 59 10 10",
         "mail": "",
         "site": "",
         "description": "Restauration rapide",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "11:00-21:00"
+            ],
+            "mardi": [
+                "11:00-21:00"
+            ],
+            "mercredi": [
+                "11:00-21:00"
+            ],
+            "jeudi": [
+                "11:00-21:00"
+            ],
+            "vendredi": [
+                "11:00-21:00"
+            ],
+            "samedi": [
+                "11:00-21:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.524675,
@@ -494,49 +583,85 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Selon les programmations",
         "latitude": 50.524173,
         "longitude": 3.171119
     },
     {
         "id": 16,
         "nom": "Parc d'Anchin",
+        "vedette": false,
         "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "11, rue de Grande campagne",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Parc avec jeux enfants",
         "photo": "",
+        "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
+        "horairesNote": "Accès libre",
         "latitude": 50.525804,
         "longitude": 3.174169
     },
     {
         "id": 17,
         "nom": "Le bois d'Elise",
+        "vedette": false,
         "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "Rue de Fretin",
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Bois",
+        "description": "Il a été décidé de baptiser poétiquement ce bois « Le Bois d’Élise » en référence à fille adoptive de Gaston DUBUS, ancien maire de la commune, Elise DUBREUCQ.",
         "photo": "",
+        "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
         "latitude": 50.528934,
         "longitude": 3.16346
@@ -555,35 +680,67 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
+        "horairesNote": "Accès libre",
         "latitude": 50.53291,
         "longitude": 3.173649
     },
     {
         "id": 19,
         "nom": "L'Espace Vers",
+        "vedette": false,
         "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "Rue de Pévèle",
         "telephone": "",
         "mail": "",
         "site": "",
         "description": "Jardin participatif",
         "photo": "",
+        "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
         "latitude": 50.521391,
         "longitude": 3.177942
@@ -591,13 +748,16 @@
     {
         "id": 20,
         "nom": "L'Etang d'Huquinville",
+        "vedette": false,
         "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
         "adresse": "29, rue d'Huquinville",
-        "telephone": "",
+        "telephone": "06 28 76 32 94",
         "mail": "",
         "site": "",
-        "description": "Parc - Pêche",
+        "description": "Parc - Pêche\nN'hésitez pas à contacter Monsieur Degand au 06.28.76.32.94 pour toute demande d'adhésion :\n- 30€ pour les Templeuvois (avec présentation d'un justificatif de domicile et la remise d'une photo)\n- 45€ pour les extérieurs (avec parrainage).\n✅ Il est également ouvert au public pour balades et pique-niques (uniquement en présence des pêcheurs).\nJusque fin Octobre horaires normaux : 7h30/12h30 et ou 13h/18h. ‼️En novembre, les étangs ne seront ouverts que le week-end.",
         "photo": "",
+        "dateFin": "",
         "horaires": {
             "lundi": [],
             "mardi": [],
@@ -607,6 +767,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqués",
         "latitude": 50.511557,
         "longitude": 3.196305
     },
@@ -624,12 +785,30 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:30-12:30",
+                "14:00-19:30"
+            ],
+            "mardi": [
+                "09:30-12:30",
+                "14:00-19:30"
+            ],
+            "mercredi": [
+                "09:30-12:30",
+                "14:00-19:30"
+            ],
+            "jeudi": [
+                "09:30-12:30",
+                "14:00-19:30"
+            ],
+            "vendredi": [
+                "09:30-12:30",
+                "14:00-19:30"
+            ],
+            "samedi": [
+                "09:00-12:30",
+                "14:00-19:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.526972,
@@ -637,24 +816,42 @@
     },
     {
         "id": 23,
-        "nom": "Van Triempont",
+        "nom": "Pharmacie Van Triempont",
         "vedette": false,
         "categorie": "Santé",
         "sousCategorie": "Pharmacie",
         "adresse": "11, rue du Maresquel",
         "telephone": "03 20 59 31 66",
-        "mail": "",
-        "site": "",
+        "mail": "pharmacie.vantriempont@offisecure.com",
+        "site": "https://pharmacie-van-triempont-templeuve.giropharm.fr/",
         "description": "Pharmacie",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "08:00-13:00",
+                "14:00-20:00"
+            ],
+            "mardi": [
+                "08:00-13:00",
+                "14:00-20:00"
+            ],
+            "mercredi": [
+                "08:00-13:00",
+                "14:00-20:00"
+            ],
+            "jeudi": [
+                "08:00-13:00",
+                "14:00-20:00"
+            ],
+            "vendredi": [
+                "08:00-13:00",
+                "14:00-20:00"
+            ],
+            "samedi": [
+                "08:00-13:00",
+                "14:00-19:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.52414,
@@ -682,6 +879,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.524633,
         "longitude": 3.176163
     },
@@ -699,12 +897,26 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
+            "lundi": [
+                "08:30-12:00",
+                "13:45-16:15"
+            ],
+            "mardi": [
+                "08:30-12:00",
+                "13:45-16:15"
+            ],
             "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "jeudi": [
+                "08:30-12:00",
+                "13:45-16:15"
+            ],
+            "vendredi": [
+                "08:30-12:00",
+                "13:45-16:15"
+            ],
+            "samedi": [
+                "08:30-12:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.529491,
@@ -717,19 +929,33 @@
         "categorie": "Service",
         "sousCategorie": "Education",
         "adresse": "1, rue Henriette Gerekens",
-        "telephone": "",
+        "telephone": "03 20 59 30 94",
         "mail": "",
         "site": "",
-        "description": "Ecole privée catholique",
+        "description": "Ecole privée catholique.\nL’école Saint-Martin est une école privée catholique sous contrat avec l’État, située au cœur de la Pévèle.L'établissement compte 8 classes : 3 classes maternelles et 5 classes élémentaires.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
+            "lundi": [
+                "09:00-12:00",
+                "13:30-16:30"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "13:30-16:30"
+            ],
             "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "jeudi": [
+                "09:00-12:00",
+                "13:30-16:30"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "13:30-16:30"
+            ],
+            "samedi": [
+                "09:00-12:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.525849,
@@ -742,19 +968,33 @@
         "categorie": "Service",
         "sousCategorie": "Education",
         "adresse": "Rue Chateaubriand",
-        "telephone": "",
+        "telephone": "03 20 64 56 79",
         "mail": "",
         "site": "",
         "description": "Ecole élémentaire publique",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
+            "lundi": [
+                "07:00-08:20",
+                "16:15-18:45"
+            ],
+            "mardi": [
+                "07:00-08:20",
+                "16:15-18:45"
+            ],
             "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "jeudi": [
+                "07:00-08:20",
+                "16:15-18:45"
+            ],
+            "vendredi": [
+                "07:00-08:20",
+                "16:15-18:45"
+            ],
+            "samedi": [
+                "07:00-08:20"
+            ],
             "dimanche": []
         },
         "latitude": 50.523169,
@@ -776,7 +1016,9 @@
         "horaires": {
             "lundi": [],
             "mardi": [],
-            "mercredi": [],
+            "mercredi": [
+                "09:00-16:00"
+            ],
             "jeudi": [],
             "vendredi": [],
             "samedi": [],
@@ -795,7 +1037,7 @@
         "telephone": "03 20 34 70 12",
         "mail": "contact.templeuve@fede59.admr.org",
         "site": "https://www.admr.org/associations/admr-templeuve",
-        "description": "services à domicile pour personnes âgées, dépendantes, handicapées",
+        "description": "services à domicile pour personnes âgées, dépendantes, handicapées.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -807,10 +1049,7 @@
                 "08:00-12:30",
                 "13:30-16:00"
             ],
-            "mercredi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "mercredi": [],
             "jeudi": [
                 "08:00-12:30",
                 "13:30-16:00"
@@ -819,14 +1058,8 @@
                 "08:00-12:30",
                 "13:30-16:00"
             ],
-            "samedi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "samedi": [],
+            "dimanche": []
         },
         "latitude": 50.528534,
         "longitude": 3.169788
@@ -838,19 +1071,31 @@
         "categorie": "Banque",
         "sousCategorie": "",
         "adresse": "41, rue de Roubaix",
-        "telephone": "",
+        "telephone": "03.28.76.98.00",
         "mail": "",
-        "site": "",
-        "description": "Agence bancaire",
+        "site": "https://agences.sg.fr/banque-assurance/particulier/agence-templeuve-id3000302968",
+        "description": "Agence bancaire. Sur rendez-vous l'aprè-midi.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-12:15"
+            ],
+            "mardi": [
+                "09:00-12:15"
+            ],
+            "mercredi": [
+                "09:00-12:15"
+            ],
+            "jeudi": [
+                "09:00-12:15"
+            ],
+            "vendredi": [
+                "09:00-12:15"
+            ],
+            "samedi": [
+                "09:00-12:45"
+            ],
             "dimanche": []
         },
         "latitude": 50.527455,
@@ -863,7 +1108,7 @@
         "categorie": "Banque",
         "sousCategorie": "",
         "adresse": "1, rue de Roubaix",
-        "telephone": "",
+        "telephone": "0 820 352 201",
         "mail": "",
         "site": "https://www.creditmutuel.fr/fr/caisse/hauts-de-france/nord/10278-02706-01",
         "description": "Agence bancaire",
@@ -874,10 +1119,7 @@
                 "08:45-12:30",
                 "13:30-18:00"
             ],
-            "mardi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "mardi": [],
             "mercredi": [
                 "08:45-12:30",
                 "13:30-18:00"
@@ -891,13 +1133,9 @@
                 "13:30-18:00"
             ],
             "samedi": [
-                "08:45-12:30",
-                "00:00-00:00"
+                "08:45-12:30"
             ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.526938,
         "longitude": 3.169844
@@ -948,17 +1186,14 @@
         "categorie": "Banque",
         "sousCategorie": "",
         "adresse": "16, place du Gl de Gaulle",
-        "telephone": "",
+        "telephone": "03 20 61 01 19",
         "mail": "",
         "site": "https://www.agences.caisse-epargne.fr/banque-assurance/templeuve-id16275059634",
         "description": "Agence bancaire",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "lundi": [],
             "mardi": [
                 "09:15-13:00",
                 "14:00-18:00"
@@ -976,13 +1211,9 @@
                 "14:00-18:00"
             ],
             "samedi": [
-                "09:15-13:00",
-                "00:00-00:00"
+                "09:15-13:00"
             ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.526647,
         "longitude": 3.1699
@@ -1055,6 +1286,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524814,
         "longitude": 3.164032
     },
@@ -1073,13 +1305,23 @@
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "09:00-00:00"
+                "09:00-17:00"
             ],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mardi": [
+                "09:00-17:00"
+            ],
+            "mercredi": [
+                "09:00-17:00"
+            ],
+            "jeudi": [
+                "09:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-17:00"
+            ],
+            "samedi": [
+                "09:00-17:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.524645,
@@ -1095,17 +1337,29 @@
         "telephone": "03 20 59 30 62",
         "mail": "entremets.creations@gmail.com",
         "site": "https://www.facebook.com/entremetscreations",
-        "description": "Boulangerie Pâtisserie Chocolatier Artisanale",
+        "description": "Boulangerie Pâtisserie Chocolatier Artisanale\nProduits frais, de saison et labellisés.\nÉquilibre, qualité et passion sont les mots qui nous représentent.\n🏆 Finaliste pour La Meilleure Boulangerie de France sur M6",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
+            "lundi": [
+                "06:45-19:00"
+            ],
+            "mardi": [
+                "06:45-19:00"
+            ],
             "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "jeudi": [
+                "06:45-19:00"
+            ],
+            "vendredi": [
+                "06:45-19:00"
+            ],
+            "samedi": [
+                "06:45-19:00"
+            ],
+            "dimanche": [
+                "07:00-13:00"
+            ]
         },
         "latitude": 50.526382,
         "longitude": 3.167296
@@ -1161,12 +1415,12 @@
         "nom": "MMA Assurance",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "1, Place du Gl de Gaulle",
         "telephone": "03 20 59 33 88",
         "mail": "",
         "site": "https://agence.mma.fr/templeuve-en-pevele/",
-        "description": "Agence d'assurances\nMercredi sur rendez-vous",
+        "description": "Agence d'assurances\nMercredi sur rendez-vous\nAgent général : Cédric Chaveroch",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -1178,10 +1432,7 @@
                 "10:00-12:00",
                 "14:00-18:00"
             ],
-            "mercredi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "mercredi": [],
             "jeudi": [
                 "10:00-12:00",
                 "14:00-18:00"
@@ -1191,13 +1442,9 @@
                 "14:00-18:00"
             ],
             "samedi": [
-                "09:00-12:00",
-                "00:00-00:00"
+                "09:00-12:00"
             ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.526556,
         "longitude": 3.168951
@@ -1211,17 +1458,31 @@
         "adresse": "3, rue Demesmay",
         "telephone": "03 20 79 22 59",
         "mail": "",
-        "site": "",
+        "site": "https://www.opticiensparconviction.fr/votre-opticien-a-templeuve-en-pevele/templeuve-optic",
         "description": "Opticien",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mardi": [
+                "09:30-12:00",
+                "14:00-19:00"
+            ],
+            "mercredi": [
+                "09:30-12:00",
+                "14:00-19:00"
+            ],
+            "jeudi": [
+                "09:30-12:00",
+                "14:00-19:00"
+            ],
+            "vendredi": [
+                "09:30-12:00",
+                "14:00-19:00"
+            ],
+            "samedi": [
+                "09:30-17:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.526553,
@@ -1278,7 +1539,7 @@
         "nom": "Autour d'un verre",
         "vedette": false,
         "categorie": "Commerce",
-        "sousCategorie": "",
+        "sousCategorie": "Alimentation",
         "adresse": "4, Place du Gl de Gaulle",
         "telephone": "09 87 54 85 57",
         "mail": "",
@@ -1320,17 +1581,34 @@
         "adresse": "14, Place du Gl de Gaulle",
         "telephone": "03 20 96 15 06",
         "mail": "",
-        "site": "",
+        "site": "https://www.orpi.com/templeuvecentre/",
         "description": "Agence immobilière",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:30-13:00",
+                "14:30-19:00"
+            ],
+            "mardi": [
+                "09:30-13:00",
+                "14:30-19:00"
+            ],
+            "mercredi": [
+                "09:30-13:00",
+                "14:30-19:00"
+            ],
+            "jeudi": [
+                "09:30-13:00",
+                "14:30-19:00"
+            ],
+            "vendredi": [
+                "09:30-13:00",
+                "14:30-19:00"
+            ],
+            "samedi": [
+                "09:30-12:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.526594,
@@ -1438,17 +1716,31 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Attraction touristique",
+        "description": "La pierre aux sorcières est une curiosité historique et locale située dans le jardin public derrière le presbytère (sur la place du Général-de-Gaulle).\n• La légende : Selon la tradition populaire, cette pierre rectangulaire gravée d'un grand « T » (un symbole en forme de Tau) aurait servi de pierre de sacrifice ou d'exposition pour les personnes accusées de sorcellerie avant de les mener à leur exécution.\n• La réalité historique : Les recherches de la Société Historique du Pays de Pévèle indiquent qu'il s'agissait en réalité d'un simple pavé ou d'une borne servant autrefois à délimiter des parcelles de terrain.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
         "latitude": 50.526665,
         "longitude": 3.1703
@@ -1458,6 +1750,7 @@
         "nom": "Paroisse des Béatitudes",
         "vedette": false,
         "categorie": "Service",
+        "sousCategorie": "Divers autres",
         "adresse": "2, rue de Roubaix",
         "telephone": "03 20 59 31 09",
         "mail": "",
@@ -1474,6 +1767,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.526782,
         "longitude": 3.170121
     },
@@ -1482,7 +1776,7 @@
         "nom": "Allianz Assurances",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "9, rue de Rouaix",
         "telephone": "03 75 83 28 00",
         "mail": "",
@@ -1492,8 +1786,7 @@
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "14:00-12:00",
-                "12:00-18:00"
+                "09:00-12:00"
             ],
             "mardi": [
                 "09:00-12:00",
@@ -1577,12 +1870,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-19:00"
+            ],
+            "mardi": [
+                "09:00-19:00"
+            ],
+            "mercredi": [
+                "09:00-19:00"
+            ],
+            "jeudi": [
+                "09:00-19:00"
+            ],
+            "vendredi": [
+                "09:00-20:00"
+            ],
+            "samedi": [
+                "09:00-17:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.526986,
@@ -1596,18 +1901,36 @@
         "sousCategorie": "",
         "adresse": "7, rue de Roubaix",
         "telephone": "03 20 59 33 55",
-        "mail": "",
-        "site": "",
-        "description": "Centre de bien-être",
+        "mail": "plaisirdessens@orange.fr",
+        "site": "https://www.institut-plaisir-des-sens.fr/",
+        "description": "Centre de bien-être.\nCornéothérapie® • Expertise de la peau • Massages • Approche holistique",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.527023,
@@ -1635,6 +1958,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.5271,
         "longitude": 3.171282
     },
@@ -1652,9 +1976,7 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [
-                "00:00-00:00"
-            ],
+            "lundi": [],
             "mardi": [
                 "06:00-19:00"
             ],
@@ -1668,8 +1990,7 @@
                 "06:00-19:00"
             ],
             "samedi": [
-                "06:00-19:00",
-                "13:00-15:00"
+                "06:00-19:00"
             ],
             "dimanche": [
                 "06:30-12:30"
@@ -1683,7 +2004,7 @@
         "nom": "Au balcon fleuri",
         "vedette": false,
         "categorie": "Commerce",
-        "sousCategorie": "",
+        "sousCategorie": "Autres commerce spécialisé",
         "adresse": "35, rue de Roubaix",
         "telephone": "03 20 59 32 47",
         "mail": "",
@@ -1692,10 +2013,7 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "lundi": [],
             "mardi": [
                 "09:30-12:30",
                 "14:30-19:00"
@@ -1713,13 +2031,9 @@
                 "14:30-19:00"
             ],
             "samedi": [
-                "09:00-12:00",
-                "00:00-00:00"
+                "09:00-12:00"
             ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.527349,
         "longitude": 3.171852
@@ -1733,17 +2047,34 @@
         "adresse": "52, rue de Roubaix",
         "telephone": "07 49 07 69 99",
         "mail": "",
-        "site": "",
+        "site": "https://www.toucherterre.fr/",
         "description": "Epicerie engagée",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:30-13:00",
+                "15:00-19:00"
+            ],
+            "mardi": [
+                "09:30-13:00",
+                "15:00-19:00"
+            ],
+            "mercredi": [
+                "09:30-13:00"
+            ],
+            "jeudi": [
+                "09:30-13:00",
+                "15:00-19:00"
+            ],
+            "vendredi": [
+                "09:30-13:00",
+                "15:00-19:00"
+            ],
+            "samedi": [
+                "09:30-13:00",
+                "15:00-18:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.528555,
@@ -1771,6 +2102,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqués",
         "latitude": 50.528756,
         "longitude": 3.173961
     },
@@ -1860,17 +2192,34 @@
         "adresse": "83, rue de Roubaix",
         "telephone": "03 20 79 21 21",
         "mail": "",
-        "site": "",
-        "description": "Magasin de matériel de construction",
+        "site": "https://www.simon-materiaux.com/",
+        "description": "Magasin de matériel de construction\nVente et la livraison de combustibles : fioul domestique, gaz, bois de chauffage, pellet\nVente de matériaux de construction et bricolage pour professionnels et particuliers\nDécoupe de bois\nLocation de matériel",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "07:30-12:00"
+            ],
+            "mardi": [
+                "07:30-12:00",
+                "13:30-18:00"
+            ],
+            "mercredi": [
+                "07:30-12:00",
+                "13:30-18:00"
+            ],
+            "jeudi": [
+                "07:30-12:00",
+                "13:30-18:00"
+            ],
+            "vendredi": [
+                "07:30-12:00",
+                "13:30-18:00"
+            ],
+            "samedi": [
+                "08:00-12:00",
+                "14:00-17:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.529393,
@@ -1881,7 +2230,7 @@
         "nom": "Association Soins Santé",
         "vedette": false,
         "categorie": "Santé",
-        "sousCategorie": "",
+        "sousCategorie": "profession auxiliaire",
         "adresse": "7, Place de la gare",
         "telephone": "06 07 51 18 00",
         "mail": "",
@@ -1910,14 +2259,8 @@
                 "08:30-12:30",
                 "13:30-18:00"
             ],
-            "samedi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "samedi": [],
+            "dimanche": []
         },
         "latitude": 50.528859,
         "longitude": 3.175084
@@ -1927,20 +2270,30 @@
         "nom": "Micro Crèche Rigolo comme la vie",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Enfance",
         "adresse": "7, Place de la gare",
         "telephone": "09 85 12 99 28",
         "mail": "",
         "site": "https://www.rigolocommelavie.org/templeuve-en-pevele/",
-        "description": "Micro crèche",
+        "description": "Idéalement implantée directement sur la place de la Gare, notre micro-crèche offre un confort d’organisation inégalé. Pour les parents empruntant le train vers Lille ou Valenciennes, elle permet une transition fluide et sans aucun détour",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "07:30-18:30"
+            ],
+            "mardi": [
+                "07:30-18:30"
+            ],
+            "mercredi": [
+                "07:30-18:30"
+            ],
+            "jeudi": [
+                "07:30-18:30"
+            ],
+            "vendredi": [
+                "07:30-18:30"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -1952,6 +2305,7 @@
         "nom": "Pistache",
         "vedette": false,
         "categorie": "Commerce",
+        "sousCategorie": "Alimentation",
         "adresse": "Place de la gare",
         "telephone": "03 20 64 26 31",
         "mail": "",
@@ -1961,11 +2315,26 @@
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mardi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "mercredi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "jeudi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "vendredi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
+            "samedi": [
+                "09:30-12:30",
+                "15:00-19:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.528256,
@@ -2022,20 +2391,35 @@
         "nom": "Pompes funèbres Puccini-Unger",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Pompes funèbres",
         "adresse": "97, rue de Roubaix",
         "telephone": "03 20 79 25 31",
         "mail": "",
-        "site": "",
+        "site": "https://www.piccini-marbrerie.fr/contact-agences/agence-de-templeuve/",
         "description": "Pompes funèbres - Marbrerie",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -2139,7 +2523,7 @@
         "nom": "CROSS Formatio,",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "6, rue d'Orchies",
         "telephone": "06 15 50 70 12",
         "mail": "contact-crossformation@gmail.com",
@@ -2156,6 +2540,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.526142,
         "longitude": 3.170016
     },
@@ -2212,7 +2597,7 @@
         "categorie": "Auto & Transport",
         "sousCategorie": "",
         "adresse": "6, rue Demesmay",
-        "telephone": "",
+        "telephone": "03 20 61 00 97",
         "mail": "",
         "site": "",
         "description": "Autoécole",
@@ -2266,6 +2651,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.525557,
         "longitude": 3.168771
     },
@@ -2322,18 +2708,33 @@
         "categorie": "Professions spécialisées",
         "sousCategorie": "",
         "adresse": "28, rue Demesmay",
-        "telephone": "",
-        "mail": "",
-        "site": "",
+        "telephone": "03 20 59 30 88",
+        "mail": "office59028.templeuve@notaires.fr",
+        "site": "https://lesage-potie.notaires.fr/",
         "description": "Etude de notaires",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-12:00",
+                "14:00-17:30"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-17:30"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-17:30"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-17:30"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-17:30"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -2402,6 +2803,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.526541,
         "longitude": 3.169289
     },
@@ -2546,7 +2948,7 @@
         "nom": "FRANA - Telecom",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "72, rue de la Baille",
         "telephone": "06 05 94 93 87",
         "mail": "",
@@ -2563,6 +2965,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqués",
         "latitude": 50.532791,
         "longitude": 3.170826
     },
@@ -2607,16 +3010,31 @@
         "adresse": "11, rue Grande campagne",
         "telephone": "03 20 59 03 03",
         "mail": "",
-        "site": "",
-        "description": "Vétérinaires",
+        "site": "https://www.veterinaires-templeuve-en-pevele.fr/",
+        "description": "Vétérinaires\nAnimaux pris en charge : Chiens et chats uniquement (pas de Nouveaux Animaux de Compagnie / NAC)",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-19:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -2645,6 +3063,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.529133,
         "longitude": 3.169511
     },
@@ -2670,6 +3089,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524312,
         "longitude": 3.167103
     },
@@ -2678,7 +3098,7 @@
         "nom": "Médivie",
         "vedette": false,
         "categorie": "Santé",
-        "sousCategorie": "",
+        "sousCategorie": "Pluridisciplinaire",
         "adresse": "11, rue du Maresquel",
         "telephone": "",
         "mail": "",
@@ -2722,6 +3142,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.525327,
         "longitude": 3.178653
     },
@@ -2747,6 +3168,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.527886,
         "longitude": 3.174321
     },
@@ -2772,6 +3194,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.529689,
         "longitude": 3.178868
     },
@@ -2824,6 +3247,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.527651,
         "longitude": 3.169008
     },
@@ -2835,18 +3259,30 @@
         "sousCategorie": "profession auxiliaire",
         "adresse": "29, rue du Maresquel",
         "telephone": "03 20 59 10 22",
-        "mail": "",
-        "site": "",
+        "mail": "kevin.verspeeten@scapartois.fr",
+        "site": "https://optique.e-leclerc.com/Shops/ShopInfos/566?srsltid=AU7gw4X8DNerWir7lns0N9NZpkZDiSJWgkit-BHjPeB6MbFDqe-LVOvR",
         "description": "Opticien",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-19:30"
+            ],
+            "mardi": [
+                "09:00-19:30"
+            ],
+            "mercredi": [
+                "09:00-19:30"
+            ],
+            "jeudi": [
+                "09:00-19:30"
+            ],
+            "vendredi": [
+                "09:00-19:30"
+            ],
+            "samedi": [
+                "09:00-19:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -2866,12 +3302,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:30-19:30"
+            ],
+            "mardi": [
+                "09:30-19:30"
+            ],
+            "mercredi": [
+                "09:30-19:30"
+            ],
+            "jeudi": [
+                "09:30-19:30"
+            ],
+            "vendredi": [
+                "09:30-19:30"
+            ],
+            "samedi": [
+                "09:30-19:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -2899,6 +3347,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.528449,
         "longitude": 3.169321
     },
@@ -2917,32 +3366,25 @@
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "08:00-00:00",
-                "00:00-20:00"
+                "08:00-20:00"
             ],
             "mardi": [
-                "08:00-00:00",
-                "00:00-20:00"
+                "08:00-20:00"
             ],
             "mercredi": [
-                "08:00-00:00",
-                "00:00-20:00"
+                "08:00-20:00"
             ],
             "jeudi": [
-                "08:00-00:00",
-                "00:00-20:00"
+                "08:00-20:00"
             ],
             "vendredi": [
-                "08:00-00:00",
-                "00:00-20:00"
+                "08:00-20:00"
             ],
             "samedi": [
-                "08:00-00:00",
-                "00:00-20:00"
+                "08:00-20:00"
             ],
             "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
+                "08:00-20:00"
             ]
         },
         "latitude": 50.526861,
@@ -2970,6 +3412,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524172,
         "longitude": 3.172978
     },
@@ -2995,6 +3438,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524172,
         "longitude": 3.172978
     },
@@ -3020,6 +3464,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524172,
         "longitude": 3.172978
     },
@@ -3045,6 +3490,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524172,
         "longitude": 3.172978
     },
@@ -3070,6 +3516,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524172,
         "longitude": 3.172978
     },
@@ -3095,6 +3542,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524172,
         "longitude": 3.172978
     },
@@ -3120,6 +3568,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524172,
         "longitude": 3.172978
     },
@@ -3128,20 +3577,30 @@
         "nom": "Crèche Rigolo comme la vie",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Enfance",
         "adresse": "36, rue Delmer",
         "telephone": "03 52 79 52 80",
         "mail": "",
-        "site": "https://www.rigolocommelavie.org/templeuve-en-pevele/",
-        "description": "Crèche",
+        "site": "https://www.rigolocommelavie.org/templeuve-en-pevele/?utm_source=partoo&utm_medium=referral&utm_campaign=google_aggregator",
+        "description": "Située au cœur de la ville de Templeuve-en-Pévèle, la crèche Rigolo Comme La Vie offre un environnement chaleureux et bienveillant pour les enfants de 10 semaines à 4 ans (6 ans pour les enfants en situation de handicap).",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "07:00-19:00"
+            ],
+            "mardi": [
+                "07:00-19:00"
+            ],
+            "mercredi": [
+                "07:00-19:00"
+            ],
+            "jeudi": [
+                "07:00-19:00"
+            ],
+            "vendredi": [
+                "07:00-19:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3153,20 +3612,30 @@
         "nom": "Micro-crèche Graines d'artistes",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Enfance",
         "adresse": "1, rue Simone Veil",
         "telephone": "09 67 38 05 62",
         "mail": "",
         "site": "https://www.graines-dartistes.fr/mc-templeuve",
-        "description": "Micro-crèche",
+        "description": "Micro-crèche\nNotre structure de Templeuve a été conçue pour offrir des zones de jeux vastes et lumineuses dans le nouveau quartier Clos des Lupins. Elle permet aux enfants de circuler librement entre les différents pôles d'ateliers.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "07:30-19:00"
+            ],
+            "mardi": [
+                "07:30-19:00"
+            ],
+            "mercredi": [
+                "07:30-19:00"
+            ],
+            "jeudi": [
+                "07:30-19:00"
+            ],
+            "vendredi": [
+                "07:30-19:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3178,7 +3647,7 @@
         "nom": "Micro-crèche Cool la vie",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Enfance",
         "adresse": "3, rue Georges Sand",
         "telephone": "07 49 50 15 12",
         "mail": "contact@microcrechecoollavie.fr",
@@ -3187,11 +3656,21 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "07:30-19:00"
+            ],
+            "mardi": [
+                "07:30-19:00"
+            ],
+            "mercredi": [
+                "07:30-19:00"
+            ],
+            "jeudi": [
+                "07:30-19:00"
+            ],
+            "vendredi": [
+                "07:30-19:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3203,7 +3682,7 @@
         "nom": "Cimetière",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "Rue Neuve",
         "telephone": "",
         "mail": "",
@@ -3246,18 +3725,32 @@
         "adresse": "48, rue de Péronne",
         "telephone": "06 22 10 63 90",
         "mail": "",
-        "site": "",
-        "description": "Ecurie -pension",
+        "site": "https://ecuriedevertain.wixsite.com/templeuve",
+        "description": "Ecurie -pension\nLes écuries sont au calme entourées de champs et de pâtures avec une vue imprenable sur le moulin de Vertain.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:00-22:00"
+            ],
+            "mardi": [
+                "08:00-22:00"
+            ],
+            "mercredi": [
+                "08:00-22:00"
+            ],
+            "jeudi": [
+                "08:00-22:00"
+            ],
+            "vendredi": [
+                "08:00-22:00"
+            ],
+            "samedi": [
+                "08:00-22:00"
+            ],
+            "dimanche": [
+                "08:00-22:00"
+            ]
         },
         "latitude": 50.539733,
         "longitude": 3.175447
@@ -3269,20 +3762,34 @@
         "categorie": "Service",
         "sousCategorie": "Animaux",
         "adresse": "Rue de la Fourmisière",
-        "telephone": "",
+        "telephone": "06 71 92 18 44",
         "mail": "",
-        "site": "",
-        "description": "Centre équestre",
+        "site": "https://pension-cheval-autour-de-moi.fr/p/5878/ecurie-de-bois-le-ville",
+        "description": "Centre équestre\nServices et installations : carrières, manège, paddocks en herbe et en sable, solarium, douches, sellerie, infirmerie, club-house, hébergement, gardiennage 24h/24 et 7j/7, Wi-Fi, ainsi que des cours d'équitation.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:00-22:00"
+            ],
+            "mardi": [
+                "08:00-22:00"
+            ],
+            "mercredi": [
+                "08:00-22:00"
+            ],
+            "jeudi": [
+                "08:00-22:00"
+            ],
+            "vendredi": [
+                "08:00-22:00"
+            ],
+            "samedi": [
+                "08:00-22:00"
+            ],
+            "dimanche": [
+                "08:00-22:00"
+            ]
         },
         "latitude": 50.542211,
         "longitude": 3.191018
@@ -3296,18 +3803,32 @@
         "adresse": "3, rue Bois le Ville",
         "telephone": "03 20 79 28 01",
         "mail": "",
-        "site": "",
-        "description": "Elevage",
+        "site": "https://www.facebook.com/elevage.de.beaume",
+        "description": "Elevage\nIl est conseillé de contacter directement le haras par téléphone pour organiser une visite ou obtenir des renseignements sur leurs activités.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "07:00-20:00"
+            ],
+            "mardi": [
+                "07:00-20:00"
+            ],
+            "mercredi": [
+                "07:00-20:00"
+            ],
+            "jeudi": [
+                "07:00-20:00"
+            ],
+            "vendredi": [
+                "07:00-20:00"
+            ],
+            "samedi": [
+                "07:00-20:00"
+            ],
+            "dimanche": [
+                "07:00-20:00"
+            ]
         },
         "latitude": 50.537835,
         "longitude": 3.194135
@@ -3326,12 +3847,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "08:00-18:00"
+            ],
+            "mardi": [
+                "08:00-18:00"
+            ],
+            "mercredi": [
+                "08:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-18:00"
+            ],
+            "vendredi": [
+                "08:00-18:00"
+            ],
+            "samedi": [
+                "08:00-18:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.536486,
@@ -3352,11 +3885,21 @@
         "dateFin": "",
         "horaires": {
             "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "mardi": [
+                "12:00-19:00"
+            ],
+            "mercredi": [
+                "12:00-19:00"
+            ],
+            "jeudi": [
+                "12:00-19:00"
+            ],
+            "vendredi": [
+                "12:00-19:00"
+            ],
+            "samedi": [
+                "10:00-18:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.542858,
@@ -3370,19 +3913,37 @@
         "sousCategorie": "Animaux",
         "adresse": "Route de Cysoing",
         "telephone": "06 03 27 94 83",
-        "mail": "",
-        "site": "",
-        "description": "Pension canine et féline",
+        "mail": "oprestige.contact@gmail.com",
+        "site": "https://www.pension-oprestige.fr/",
+        "description": "Pension canine et féline\nO'PRESTIGE est une pension  canine et féline qui propose la garde de vos animaux  sur son site à  Templeuve-en-Pévèle, au cœur de la Pévèle, poumon vert de la métropole lilloise.\n\nLe site s'étend sur 2 hectares, les installations sont propres, fonctionnelles et adaptées au bien-être de chaque animal.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
+            "lundi": [
+                "09:00-12:00",
+                "17:00-19:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "17:00-19:00"
+            ],
             "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "jeudi": [
+                "09:00-12:00",
+                "17:00-19:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "17:00-19:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "17:00-19:00"
+            ],
+            "dimanche": [
+                "09:00-12:00",
+                "17:00-19:00"
+            ]
         },
         "latitude": 50.543705,
         "longitude": 3.190839
@@ -3401,41 +3962,26 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-18:00"
+            ],
+            "mardi": [
+                "09:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00"
+            ],
+            "jeudi": [
+                "09:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-18:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
         "latitude": 50.526744,
         "longitude": 3.175182
-    },
-    {
-        "id": 119,
-        "nom": "Cocoonin Dog",
-        "vedette": false,
-        "categorie": "Service",
-        "sousCategorie": "Animaux",
-        "adresse": "2, rue du Moulin d'eau",
-        "telephone": "06 85 24 72 32",
-        "mail": "",
-        "site": "https://www.facebook.com/ameliebrocart59242/?locale=fr_FR",
-        "description": "Club de dressage canin",
-        "photo": "",
-        "dateFin": "",
-        "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
-        },
-        "latitude": 50.535214,
-        "longitude": 3.200295
     },
     {
         "id": 122,
@@ -3446,7 +3992,7 @@
         "adresse": "13, chemin de la campagnette",
         "telephone": "03 20 61 00 97",
         "mail": "",
-        "site": "",
+        "site": "https://chti-autoecole.fr/",
         "description": "Auto-école",
         "photo": "",
         "dateFin": "",
@@ -3534,6 +4080,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.52428,
         "longitude": 3.160851
     },
@@ -3551,11 +4098,26 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3668,12 +4230,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-19:00"
+            ],
+            "mardi": [
+                "09:00-19:00"
+            ],
+            "mercredi": [
+                "09:00-19:00"
+            ],
+            "jeudi": [
+                "09:00-19:00"
+            ],
+            "vendredi": [
+                "09:00-19:00"
+            ],
+            "samedi": [
+                "09:00-19:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.5297,
@@ -3739,11 +4313,21 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-18:00"
+            ],
+            "mardi": [
+                "09:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-18:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3758,17 +4342,27 @@
         "sousCategorie": "",
         "adresse": "45, rue Lesrues",
         "telephone": "06 59 08 06 66",
-        "mail": "",
+        "mail": "solubatmc@orange.fr",
         "site": "",
         "description": "Couvreur",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "07:30-17:00"
+            ],
+            "mardi": [
+                "07:30-17:00"
+            ],
+            "mercredi": [
+                "07:30-17:00"
+            ],
+            "jeudi": [
+                "07:30-17:00"
+            ],
+            "vendredi": [
+                "07:30-17:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3789,11 +4383,21 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "08:00-18:00"
+            ],
+            "mardi": [
+                "08:00-18:00"
+            ],
+            "mercredi": [
+                "08:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-18:00"
+            ],
+            "vendredi": [
+                "08:00-18:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3808,17 +4412,27 @@
         "sousCategorie": "",
         "adresse": "9, rue d'Orchies",
         "telephone": "03 20 05 56 71",
-        "mail": "",
+        "mail": "toituredupevele@free.fr",
         "site": "",
         "description": "Couvreur",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-18:00"
+            ],
+            "mardi": [
+                "09:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-18:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3834,16 +4448,26 @@
         "adresse": "3, rue d'Ardomprez",
         "telephone": "06 61 87 02 03",
         "mail": "",
-        "site": "",
-        "description": "Rénovation habitat durable",
+        "site": "https://origin-renovation.fr/",
+        "description": "Rénovation habitat durable.\nSpécialisée en matériaux biosourcés, ORIGIN Rénovation Responsable est une entreprise générale de rénovation\nde l’habitat de façon durable. Bois, chanvre, chaux, terre ou coton recyclé sont autant de possibilités afin de mieux rénover votre projet.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "08:00-18:00"
+            ],
+            "mardi": [
+                "08:00-18:00"
+            ],
+            "mercredi": [
+                "08:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-18:00"
+            ],
+            "vendredi": [
+                "08:00-18:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -3906,17 +4530,31 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Casiers libre-service 24h/24 7j/7",
+        "description": "Casiers libre-service 24h/24 7j/7\nLégumes et fruits de saison (aubergines, betteraves rouges, butternuts, carottes de couleur, céleris, concombres, courgettes, épinards, navets, oignons rouges, poivrons, pommes de terre, potimarrons, radis, salades, tomates anciennes, melons, etc.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
         "latitude": 50.549059,
         "longitude": 3.170469
@@ -3943,6 +4581,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.530543,
         "longitude": 3.17876
     },
@@ -3968,6 +4607,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.530312,
         "longitude": 3.169407
     },
@@ -3985,12 +4625,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "08:30-20:00"
+            ],
+            "mardi": [
+                "08:30-20:00"
+            ],
+            "mercredi": [
+                "08:30-20:00"
+            ],
+            "jeudi": [
+                "08:30-20:00"
+            ],
+            "vendredi": [
+                "08:30-20:00"
+            ],
+            "samedi": [
+                "08:30-20:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -4010,12 +4662,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-19:30"
+            ],
+            "mardi": [
+                "09:00-19:30"
+            ],
+            "mercredi": [
+                "09:00-19:30"
+            ],
+            "jeudi": [
+                "09:00-19:30"
+            ],
+            "vendredi": [
+                "09:00-19:30"
+            ],
+            "samedi": [
+                "09:00-19:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -4030,17 +4694,29 @@
         "adresse": "Centre commercial Leclerc",
         "telephone": "03 20 59 10 24",
         "mail": "",
-        "site": "",
+        "site": "https://www.planity.com/une-heure-pour-soi-templeuve-59242",
         "description": "Institut de beauté",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:30-19:00"
+            ],
+            "mardi": [
+                "09:30-19:00"
+            ],
+            "mercredi": [
+                "09:30-19:00"
+            ],
+            "jeudi": [
+                "09:30-19:00"
+            ],
+            "vendredi": [
+                "09:30-19:00"
+            ],
+            "samedi": [
+                "09:30-19:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -4060,12 +4736,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:30-19:00"
+            ],
+            "mardi": [
+                "09:30-19:00"
+            ],
+            "mercredi": [
+                "09:30-19:00"
+            ],
+            "jeudi": [
+                "09:30-19:00"
+            ],
+            "vendredi": [
+                "09:30-19:00"
+            ],
+            "samedi": [
+                "09:30-19:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -4090,23 +4778,21 @@
                 "13:30-16:00"
             ],
             "mardi": [
-                "08:30-00:00"
+                "08:30-19:00"
             ],
             "mercredi": [
-                "08:30-00:00"
+                "08:30-19:00"
             ],
             "jeudi": [
-                "08:30-00:00"
+                "08:30-19:00"
             ],
             "vendredi": [
-                "08:30-00:00"
+                "08:30-19:00"
             ],
             "samedi": [
                 "08:30-13:30"
             ],
-            "dimanche": [
-                "00:00-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.540439,
         "longitude": 3.163525
@@ -4120,17 +4806,33 @@
         "adresse": "19, rue Grande campagne",
         "telephone": "03 20 34 69 77",
         "mail": "",
-        "site": "",
+        "site": "https://www.facebook.com/p/Objectiffs-Coiffure-100063763834379/",
         "description": "Coiffeur mixte",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-12:00",
+                "13:30-17:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "13:30-17:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "13:30-17:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "13:30-17:00"
+            ],
+            "vendredi": [
+                "09:00-19:00"
+            ],
+            "samedi": [
+                "09:00-18:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.52518,
@@ -4146,13 +4848,15 @@
         "telephone": "06 89 85 06 84",
         "mail": "",
         "site": "",
-        "description": "Activité physique adaptée et personnalisée",
+        "description": "Activité physique adaptée et personnalisée. L'établissement Forme et bien-être by Sarah à Templeuve-en-Pévèle (géré via l'Association Bouge en corps) propose des activités physiques adaptées et personnalisées (comme le Pilates, le stretching et le body zen",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [],
             "mardi": [],
-            "mercredi": [],
+            "mercredi": [
+                "08:00-16:00"
+            ],
             "jeudi": [],
             "vendredi": [],
             "samedi": [],
@@ -4170,17 +4874,29 @@
         "adresse": "Centre commercial Leclerc",
         "telephone": "03 20 59 10 18",
         "mail": "",
-        "site": "https://www.voyages.leclerc/?agency=119&utm_campaign=GMB_Lien_site&utm_source=GoogleMyBusiness",
+        "site": "https://www.voyages.leclerc/agences/templeuve-242",
         "description": "Agence de voyages",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-19:30"
+            ],
+            "mardi": [
+                "09:00-19:30"
+            ],
+            "mercredi": [
+                "09:00-19:30"
+            ],
+            "jeudi": [
+                "09:00-19:30"
+            ],
+            "vendredi": [
+                "09:00-19:30"
+            ],
+            "samedi": [
+                "09:00-19:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -4208,6 +4924,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.526556,
         "longitude": 3.168538
     },
@@ -4233,6 +4950,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.525163,
         "longitude": 3.189977
     },
@@ -4258,6 +4976,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.522461,
         "longitude": 3.17117
     },
@@ -4283,6 +5002,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.530215,
         "longitude": 3.170359
     },
@@ -4308,6 +5028,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.53637,
         "longitude": 3.165789
     },
@@ -4371,13 +5092,31 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "11:00-14:00"
+            ],
+            "mardi": [
+                "11:00-14:00"
+            ],
+            "mercredi": [
+                "11:00-14:00",
+                "19:00-21:30"
+            ],
+            "jeudi": [
+                "11:00-14:00",
+                "19:00-21:30"
+            ],
+            "vendredi": [
+                "11:00-14:00",
+                "19:00-21:30"
+            ],
+            "samedi": [
+                "11:00-14:00",
+                "19:00-21:30"
+            ],
+            "dimanche": [
+                "11:00-14:00"
+            ]
         },
         "latitude": 50.535359,
         "longitude": 3.174908
@@ -4396,12 +5135,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "08:30-20:00"
+            ],
+            "mardi": [
+                "08:30-20:00"
+            ],
+            "mercredi": [
+                "08:30-20:00"
+            ],
+            "jeudi": [
+                "08:30-20:00"
+            ],
+            "vendredi": [
+                "08:30-20:30"
+            ],
+            "samedi": [
+                "08:30-20:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.523438,
@@ -4449,21 +5200,38 @@
         "nom": "Pompes funèbres Dancoisne",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Pompes funèbres",
         "adresse": "9, rue Grande campagne",
         "telephone": "03 20 79 23 15",
         "mail": "",
-        "site": "",
+        "site": "https://www.pompes-funebres-dancoisne.fr/agences/pompes-funebres-templeuve-en-pevele",
         "description": "Pompes funèbres, marbrerie",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "09:00-12:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.526645,
@@ -4491,6 +5259,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.527707,
         "longitude": 3.172483
     },
@@ -4503,18 +5272,37 @@
         "adresse": "2, Place de l'étoile",
         "telephone": "06 22 13 45 34",
         "mail": "",
-        "site": "",
+        "site": "https://insportstudios.fr/",
         "description": "Salles de sport",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "08:30-14:00",
+                "16:30-20:30"
+            ],
+            "mardi": [
+                "07:00-14:00",
+                "16:30-20:30"
+            ],
+            "mercredi": [
+                "08:30-14:00",
+                "16:30-20:30"
+            ],
+            "jeudi": [
+                "07:00-14:00",
+                "16:30-20:30"
+            ],
+            "vendredi": [
+                "08:30-14:00",
+                "16:30-20:30"
+            ],
+            "samedi": [
+                "09:00-12:00"
+            ],
+            "dimanche": [
+                "08:00-12:00"
+            ]
         },
         "latitude": 50.524682,
         "longitude": 3.171134
@@ -4541,6 +5329,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.522395,
         "longitude": 3.173503
     },
@@ -4566,6 +5355,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.531252,
         "longitude": 3.162779
     },
@@ -4574,7 +5364,7 @@
         "nom": "MaïeuSens",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "6, rue de la Baille",
         "telephone": "06 44 09 47 94",
         "mail": "",
@@ -4591,6 +5381,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.530249,
         "longitude": 3.169428
     },
@@ -4599,21 +5390,33 @@
         "nom": "Orientation facile",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "96A, rue Neuve",
         "telephone": "06 86 00 58 17",
         "mail": "",
         "site": "",
-        "description": "Conseil",
+        "description": "Conseil (bilan d'orientation pour les 15-23 ans)",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "08:00-20:00"
+            ],
+            "mardi": [
+                "08:00-20:00"
+            ],
+            "mercredi": [
+                "08:00-20:00"
+            ],
+            "jeudi": [
+                "08:00-20:00"
+            ],
+            "vendredi": [
+                "08:00-20:00"
+            ],
+            "samedi": [
+                "09:00-12:30"
+            ],
             "dimanche": []
         },
         "latitude": 50.53161,
@@ -4624,21 +5427,33 @@
         "nom": "Log Communication",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "59, rue de la Passementerie",
         "telephone": "06 14 67 75 20",
-        "mail": "",
+        "mail": "logcommunication59@gmail.com",
         "site": "",
         "description": "Agence commerciale",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "07:00-18:00"
+            ],
+            "mardi": [
+                "07:00-18:00"
+            ],
+            "mercredi": [
+                "07:00-18:00"
+            ],
+            "jeudi": [
+                "07:00-18:00"
+            ],
+            "vendredi": [
+                "07:00-18:00"
+            ],
+            "samedi": [
+                "09:00-12:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.530341,
@@ -4654,7 +5469,7 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Club AS Templeuve",
+        "description": "Club AS Templeuve.\n• Entraînements de football (club) : Généralement en semaine en soirée (entre 18h00 et 22h00) ainsi que le mercredi après-midi.\n• Matchs et compétitions : Principalement le week-end (souvent entre 10h00 et 16h00 selon les catégories).",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -4666,6 +5481,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Accès libre",
         "latitude": 50.533489,
         "longitude": 3.175359
     },
@@ -4677,8 +5493,8 @@
         "sousCategorie": "",
         "adresse": "8 bis,  rue de Péronne",
         "telephone": "06 20 62 51 48",
-        "mail": "",
-        "site": "",
+        "mail": "tcm.templeuve@fft.fr",
+        "site": "https://www.anybuddyapp.com/fr/club/templeuve",
         "description": "Cours de tennis en salle",
         "photo": "",
         "dateFin": "",
@@ -4691,6 +5507,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur réservation",
         "latitude": 50.534558,
         "longitude": 3.175218
     },
@@ -4716,6 +5533,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.541053,
         "longitude": 3.180535
     },
@@ -4741,6 +5559,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.531068,
         "longitude": 3.182885
     },
@@ -4760,9 +5579,14 @@
         "horaires": {
             "lundi": [],
             "mardi": [],
-            "mercredi": [],
+            "mercredi": [
+                "09:00-12:30"
+            ],
             "jeudi": [],
-            "vendredi": [],
+            "vendredi": [
+                "09:00-12:30",
+                "14:00-19:30"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -4791,6 +5615,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.525144,
         "longitude": 3.189974
     },
@@ -4816,6 +5641,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.528033,
         "longitude": 3.175651
     },
@@ -4824,7 +5650,7 @@
         "nom": "Atelier Vélo",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "Gare de Templeuve",
         "telephone": "07.84.32.90.16",
         "mail": "",
@@ -4874,6 +5700,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqués",
         "latitude": 50.528853,
         "longitude": 3.173072
     },
@@ -4891,28 +5718,15 @@
         "photo": "assets/images/city-stade.webp",
         "dateFin": "",
         "horaires": {
-            "lundi": [
-                "00:00-23:59"
-            ],
-            "mardi": [
-                "00:00-23:59"
-            ],
-            "mercredi": [
-                "00:00-23:59"
-            ],
-            "jeudi": [
-                "00:00-23:59"
-            ],
-            "vendredi": [
-                "00:00-23:59"
-            ],
-            "samedi": [
-                "00:00-23:59"
-            ],
-            "dimanche": [
-                "00:00-23:59"
-            ]
+            "lundi": [],
+            "mardi": [],
+            "mercredi": [],
+            "jeudi": [],
+            "vendredi": [],
+            "samedi": [],
+            "dimanche": []
         },
+        "horairesNote": "Accès libre",
         "latitude": 50.533944,
         "longitude": 3.174311
     },
@@ -4970,8 +5784,8 @@
         "sousCategorie": "",
         "adresse": "Rue Gauthier",
         "telephone": "03 74 03 02 79",
-        "mail": "",
-        "site": "https://www.lechantdeleau.com/horaires/",
+        "mail": "lechantdeleau@vert-marine.com",
+        "site": "https://www.lechantdeleau.com/",
         "description": "Centre aquatique",
         "photo": "",
         "dateFin": "",
@@ -4984,6 +5798,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Les horaires d’ouverture des bassins peuvent varier, retrouvez les horaires par bassin sur le site.",
         "latitude": 50.516821,
         "longitude": 3.154517
     },
@@ -5035,7 +5850,7 @@
     },
     {
         "id": 184,
-        "nom": "La maisons des skys",
+        "nom": "La maisons des sky",
         "vedette": false,
         "categorie": "Service",
         "sousCategorie": "Logement",
@@ -5055,6 +5870,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "horaires non renseignés",
         "latitude": 50.535594,
         "longitude": 3.169391
     },
@@ -5063,7 +5879,7 @@
         "nom": "Centre d'incendie et de Secours",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "9, rue de Fretin",
         "telephone": "03 20 34 45 50",
         "mail": "",
@@ -5080,6 +5896,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "non communiqué",
         "latitude": 50.537429,
         "longitude": 3.163864
     },
@@ -5105,6 +5922,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqués",
         "latitude": 50.538765,
         "longitude": 3.162892
     },
@@ -5130,6 +5948,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.529978,
         "longitude": 3.160397
     },
@@ -5138,7 +5957,7 @@
         "nom": "Géoflandres",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "44, rue de Lille",
         "telephone": "03 20 71 70 98",
         "mail": "",
@@ -5167,14 +5986,8 @@
                 "08:30-12:30",
                 "13:30-17:30"
             ],
-            "samedi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "samedi": [],
+            "dimanche": []
         },
         "latitude": 50.522757,
         "longitude": 3.163144
@@ -5189,15 +6002,25 @@
         "telephone": "07 88 38 19 07",
         "mail": "hello@nord-fermetures.fr",
         "site": "https://nord-fermetures.fr/menuiserie-templeuve",
-        "description": "Menuisier",
+        "description": "Menuisier\nPose et remplacement de fenêtres, portes et volets",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "09:00-17:00"
+            ],
+            "mardi": [
+                "09:00-17:00"
+            ],
+            "mercredi": [
+                "09:00-17:00"
+            ],
+            "jeudi": [
+                "09:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-17:00"
+            ],
             "samedi": [],
             "dimanche": []
         },
@@ -5226,6 +6049,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.524721,
         "longitude": 3.179234
     },
@@ -5251,6 +6075,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqué",
         "latitude": 50.525564,
         "longitude": 3.177317
     },
@@ -5276,6 +6101,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Sur rendez-vous",
         "latitude": 50.526439,
         "longitude": 3.177455
     },
@@ -5293,12 +6119,24 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
+            "lundi": [
+                "09:30-19:00"
+            ],
+            "mardi": [
+                "09:30-19:00"
+            ],
+            "mercredi": [
+                "09:30-19:00"
+            ],
+            "jeudi": [
+                "09:30-19:00"
+            ],
+            "vendredi": [
+                "09:30-19:00"
+            ],
+            "samedi": [
+                "09:30-19:00"
+            ],
             "dimanche": []
         },
         "latitude": 50.523546,
@@ -5341,41 +6179,35 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "",
+        "description": "Pa",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "mardi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "mercredi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "jeudi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "vendredi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "samedi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "dimanche": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ]
         },
-        "latitude": 50.527765,
-        "longitude": 3.176334
+        "horairesNote": "Accès libre",
+        "latitude": 50.527383,
+        "longitude": 3.176846
     },
     {
         "id": 197,
@@ -5387,39 +6219,33 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "",
+        "description": "Parking gratuit",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "mardi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "mercredi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "jeudi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "vendredi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "samedi": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ],
             "dimanche": [
-                "00:01-12:00",
-                "12:00-23:59"
+                "00:00-23:59"
             ]
         },
+        "horairesNote": "Accès libre",
         "latitude": 50.527179,
         "longitude": 3.178348
     },
@@ -5437,14 +6263,29 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
+        "horairesNote": "Accès libre",
         "latitude": 50.526149,
         "longitude": 3.17117
     },
@@ -5462,13 +6303,27 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
-            "samedi": [],
-            "dimanche": []
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
         },
         "latitude": 50.526667,
         "longitude": 3.169254
@@ -5515,6 +6370,7 @@
             "samedi": [],
             "dimanche": []
         },
+        "horairesNote": "Non communiqués",
         "latitude": 50.529095,
         "longitude": 3.172812
     },
@@ -5523,12 +6379,12 @@
         "nom": "Déchetterie",
         "vedette": false,
         "categorie": "Service",
-        "sousCategorie": "",
+        "sousCategorie": "Divers autres",
         "adresse": "Rue Henry Connynck à Genech",
         "telephone": "09 67 80 34 66",
         "mail": "",
-        "site": "",
-        "description": "",
+        "site": "https://www.pevelecarembault.fr/mon-quotidien/gestion-des-dechets/dechetteries",
+        "description": "Déchetterie\nAttention : Pour les déchets d'amiante, les particuliers doivent, avant de se déplacer en déchetterie, prendre rendez-vous auprès des agents d'accueil. Le dépôt d'amiante par les professionnels est interdit.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -5605,7 +6461,7 @@
         "vedette": true,
         "adresse": "Petit théatre",
         "description": "à partir de 8 €",
-        "horairesEvenement": "",
+        "horairesEvenement": "20h/22h30",
         "dateDebut": "2026-10-17",
         "dateFin": "2026-10-17",
         "telephone": "",
@@ -5625,7 +6481,7 @@
         "vedette": true,
         "adresse": "Petit théatre",
         "description": "à partir de 12 €",
-        "horairesEvenement": "",
+        "horairesEvenement": "20h/22h30",
         "dateDebut": "2026-10-31",
         "dateFin": "2026-10-31",
         "telephone": "",
@@ -5752,7 +6608,123 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Situé à Templeuve, au cœur de la Pévèle, ce moulin TOUR et PIVOT est unique en France.\nL origine du premier moulin de Templeuve remonte à une époque très ancienne: il est mentionné en 1328 dans les rentes de l'abbaye d'Anchin sous le nom de \"Moulin de Viertain\".",
+        "description": "Situé à Templeuve, au cœur de la Pévèle, ce moulin TOUR et PIVOT est unique en France.\nL origine du premier moulin de Templeuve remonte à une époque très ancienne: il est mentionné en 1328 dans les rentes de l'abbaye d'Anchin sous le nom de \"Moulin de Viertain\". Le moulin est généralement ouvert aux visites lors des journées d'animation et de découverte (notamment l'été, le dimanche)",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
+        },
+        "latitude": 50.536065,
+        "longitude": 3.177735
+    },
+    {
+        "id": 215,
+        "nom": "Maeyura",
+        "vedette": false,
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
+        "adresse": "5, rue Albert Samain",
+        "telephone": "07 81 00 25 82",
+        "mail": "contact@maeyura.fr",
+        "site": "",
+        "description": "Bien-être du cheval et du cavalier - Méditation animale - Formation",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-18:00"
+            ],
+            "mardi": [
+                "09:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-18:00"
+            ],
+            "samedi": [
+                "09:00-12:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.524215,
+        "longitude": 3.178206
+    },
+    {
+        "id": 216,
+        "nom": "Décors conseils",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "19bis, rue Delmer",
+        "telephone": "03 20 59 30 47",
+        "mail": "",
+        "site": "https://www.lesdecorsconseils.com/",
+        "description": "Peinture - Décoratio,n",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [],
+            "mardi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "15:00-18:30"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.528377,
+        "longitude": 3.169919
+    },
+    {
+        "id": 217,
+        "nom": "Desmarescaux et Fils",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "23, rue de Roubaix",
+        "telephone": "03 20 59 32 40",
+        "mail": "",
+        "site": "",
+        "description": "Electricien",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -5764,7 +6736,48 @@
             "samedi": [],
             "dimanche": []
         },
-        "latitude": 50.536065,
-        "longitude": 3.177735
+        "horairesNote": "Sur rendez-vous",
+        "latitude": 50.527112,
+        "longitude": 3.171271
+    },
+    {
+        "id": 218,
+        "nom": "Parking de la Gare",
+        "vedette": false,
+        "categorie": "Auto & Transport",
+        "sousCategorie": "",
+        "adresse": "Place de la gare",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Stationnement à durée limitée",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
+        },
+        "horairesNote": "Accès libre",
+        "latitude": 50.528386,
+        "longitude": 3.175473
     }
 ]

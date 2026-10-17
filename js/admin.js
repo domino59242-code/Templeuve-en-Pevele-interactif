@@ -20,7 +20,7 @@
 // Pour changer le mot de passe : remplace simplement la valeur ci-dessous.
 //==================================================
 
-const MOT_DE_PASSE_ADMIN = "Domi59242";
+const MOT_DE_PASSE_ADMIN = "Domino59242";
 
 const CLE_SESSION_CONNEXION = "templeuve_admin_connecte";
 
@@ -707,21 +707,70 @@ function mettreAJourApercuPhoto(){
 
         }
 
-        // Adresse exacte demandée au navigateur : on peut la copier dans un
-        // nouvel onglet pour vérifier si le fichier est servi
+        // Adresse exacte demandée au navigateur : on la teste directement pour
+        // dire à l'utilisateur ce que le serveur répond vraiment
         const adresse = new URL(valeur, location.href).href;
 
-        afficherAidePhoto(
-            "Image introuvable. Vérifie que le fichier est bien dans le dossier " +
-            "assets/images du projet, avec exactement ce nom et cette extension " +
-            "(.jpg, .jpeg et .webp sont des fichiers différents), et que l'admin est " +
-            "ouverte depuis le serveur local du projet." +
-            (location.protocol==="file:"
-                ? " ATTENTION : l'admin est ouverte directement depuis le disque (file://) ; lance plutôt le serveur local décrit dans le README."
-                : "") +
-            ` Adresse testée : ${adresse}`,
-            true
-        );
+        let diagnostic;
+
+        try{
+
+            const reponse = await fetch(urlSansCache(adresse), { cache:"no-store" });
+
+            if(reponse.status===404){
+
+                diagnostic =
+                    "Le serveur répond « 404 » : aucun fichier de ce nom n'existe à cet endroit " +
+                    "du dossier servi. Vérifie le nom exact dans l'Explorateur (les extensions " +
+                    "masquées de Windows cachent parfois un « cine.webp.webp » ou une casse " +
+                    "différente comme « .WEBP »), et que le fichier est dans le dossier ouvert " +
+                    "dans VS Code, pas dans une autre copie du projet.";
+
+            }else if(reponse.ok){
+
+                const type = reponse.headers.get("content-type") || "inconnu";
+                const blob = await reponse.blob();
+
+                if(blob.size===0){
+
+                    diagnostic =
+                        "Le fichier existe mais il est vide (0 octet) : il faut le recréer, " +
+                        "par exemple avec « Choisir une photo… ».";
+
+                }else if(!type.startsWith("image/")){
+
+                    diagnostic =
+                        `Le serveur renvoie un fichier de type « ${type} », qui n'est pas une image.`;
+
+                }else{
+
+                    diagnostic =
+                        `Le serveur trouve bien le fichier (${Math.round(blob.size/1024)} Ko, ${type}) ` +
+                        "mais le navigateur n'arrive pas à l'afficher : le fichier est probablement " +
+                        "corrompu ou dans un format non reconnu. Recrée-le avec « Choisir une photo… ».";
+
+                }
+
+            }else{
+
+                diagnostic = `Le serveur répond « ${reponse.status} ».`;
+
+            }
+
+        }catch(erreur){
+
+            diagnostic =
+                "Le serveur local ne répond pas : vérifie qu'il est lancé (Live Server)." +
+                (location.protocol==="file:"
+                    ? " L'admin est ouverte directement depuis le disque (file://) ; lance plutôt le serveur local décrit dans le README."
+                    : "");
+
+        }
+
+        // La saisie a pu changer pendant le test
+        if(champPhoto.value.trim()!==valeur) return;
+
+        afficherAidePhoto(`Image introuvable. ${diagnostic} Adresse testée : ${adresse}`, true);
 
     };
 
@@ -1012,6 +1061,7 @@ function viderFormLieu(){
     mettreAJourApercuPhoto();
 
     remplirHorairesForm(null);
+    document.getElementById("lieuHorairesNote").value = "";
     mettreAJourSelectSousCategorie();
 
     titreFormLieu.textContent = "Ajouter un lieu";
@@ -1043,6 +1093,10 @@ formLieu.addEventListener("submit", (e)=>{
         photo: document.getElementById("lieuPhoto").value.trim(),
         dateFin: document.getElementById("lieuDateFin").value,
         horaires: lireHorairesForm(),
+        // Champ facultatif : absent du fichier quand il est vide
+        ...(document.getElementById("lieuHorairesNote").value.trim()
+            ? { horairesNote: document.getElementById("lieuHorairesNote").value.trim() }
+            : {}),
         latitude: parseFloat(document.getElementById("lieuLatitude").value),
         longitude: parseFloat(document.getElementById("lieuLongitude").value)
     };
@@ -1138,6 +1192,7 @@ function modifierLieu(id){
     document.getElementById("lieuLongitude").value = lieu.longitude;
 
     remplirHorairesForm(lieu.horaires);
+    document.getElementById("lieuHorairesNote").value = lieu.horairesNote ?? "";
 
     const latlng = [lieu.latitude, lieu.longitude];
 
@@ -1271,14 +1326,15 @@ document.getElementById("btnTelechargerLieux").addEventListener("click", ()=>{
 //
 // Ne couvre que les champs "simples" (texte, nombre, oui/non) — les
 // horaires d'ouverture hebdomadaires (objet imbriqué) ne sont pas
-// inclus et restent inchangés lors d'un import.
+// inclus et restent inchangés lors d'un import. La colonne horairesNote
+// (précision libre) est, elle, incluse.
 //==================================================
 
 const COLONNES_CSV = [
     "id","nom","vedette","categorie","sousCategorie","adresse",
     "telephone","mail","site","description","photo",
     "latitude","longitude",
-    "estEvenement","dateDebut","dateFin","horairesEvenement"
+    "estEvenement","dateDebut","dateFin","horairesEvenement","horairesNote"
 ];
 
 document.getElementById("btnExporterCsv").addEventListener("click", ()=>{
@@ -1300,7 +1356,8 @@ document.getElementById("btnExporterCsv").addEventListener("click", ()=>{
         estEvenement: l.estEvenement ? "oui" : "non",
         dateDebut: l.dateDebut ?? "",
         dateFin: l.dateFin ?? "",
-        horairesEvenement: l.horairesEvenement ?? ""
+        horairesEvenement: l.horairesEvenement ?? "",
+        horairesNote: l.horairesNote ?? ""
     }));
 
     // Le "\uFEFF" (BOM) en tête assure que les accents s'affichent
@@ -1371,6 +1428,14 @@ document.getElementById("champImportCsv").addEventListener("change", (e)=>{
                     dateDebut: (ligne.dateDebut ?? "").trim(),
                     dateFin: (ligne.dateFin ?? "").trim(),
                     horairesEvenement: (ligne.horairesEvenement ?? "").trim(),
+                    // Précision libre sur les horaires : si le CSV n'a pas cette
+                    // colonne, on garde celle du lieu existant
+                    ...(() => {
+                        const note = ligne.horairesNote===undefined
+                            ? (existant?.horairesNote ?? "")
+                            : String(ligne.horairesNote).trim();
+                        return note ? { horairesNote: note } : {};
+                    })(),
                     // Les horaires hebdomadaires détaillés ne sont pas gérés par
                     // le CSV : on conserve ceux déjà existants, sinon vide.
                     horaires: existant ? existant.horaires : {}
@@ -2173,9 +2238,11 @@ const CRITERES_FICHE = [
     },
     {
         cle:"horaires", label:"Horaires", essentiel:true, pour:["lieu","evenement"],
+        // Une précision libre (« Sur rendez-vous », « Accès libre »...) compte
+        // comme des horaires renseignés
         ok: l => l.estEvenement
             ? texteRenseigne(l.horairesEvenement)
-            : aDesHorairesValides(l.horaires)
+            : (aDesHorairesValides(l.horaires) || texteRenseigne(l.horairesNote))
     },
     {
         cle:"horairesIncoherents", label:"Horaires incohérents", essentiel:true, pour:["lieu"],
