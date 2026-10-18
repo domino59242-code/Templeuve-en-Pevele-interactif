@@ -136,7 +136,7 @@
                     <h1>Templeuve Interactive</h1>
 
                     <p class="version">
-                        Version 11.8
+                        Version 11.9
                     </p>
 
                 </div>
@@ -261,6 +261,11 @@
 
             <div id="listeLieux"></div>
 
+            <!-- Indice affiché tant que la liste contient d'autres lieux plus bas -->
+            <button type="button" id="indiceDefilement" class="indiceDefilement" hidden>
+                ↓ Plus de lieux
+            </button>
+
         </section>
 
         <hr>
@@ -268,9 +273,18 @@
         <section id="sectionDetails">
 
             <!-- Poignée de la fiche en bas d'écran (visible seulement sur mobile) -->
-            <div id="poigneePanneau" class="poigneePanneau" role="button" tabindex="0"
-                 aria-label="Agrandir ou réduire la fiche" aria-expanded="false">
+            <div id="poigneePanneau" class="poigneePanneau">
                 <span class="barrePoignee" aria-hidden="true"></span>
+
+                <button type="button" id="btnAgrandirPanneau" class="btnAgrandirPanneau"
+                        aria-expanded="false">
+                    <svg class="iconeAgrandir" viewBox="0 0 24 24" width="22" height="22"
+                         aria-hidden="true" focusable="false">
+                        <path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
+                    </svg>
+                    <span id="libelleAgrandir">Voir la fiche complète</span>
+                </button>
+
                 <button type="button" id="btnFermerPanneau" class="btnFermerPanneau"
                         aria-label="Fermer la fiche">✕</button>
             </div>

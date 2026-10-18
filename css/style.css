@@ -1480,18 +1480,24 @@ select{
 
         display:flex;
         align-items:center;
-        justify-content:center;
+        gap:10px;
         position:relative;
 
         flex:0 0 auto;
-        height:44px;
+        padding:18px 10px 8px 12px;
 
         cursor:grab;
         touch-action:none;
 
     }
 
+    /* Petite barre de saisie en haut de la fiche (on peut aussi la faire glisser) */
     .barrePoignee{
+
+        position:absolute;
+        top:7px;
+        left:50%;
+        transform:translateX(-50%);
 
         width:44px;
         height:5px;
@@ -1500,23 +1506,80 @@ select{
 
     }
 
+    /* Bouton bien visible : il dit ce qu'il fait ("Voir la fiche complète"
+       en vue réduite, "Réduire la fiche" en vue déployée) */
+    .btnAgrandirPanneau{
+
+        flex:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+
+        min-height:42px;
+        padding:0 14px;
+
+        border:none;
+        border-radius:21px;
+        background:var(--couleur-principale);
+        color:white;
+
+        font-family:inherit;
+        font-size:15px;
+        font-weight:bold;
+        cursor:pointer;
+
+    }
+
+    .btnAgrandirPanneau:hover,
+    .btnAgrandirPanneau:focus-visible{
+
+        background:var(--couleur-principale-fonce);
+
+    }
+
+    .iconeAgrandir{
+
+        transition:transform .2s;
+
+    }
+
+    #sectionDetails.deploye .iconeAgrandir{
+
+        transform:rotate(180deg);
+
+    }
+
     .btnFermerPanneau{
 
-        position:absolute;
-        right:10px;
-        top:4px;
-
-        width:36px;
-        height:36px;
+        flex:0 0 42px;
+        width:42px;
+        height:42px;
 
         border:none;
         border-radius:50%;
         background:#eef0f3;
         color:#444;
 
-        font-size:16px;
+        font-size:17px;
         line-height:1;
         cursor:pointer;
+
+    }
+
+    /* Fondu au bas de la fiche réduite : on devine qu'il y a une suite */
+    #sectionDetails.actif:not(.deploye)::after{
+
+        content:"";
+        position:absolute;
+        left:0;
+        right:0;
+        top:calc(46vh - 56px);
+        top:calc(46dvh - 56px);
+        height:56px;
+
+        background:linear-gradient(rgba(255,255,255,0), #ffffff);
+        pointer-events:none;
 
     }
 
@@ -2035,5 +2098,101 @@ select{
     font-size:14px;
     font-style:italic;
     color:var(--couleur-texte);
+
+}
+
+
+/* ===========================
+   Barres de défilement bien visibles
+   (la liste des lieux, la barre latérale et la fiche)
+=========================== */
+
+#sidebar::-webkit-scrollbar,
+#listeLieux::-webkit-scrollbar,
+#ficheLieu::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+#sidebar::-webkit-scrollbar-track,
+#listeLieux::-webkit-scrollbar-track,
+#ficheLieu::-webkit-scrollbar-track{
+
+    background:#e1e7ef;
+    border-radius:6px;
+
+}
+
+#sidebar::-webkit-scrollbar-thumb,
+#listeLieux::-webkit-scrollbar-thumb,
+#ficheLieu::-webkit-scrollbar-thumb{
+
+    background:var(--couleur-principale);
+    border:2px solid #e1e7ef;
+    border-radius:6px;
+    min-height:48px;
+
+}
+
+/* Firefox (qui ne connaît pas les règles ci-dessus) */
+@supports not selector(::-webkit-scrollbar){
+
+    #sidebar,
+    #listeLieux,
+    #ficheLieu{
+
+        scrollbar-width:auto;
+        scrollbar-color:var(--couleur-principale) #e1e7ef;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    #sidebar::-webkit-scrollbar,
+    #listeLieux::-webkit-scrollbar,
+    #ficheLieu::-webkit-scrollbar{
+
+        width:14px;
+
+    }
+
+}
+
+/* Indice "↓ Plus de lieux" sous la liste */
+#sectionListeLieux{
+
+    position:relative;
+
+}
+
+.indiceDefilement{
+
+    position:absolute;
+    left:50%;
+    bottom:12px;
+    transform:translateX(-50%);
+    z-index:5;
+
+    padding:8px 16px;
+
+    border:none;
+    border-radius:999px;
+    background:var(--couleur-principale);
+    color:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.35);
+
+    font-family:inherit;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+.indiceDefilement[hidden]{
+
+    display:none;
 
 }

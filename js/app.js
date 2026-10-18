@@ -785,6 +785,37 @@ const btnEffacerRecherche = document.getElementById("btnEffacerRecherche");
 const cboCategorie = document.getElementById("categorie");
 const cboSousCategorie = document.getElementById("sousCategorie");
 const liste = document.getElementById("listeLieux");
+
+//==================================================
+// Indice "↓ Plus de lieux" : les barres de défilement des téléphones
+// disparaissent dès qu'on ne touche plus l'écran. Tant que la liste
+// contient d'autres lieux plus bas, un bouton le signale (et fait défiler).
+//==================================================
+
+const indiceDefilement = document.getElementById("indiceDefilement");
+
+function mettreAJourIndiceDefilement(){
+
+    const reste = liste.scrollHeight - liste.scrollTop - liste.clientHeight;
+
+    indiceDefilement.hidden = reste<=12;
+
+}
+
+liste.addEventListener("scroll", mettreAJourIndiceDefilement, { passive:true });
+window.addEventListener("resize", mettreAJourIndiceDefilement);
+
+// La liste est reconstruite à chaque filtre : on recalcule à ce moment-là
+new MutationObserver(()=> requestAnimationFrame(mettreAJourIndiceDefilement))
+    .observe(liste, { childList:true });
+
+if("ResizeObserver" in window){
+    new ResizeObserver(mettreAJourIndiceDefilement).observe(liste);
+}
+
+indiceDefilement.addEventListener("click", ()=>{
+    liste.scrollBy({ top: liste.clientHeight*0.8, behavior:"smooth" });
+});
 const compteur = document.getElementById("compteur");
 const ficheLieu = document.getElementById("ficheLieu");
 const btnFiltreOuvert = document.getElementById("btnFiltreOuvert");
@@ -1221,15 +1252,20 @@ function fermerPanneauDetailsMobile(sansDefilement){
 
 const poigneePanneau = document.getElementById("poigneePanneau");
 const btnFermerPanneau = document.getElementById("btnFermerPanneau");
+const btnAgrandirPanneau = document.getElementById("btnAgrandirPanneau");
+const libelleAgrandir = document.getElementById("libelleAgrandir");
 
 // Part de la hauteur de l'écran occupée par la fiche réduite (voir le CSS)
 const PART_FICHE_REDUITE = 0.46;
 
+// Le bouton de la poignée annonce clairement ce qu'il fait selon l'état
 function mettreAJourPoignee(){
-    poigneePanneau.setAttribute(
-        "aria-expanded",
-        String(sectionDetails.classList.contains("deploye"))
-    );
+
+    const deploye = sectionDetails.classList.contains("deploye");
+
+    btnAgrandirPanneau.setAttribute("aria-expanded", String(deploye));
+    libelleAgrandir.textContent = deploye ? "Réduire la fiche" : "Voir la fiche complète";
+
 }
 
 // Centre la carte sur un lieu. Quand la fiche réduite masque le bas de la
@@ -1277,6 +1313,7 @@ sectionDetails.addEventListener("pointerdown", (e)=>{
     if(e.target.closest("#btnFermerPanneau")) return;
 
     const surPoignee = !!e.target.closest("#poigneePanneau");
+    const surBouton = !!e.target.closest("#btnAgrandirPanneau");
     const deploye = sectionDetails.classList.contains("deploye");
 
     // Déployée, le contenu défile normalement : seule la poignée fait glisser
@@ -1288,7 +1325,8 @@ sectionDetails.addEventListener("pointerdown", (e)=>{
         t0: performance.now(),
         depart: decalagePanneauActuel(),
         deplace: false,
-        surPoignee
+        surPoignee,
+        surBouton
     };
 
 });
@@ -1332,7 +1370,8 @@ function terminerGlissement(e, annule){
     if(!g.deplace){
 
         // Simple tap sur la poignée : on bascule entre réduit et déployé
-        if(g.surPoignee){
+        // (le bouton « Voir la fiche complète » gère déjà son propre clic)
+        if(g.surPoignee && !g.surBouton){
             definirPanneauDeploye(!sectionDetails.classList.contains("deploye"));
         }
 
@@ -1363,14 +1402,10 @@ function terminerGlissement(e, annule){
 sectionDetails.addEventListener("pointerup", (e)=> terminerGlissement(e, false));
 sectionDetails.addEventListener("pointercancel", (e)=> terminerGlissement(e, true));
 
-// Accessibilité clavier : Entrée / Espace sur la poignée
-poigneePanneau.addEventListener("keydown", (e)=>{
-
-    if(e.key==="Enter" || e.key===" "){
-        e.preventDefault();
-        definirPanneauDeploye(!sectionDetails.classList.contains("deploye"));
-    }
-
+// Bouton « Voir la fiche complète » / « Réduire la fiche » (accessible au
+// clavier : c'est un vrai bouton)
+btnAgrandirPanneau.addEventListener("click", ()=>{
+    definirPanneauDeploye(!sectionDetails.classList.contains("deploye"));
 });
 
 btnFermerPanneau.addEventListener("click", ()=> fermerPanneauDetailsMobile());
