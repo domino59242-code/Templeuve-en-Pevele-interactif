@@ -1,15 +1,20 @@
 /******************************************************************************
  * Templeuve Interactive — Service Worker
  *
- * Stratégie simple : "cache d'abord, réseau en secours" pour les fichiers
- * de l'application (HTML/CSS/JS/données), afin que le site continue de
- * fonctionner même sans connexion, une fois qu'il a déjà été visité.
+ * Deux stratégies :
+ * - fichiers de données (dossier data/ : lieux.json, categories.json) :
+ *   "réseau d'abord, cache en secours". Les lieux ajoutés ou modifiés
+ *   apparaissent donc dès la visite suivante, sans changer de version ;
+ *   hors connexion, la dernière copie connue est utilisée.
+ * - fichiers de l'application (HTML/CSS/JS/images) : "cache d'abord,
+ *   réseau en secours", pour un affichage instantané et le mode hors-ligne.
  *
- * Important : incrémenter NOM_CACHE à chaque changement de version du
- * site pour forcer les visiteurs à recharger les nouveaux fichiers.
+ * Important : incrémenter NOM_CACHE à chaque changement du CODE du site
+ * (index.html, css, js, images) pour forcer les visiteurs à recharger ces
+ * fichiers. Pour les seules données (data/*.json), ce n'est plus nécessaire.
  ******************************************************************************/
 
-const NOM_CACHE = "templeuve-interactive-v12.3";
+const NOM_CACHE = "templeuve-interactive-v12.5";
 
 const FICHIERS_A_METTRE_EN_CACHE = [
     "./",
@@ -66,6 +71,46 @@ self.addEventListener("fetch", (evenement)=>{
     // carte externes, qui doivent toujours venir du réseau)
     if(evenement.request.method!=="GET") return;
     if(!evenement.request.url.startsWith(self.location.origin)) return;
+
+    // Données (lieux, catégories) : on va d'abord chercher la version la plus
+    // récente sur le réseau (en revalidant auprès du serveur), et on ne se
+    // rabat sur la copie en cache qu'en l'absence de connexion.
+    if(new URL(evenement.request.url).pathname.includes("/data/")){
+
+        evenement.respondWith(
+
+            fetch(evenement.request, { cache:"no-cache" }).then(reponseReseau=>{
+
+                if(reponseReseau.ok && reponseReseau.type==="basic"){
+
+                    const copie = reponseReseau.clone();
+
+                    caches.open(NOM_CACHE).then(cache=>{
+                        cache.put(evenement.request, copie);
+                    });
+
+                }
+
+                return reponseReseau;
+
+            }).catch(()=>{
+
+                return caches.match(evenement.request).then(reponseEnCache=>{
+
+                    return reponseEnCache || new Response(
+                        "Contenu non disponible hors-ligne.",
+                        { status: 503, statusText: "Hors-ligne" }
+                    );
+
+                });
+
+            })
+
+        );
+
+        return;
+
+    }
 
     evenement.respondWith(
 
