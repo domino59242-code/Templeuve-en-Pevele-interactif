@@ -2166,11 +2166,21 @@
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [],
-            "mardi": [],
-            "mercredi": [],
-            "jeudi": [],
-            "vendredi": [],
+            "lundi": [
+                "06:45-20:30"
+            ],
+            "mardi": [
+                "06:45-20:30"
+            ],
+            "mercredi": [
+                "06:45-20:30"
+            ],
+            "jeudi": [
+                "06:45-20:30"
+            ],
+            "vendredi": [
+                "06:45-20:30"
+            ],
             "samedi": [
                 "09:00-14:00",
                 "17:00-20:00"
@@ -2622,9 +2632,7 @@
             "samedi": [
                 "10:00-12:30"
             ],
-            "dimanche": [
-                "16:00-19:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.526652,
         "longitude": 3.168527
@@ -3383,9 +3391,7 @@
             "samedi": [
                 "08:00-20:00"
             ],
-            "dimanche": [
-                "08:00-20:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.526861,
         "longitude": 3.175106
@@ -3940,10 +3946,7 @@
                 "09:00-12:00",
                 "17:00-19:00"
             ],
-            "dimanche": [
-                "09:00-12:00",
-                "17:00-19:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.543705,
         "longitude": 3.190839
@@ -6179,7 +6182,7 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Pa",
+        "description": "Parking gratuit",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -6779,5 +6782,1204 @@
         "horairesNote": "Accès libre",
         "latitude": 50.528386,
         "longitude": 3.175473
+    },
+    {
+        "id": 219,
+        "nom": "Casa Lougi Ennevelin",
+        "vedette": false,
+        "categorie": "Commerce",
+        "sousCategorie": "Alimentation",
+        "adresse": "35, route de Templeuve",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Vente à emporter de pizzas",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
+        },
+        "latitude": 50.541498,
+        "longitude": 3.157328
+    },
+    {
+        "id": 220,
+        "nom": "MATLEX Energie",
+        "vedette": false,
+        "categorie": "Commerce",
+        "sousCategorie": "Autres commerce spécialisé",
+        "adresse": "97, rue du Noir Debout Cappelle en Pévèle",
+        "telephone": "",
+        "mail": "contact@matlex.fr",
+        "site": "https://www.matlex.fr/",
+        "description": "Installateur RGE pour tout vos projets d’Energie",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "10:00-12:00",
+                "14:00-19:00"
+            ],
+            "mardi": [
+                "10:00-12:00",
+                "14:00-19:00"
+            ],
+            "mercredi": [
+                "10:00-12:00",
+                "14:00-19:00"
+            ],
+            "jeudi": [
+                "10:00-12:00",
+                "14:00-19:00"
+            ],
+            "vendredi": [
+                "10:00-12:00",
+                "14:00-19:00"
+            ],
+            "samedi": [
+                "10:00-12:00",
+                "14:00-19:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.516347,
+        "longitude": 3.157822
+    },
+    {
+        "id": 221,
+        "nom": "MAD&TECH",
+        "vedette": false,
+        "categorie": "Service",
+        "sousCategorie": "Divers autres",
+        "adresse": "33 Rue de la Plaine, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 74 46 90 06",
+        "mail": "contact@madetech.fr",
+        "site": "https://madetech.fr/",
+        "description": "Consultant en Ingénierie.\nNous concevons et intégrons des systèmes GTB pour le tertiaire, l’industrie et le secteur santé, avec une approche orientée fiabilité, exploitation et performance.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.517366,
+        "longitude": 3.15932
+    },
+    {
+        "id": 222,
+        "nom": "Ergo-en-Pévèle ; Claire Delquignies",
+        "vedette": false,
+        "categorie": "Santé",
+        "sousCategorie": "profession auxiliaire",
+        "adresse": "80 ter Rue de la Plaine, 59242 Cappelle-en-Pévèle",
+        "telephone": "06 79 34 93 47",
+        "mail": "claire.delquignies@outlook.com",
+        "site": "https://ergoenpevele.com/",
+        "description": "Ergothérapeute.\nLes séances en cabinet sont réservées aux patients qui ont déjà un suivi en cours. Si ce n'est pas le cas de votre enfant, n'hésitez pas à prendre un rendez-vous pour un bilan directement, ou à me contacter si un bilan a déjà été effectué ailleurs.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-20:00"
+            ],
+            "mardi": [
+                "09:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-18:30"
+            ],
+            "vendredi": [
+                "09:00-12:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.516943,
+        "longitude": 3.15961
+    },
+    {
+        "id": 223,
+        "nom": "Micro Crèche Mille Et Un Pas",
+        "vedette": false,
+        "categorie": "Service",
+        "sousCategorie": "Enfance",
+        "adresse": "306 RUE DU NOIR DEBOUT, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 74 46 88 94",
+        "mail": "",
+        "site": "",
+        "description": "Micro-crèche",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "07:00-19:00"
+            ],
+            "mardi": [
+                "07:00-19:00"
+            ],
+            "mercredi": [
+                "07:00-19:00"
+            ],
+            "jeudi": [
+                "07:00-19:00"
+            ],
+            "vendredi": [
+                "07:00-19:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.514969,
+        "longitude": 3.15992
+    },
+    {
+        "id": 224,
+        "nom": "Delecroix Menuiseries",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "111 Rue de la Plaine, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 20 95 06 83",
+        "mail": "",
+        "site": "https://delecroixmenuiseries.fr/",
+        "description": "Vous recherchez une équipe de menuisiers expérimentés et passionnés, pour un projet de rénovation ou d’aménagement ?\n\nNous imaginons des solutions sur-mesure répondant à vos attentes, respectueuses de l’architecture du lieu, de vos contraintes techniques et budgétaires ainsi que de l’environnement.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-17:00"
+            ],
+            "mardi": [
+                "09:00-17:00"
+            ],
+            "mercredi": [
+                "09:00-17:00"
+            ],
+            "jeudi": [
+                "09:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-17:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.516912,
+        "longitude": 3.160469
+    },
+    {
+        "id": 225,
+        "nom": "MyO",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "121 Rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 28 55 11 55",
+        "mail": "",
+        "site": "https://www.myo-solutions.com/",
+        "description": "Cabines, produits, aménagements acoustiques",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:00-11:30",
+                "13:45-17:00"
+            ],
+            "mardi": [
+                "08:00-11:30",
+                "13:45-17:00"
+            ],
+            "mercredi": [
+                "08:00-11:30",
+                "13:45-17:00"
+            ],
+            "jeudi": [
+                "08:00-11:30",
+                "13:45-17:00"
+            ],
+            "vendredi": [
+                "08:00-11:30",
+                "13:45-17:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.516259,
+        "longitude": 3.160125
+    },
+    {
+        "id": 226,
+        "nom": "Place des Meubles",
+        "vedette": false,
+        "categorie": "Commerce",
+        "sousCategorie": "Maison & décoration",
+        "adresse": "85 Rue de la Plaine, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 74 69 91 92",
+        "mail": "",
+        "site": "https://placedesmeubles.com/",
+        "description": "Bienvenue chez Place des Meubles, votre boutique en ligne spécialisée dans le mobilier et la décoration design, artisanale et tendance. showroom physique.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "12:00-16:00"
+            ],
+            "mardi": [
+                "10:00-18:00"
+            ],
+            "mercredi": [
+                "09:30-12:30"
+            ],
+            "jeudi": [
+                "10:00-18:00"
+            ],
+            "vendredi": [
+                "10:00-18:00"
+            ],
+            "samedi": [
+                "10:00-18:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.516948,
+        "longitude": 3.159778
+    },
+    {
+        "id": 227,
+        "nom": "Depot Mosaic",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "185 Rue de la Plaine, 59242 Cappelle-en-Pévèle",
+        "telephone": "",
+        "mail": "",
+        "site": "https://www.depotmosaic.com/",
+        "description": "Un carreau de céramique artisanal, façonné par les meilleurs artisans du Maroc. Conçu dans le respect de ses origines issues de l'art islamique, ce produit est aujourd'hui également très apprécié dans les intérieurs d'Europe occidentale.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-12:00",
+                "14:00-16:30"
+            ],
+            "mardi": [
+                "09:00-16:30"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-16:30"
+            ],
+            "jeudi": [
+                "09:00-17:00"
+            ],
+            "vendredi": [
+                "09:00-17:00"
+            ],
+            "samedi": [
+                "09:00-12:00",
+                "14:00-16:30"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.516261,
+        "longitude": 3.161298
+    },
+    {
+        "id": 228,
+        "nom": "Pierres et Materiaux du Nord",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "Rue de Lille",
+        "telephone": "06 38 83 04 05",
+        "mail": "",
+        "site": "http://www.revetementsdunord.fr/",
+        "description": "Quincaillerie",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:30-12:00"
+            ],
+            "mardi": [
+                "08:30-12:00"
+            ],
+            "mercredi": [
+                "08:30-12:00"
+            ],
+            "jeudi": [],
+            "vendredi": [
+                "08:30-12:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.516975,
+        "longitude": 3.159412
+    },
+    {
+        "id": 229,
+        "nom": "Savonnable",
+        "vedette": false,
+        "categorie": "Beauté & bien-être",
+        "sousCategorie": "",
+        "adresse": "200 rue du Noir Debout Bat 4, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 65 67 22 22",
+        "mail": "",
+        "site": "https://savonnable.fr/",
+        "description": "Chaque cosmétique est fabriqué dans notre atelier situé à Landas. Notre engagement envers la nature est au cœur de tout ce que nous faisons. Nous sélectionnons rigoureusement nos ingrédients, privilégiant les sources locales et directes dès que possible.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "10:00-17:00"
+            ],
+            "mardi": [
+                "10:00-17:00"
+            ],
+            "mercredi": [
+                "10:00-17:00"
+            ],
+            "jeudi": [
+                "10:00-17:00"
+            ],
+            "vendredi": [
+                "10:00-17:00"
+            ],
+            "samedi": [
+                "10:00-17:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.515672,
+        "longitude": 3.157706
+    },
+    {
+        "id": 230,
+        "nom": "Presta Filtres Nord",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "240 Rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 20 85 91 68",
+        "mail": "",
+        "site": "https://prestafiltres.fr/",
+        "description": "Depuis plus de 30 ans, Presta Filtres accompagne les carrosseries, centres automobiles et industriels dans la maintenance, la filtration et le dépannage des cabines de peinture.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:30-18:00"
+            ],
+            "mardi": [
+                "08:30-18:00"
+            ],
+            "mercredi": [
+                "08:30-18:00"
+            ],
+            "jeudi": [
+                "08:30-18:00"
+            ],
+            "vendredi": [
+                "08:30-18:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.515423,
+        "longitude": 3.158242
+    },
+    {
+        "id": 231,
+        "nom": "Hoyez",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "121 Rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 28 55 11 55",
+        "mail": "",
+        "site": "https://www.hoyez.fr",
+        "description": "Conception et fabrication de systèmes de cloisons amovibles, de portes à ossature aluminium et de solutions acoustiques (marque myO) pour les espaces de travail tertiaires et industriels",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:00-12:30",
+                "13:45-17:00"
+            ],
+            "mardi": [
+                "08:00-12:30",
+                "13:45-17:00"
+            ],
+            "mercredi": [
+                "08:00-12:30",
+                "13:45-17:00"
+            ],
+            "jeudi": [
+                "08:00-12:30",
+                "13:45-17:00"
+            ],
+            "vendredi": [
+                "08:00-12:30",
+                "13:45-17:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.515314,
+        "longitude": 3.158564
+    },
+    {
+        "id": 232,
+        "nom": "PAYS BOIS",
+        "vedette": false,
+        "categorie": "Auto & Transport",
+        "sousCategorie": "",
+        "adresse": "200 rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "07 69 10 31 48",
+        "mail": "paysbois@yahoo.fr",
+        "site": "https://www.paysbois.fr/",
+        "description": "Chez Pays Bois, nous imaginons et fabriquons des meubles sur mesure en bois recyclé et en chêne massif, pensés pour apporter du caractère, de la chaleur et de l’authenticité à votre intérieur comme à vos espaces professionnels.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-17:30"
+            ],
+            "mardi": [
+                "09:00-17:30"
+            ],
+            "mercredi": [
+                "09:00-17:30"
+            ],
+            "jeudi": [
+                "09:00-17:30"
+            ],
+            "vendredi": [],
+            "samedi": [
+                "14:30-17:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.5156,
+        "longitude": 3.157716
+    },
+    {
+        "id": 233,
+        "nom": "KelCrédit",
+        "vedette": false,
+        "categorie": "Professions spécialisées",
+        "sousCategorie": "",
+        "adresse": "300 rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "09 78 08 47 31",
+        "mail": "",
+        "site": "https://kelcredit.fr/contact/",
+        "description": "Courtier en prêts hypothécaires.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-12:00",
+                "13:30-17:30"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "13:30-17:30"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "13:30-17:30"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "13:30-17:30"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "13:30-17:30"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.515137,
+        "longitude": 3.158462
+    },
+    {
+        "id": 234,
+        "nom": "La Protection Sociale",
+        "vedette": false,
+        "categorie": "Professions spécialisées",
+        "sousCategorie": "",
+        "adresse": "300 Rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "09 82 51 68 68",
+        "mail": "contact@laprotectionsociale.fr",
+        "site": "https://www.laprotectionsociale.fr/",
+        "description": "Courtier en assurances",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-17:30"
+            ],
+            "mardi": [
+                "09:00-17:30"
+            ],
+            "mercredi": [
+                "09:00-17:30"
+            ],
+            "jeudi": [
+                "09:00-17:30"
+            ],
+            "vendredi": [
+                "09:00-17:30"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.514402,
+        "longitude": 3.158682
+    },
+    {
+        "id": 235,
+        "nom": "Maison Moulin",
+        "vedette": false,
+        "categorie": "Service",
+        "sousCategorie": "Animaux",
+        "adresse": "240 Rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "09 70 02 03 78",
+        "mail": "",
+        "site": "https://maisonmoulin.fr/fr/",
+        "description": "Alimentation chiens et chats.\nLivraison offerte en point relais à partir de 60€ (jusqu'à 20kg).",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "10:00-12:30",
+                "14:00-18:30"
+            ],
+            "mardi": [
+                "10:00-12:30",
+                "14:00-18:30"
+            ],
+            "mercredi": [
+                "10:00-12:30",
+                "14:00-18:30"
+            ],
+            "jeudi": [
+                "10:00-12:30",
+                "14:00-18:30"
+            ],
+            "vendredi": [
+                "10:00-12:30",
+                "14:00-18:30"
+            ],
+            "samedi": [
+                "10:00-12:30",
+                "14:00-18:30"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.514985,
+        "longitude": 3.157705
+    },
+    {
+        "id": 236,
+        "nom": "Reliance gestion",
+        "vedette": false,
+        "categorie": "Professions spécialisées",
+        "sousCategorie": "",
+        "adresse": "306, RUE DU NOIR DEBOUT, 59242 Cappelle-en-Pévèle",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Activités comptables, tenue de comptes, audit, conseil fiscal et gestion de la paie.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [],
+            "mardi": [],
+            "mercredi": [],
+            "jeudi": [],
+            "vendredi": [],
+            "samedi": [],
+            "dimanche": []
+        },
+        "horairesNote": "Non communiqué",
+        "latitude": 50.514505,
+        "longitude": 3.159166
+    },
+    {
+        "id": 237,
+        "nom": "Terre d'Entrepreneurs",
+        "vedette": false,
+        "categorie": "Professions spécialisées",
+        "sousCategorie": "",
+        "adresse": "300 Rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "07 88 03 49 55",
+        "mail": "contact@terre-d-entrepreneurs.com",
+        "site": "https://terre-d-entrepreneurs.com/",
+        "description": "Cabinet d'expertise comptable",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:30-18:00"
+            ],
+            "mardi": [
+                "08:30-18:00"
+            ],
+            "mercredi": [
+                "08:30-18:00"
+            ],
+            "jeudi": [
+                "08:30-18:00"
+            ],
+            "vendredi": [
+                "08:30-18:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.514526,
+        "longitude": 3.158537
+    },
+    {
+        "id": 238,
+        "nom": "PREMIUM FERMETURES",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "240 Rue du Noir Debout, 59242 Cappelle-en-Pévèle",
+        "telephone": "03 20 00 60 00",
+        "mail": "",
+        "site": "https://www.premium-fermetures.fr/",
+        "description": "Premium fermetures vous accompagne dans votre projet de menuiseries, protections solaires ou création de pergolas afin de valoriser, sécuriser et isoler votre habitation.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-18:00"
+            ],
+            "mardi": [
+                "09:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-18:00"
+            ],
+            "samedi": [
+                "10:00-17:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.515078,
+        "longitude": 3.157626
+    },
+    {
+        "id": 239,
+        "nom": "Aire de covoiturage",
+        "vedette": false,
+        "categorie": "Auto & Transport",
+        "sousCategorie": "",
+        "adresse": "Rue de Lille",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Aire de covoiturage",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
+        },
+        "latitude": 50.515664,
+        "longitude": 3.156139
+    },
+    {
+        "id": 240,
+        "nom": "Au QG de la Pévèle",
+        "vedette": false,
+        "categorie": "Auto & Transport",
+        "sousCategorie": "",
+        "adresse": "20, rue de la gare, Cappelle en Pévèle",
+        "telephone": "06 10 26 27 65",
+        "mail": "auqgdelapevele@gmail.com",
+        "site": "https://www.facebook.com/auqgdelapevele/",
+        "description": "Bar ludique à jeux et à thème : billard, flipper, fléchettes, jeux de société et apéro. En extérieur, terrasse avec terrain de pétanque, table de ping-pong, baby-foot, molkky.\nRetransmission de match et soirée à thème...",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [],
+            "mardi": [
+                "16:00-22:00"
+            ],
+            "mercredi": [
+                "16:00-22:00"
+            ],
+            "jeudi": [
+                "16:00-23:00"
+            ],
+            "vendredi": [
+                "16:00-23:59"
+            ],
+            "samedi": [
+                "16:00-23:59"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.514341,
+        "longitude": 3.171692
+    },
+    {
+        "id": 241,
+        "nom": "Belgrange",
+        "vedette": false,
+        "categorie": "Restaurant/bar",
+        "sousCategorie": "",
+        "adresse": "23, Rue du Général de Gaulle à Cappelle-en-Pévèle",
+        "telephone": "03 20 59 98 72",
+        "mail": "",
+        "site": "https://www.belgrange-restaurant.com/",
+        "description": "Au Cœur de la Pévèle, à 20 min de Lille et 5 min de Templeuve, venez partager un moment de plaisir et de convivialité dans notre restaurant installé dans une ancienne étable.\nNotre cuisine est élaborée exclusivement avec des produits frais et sélectionnés auprès de fournisseurs et d’artisans locaux.\nUn menu du marché est proposé la semaine du mardi midi au vendredi midi.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [],
+            "mardi": [
+                "12:00-14:00"
+            ],
+            "mercredi": [
+                "12:00-14:00"
+            ],
+            "jeudi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "vendredi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "samedi": [
+                "12:00-14:00",
+                "19:00-22:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.511752,
+        "longitude": 3.17144
+    },
+    {
+        "id": 242,
+        "nom": "Garage Dhainaut",
+        "vedette": false,
+        "categorie": "Auto & Transport",
+        "sousCategorie": "",
+        "adresse": "6, rue du Gl de Gaule, Cappelle en Pévèle",
+        "telephone": "03 20 59 35 46",
+        "mail": "cedric.dhainaut@gmail.com",
+        "site": "https://garage-dhainaut.com/fr/page/contact",
+        "description": "Agent Renault et Dacia.\nDécouvrez un centre de réparation et de vente auto, entièrement dédié à tous vos besoins. Une réparation mécanique urgente ? Un projet d'achat de véhicule neuf ? Concrétisez vos projets en toute confiance ! Toutes marques!",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "07:30-12:00",
+                "13:30-18:30"
+            ],
+            "mardi": [
+                "07:30-12:00",
+                "13:30-18:30"
+            ],
+            "mercredi": [
+                "07:30-12:00",
+                "13:30-18:30"
+            ],
+            "jeudi": [
+                "07:30-12:00",
+                "13:30-18:30"
+            ],
+            "vendredi": [
+                "07:30-12:00",
+                "13:30-18:30"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.509718,
+        "longitude": 3.171414
+    },
+    {
+        "id": 243,
+        "nom": "Pas-Sage",
+        "vedette": false,
+        "categorie": "Restaurant/bar",
+        "sousCategorie": "",
+        "adresse": "65 Rue du Général de Gaulle à Cappelle-en-Pévèle",
+        "telephone": "06 30 98 34 10",
+        "mail": "contact@pas-sage.family",
+        "site": "https://pas-sage.family/",
+        "description": "Espace de restauration accessible chaque matin, midi et au goûter, ainsi que le vendredi soir.\n\nUn restaurant et lieu d’activités, qui met également en avant des créateurs locaux.\n\nUn endroit convivial, où les enfants disposent de leur espace dédié et chacun trouve sa place.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [],
+            "mardi": [],
+            "mercredi": [
+                "09:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-21:30"
+            ],
+            "samedi": [
+                "09:00-18:00"
+            ],
+            "dimanche": [
+                "09:00-15:30"
+            ]
+        },
+        "latitude": 50.508303,
+        "longitude": 3.171264
+    },
+    {
+        "id": 244,
+        "nom": "Collège Simone Veil",
+        "vedette": false,
+        "categorie": "Service",
+        "sousCategorie": "Education",
+        "adresse": "8, rue de l'Égalité à Cappelle-en-Pévèle.",
+        "telephone": "03 28 76 00 00",
+        "mail": "",
+        "site": "https://college-simone-veil-cappelle-en-pevele.59.ac-lille.fr/",
+        "description": "Collège",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:30-12:00"
+            ],
+            "mardi": [
+                "14:30-17:30"
+            ],
+            "mercredi": [
+                "14:00-17:30"
+            ],
+            "jeudi": [
+                "08:30-12:00"
+            ],
+            "vendredi": [
+                "08:30-12:00"
+            ],
+            "samedi": [
+                "09:00-11:45"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.513195,
+        "longitude": 3.165811
+    },
+    {
+        "id": 245,
+        "nom": "Institut de Genech",
+        "vedette": false,
+        "categorie": "Service",
+        "sousCategorie": "Education",
+        "adresse": "348, rue de la Libération, 59242 Genech",
+        "telephone": "03 20 84 57 08",
+        "mail": "contact@institutdegenech.fr",
+        "site": "https://www.institutdegenech.fr/nous-contacter/",
+        "description": "Créé en 1894 par des professionnels du monde rural, le Groupe nstitut de Genech est un établissement d’enseignement général, professionnel et technologique privé. Il propose des formations diversifiées et diplômantes dans les métiers de la nature et du vivant.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:30-18:00"
+            ],
+            "mardi": [
+                "08:00-18:00"
+            ],
+            "mercredi": [
+                "08:00-18:00"
+            ],
+            "jeudi": [
+                "08:00-18:00"
+            ],
+            "vendredi": [
+                "08:00-17:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "latitude": 50.528243,
+        "longitude": 3.207031
+    },
+    {
+        "id": 246,
+        "nom": "BG Wood",
+        "vedette": false,
+        "categorie": "Bâtiment & travaux",
+        "sousCategorie": "",
+        "adresse": "60 rue de la Plaine (D90) 59242 Genech",
+        "telephone": "06 82 17 26 17",
+        "mail": "info@bgwoods.fr",
+        "site": "https://www.bgwoods.fr/fr",
+        "description": "Notre vaste sélection de bois d'extérieur comprend tout ce dont un paysagiste a besoin : tuteurs pour arbres, clôtures et portails de jardin, terrasses, clôtures de pâturage et bien plus encore. Nous sommes votre partenaire idéal grâce à nos conseils d'experts, notre service rapide et notre large gamme de produits.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "08:00-12:00",
+                "13:30-18:00"
+            ],
+            "mardi": [
+                "08:00-12:00",
+                "13:30-18:00"
+            ],
+            "mercredi": [
+                "08:00-12:00",
+                "13:30-18:00"
+            ],
+            "jeudi": [
+                "08:00-12:00",
+                "13:30-18:00"
+            ],
+            "vendredi": [
+                "08:00-12:00",
+                "13:30-18:00"
+            ],
+            "samedi": [],
+            "dimanche": []
+        },
+        "horairesNote": "sur Rdv le samedi",
+        "latitude": 50.531793,
+        "longitude": 3.207015
+    },
+    {
+        "id": 247,
+        "nom": "Marais de Bonnance",
+        "vedette": false,
+        "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
+        "adresse": "Rue de Bonnance",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Le marais de Bonnance, faisant partie des marais de la Marque, est situé sur le territoire de la commune de Fretin et à la limite de celui de Péronne-en-Mélantois.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
+        },
+        "latitude": 50.558115,
+        "longitude": 3.163017
+    },
+    {
+        "id": 248,
+        "nom": "Marais de Fretin",
+        "vedette": false,
+        "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
+        "adresse": "Rue du Maréchal Foch à Fretin",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Les marais de Fretin sont davantage conçus pour la promenade que pour l’observation des oiseaux comme le sont les marais de la Marque, à proximité. On peut néanmoins découvrir de nombreux oiseaux aquatiques et s’arrêter au point d’observation du Martin Pêcheur : héron cendré, Grèbe Huppé, Chevalier Guignette, Morillon, Foulque et Martin Pêcheur apprécient particulièrement l’environnement des Marais.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
+        },
+        "latitude": 50.553074,
+        "longitude": 3.140982
+    },
+    {
+        "id": 249,
+        "nom": "Marais de la Marque",
+        "vedette": false,
+        "categorie": "Culture/Loisir/Sport",
+        "sousCategorie": "",
+        "adresse": "Rue du Marais à  Péronne-en-Mélantois",
+        "telephone": "",
+        "mail": "",
+        "site": "",
+        "description": "Aux portes de la métropole lilloise, les Marais de la Marque offrent un véritable écrin de nature où zones humides, roselières, plans d'eau et prairies se succèdent. Cet espace naturel sensible est un lieu privilégié pour une balade au calme et l'observation de la faune et de la flore.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "00:00-23:59"
+            ],
+            "mardi": [
+                "00:00-23:59"
+            ],
+            "mercredi": [
+                "00:00-23:59"
+            ],
+            "jeudi": [
+                "00:00-23:59"
+            ],
+            "vendredi": [
+                "00:00-23:59"
+            ],
+            "samedi": [
+                "00:00-23:59"
+            ],
+            "dimanche": [
+                "00:00-23:59"
+            ]
+        },
+        "latitude": 50.56175,
+        "longitude": 3.174965
+    },
+    {
+        "id": 250,
+        "nom": "Carré du Hélin",
+        "vedette": false,
+        "categorie": "Restaurant/bar",
+        "sousCategorie": "",
+        "adresse": "33 rue Templeuve, D145, 59710 Ennevelin",
+        "telephone": "03 20 34 14 18",
+        "mail": "",
+        "site": "https://www.carreduhelin.com/",
+        "description": "Découvrez le Carré du Hélin. Situé à quelques minutes de Lille, notre domaine vous accueille dans un cadre verdoyant et élégant pour l’organisation de séminaires, mariages, réceptions privées, conférences et événements professionnels.",
+        "photo": "",
+        "dateFin": "",
+        "horaires": {
+            "lundi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mardi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "mercredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "jeudi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "vendredi": [
+                "09:00-12:00",
+                "14:00-18:00"
+            ],
+            "samedi": [
+                "09:00-12:00"
+            ],
+            "dimanche": []
+        },
+        "latitude": 50.542328,
+        "longitude": 3.152901
     }
 ]
