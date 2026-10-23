@@ -616,6 +616,88 @@ document.getElementById("btnAccueilEvenements").addEventListener("click", ()=>{
 });
 
 //==================================================
+// Installation de l'application
+//
+// Android / Chrome / Edge : le navigateur annonce qu'il peut installer le
+// site (événement beforeinstallprompt) : on affiche alors un bouton.
+// iPhone / iPad : Safari n'a pas ce mécanisme, on affiche donc les étapes
+// à suivre. Rien n'est affiché si l'application est déjà installée.
+//==================================================
+
+const blocInstallation = document.getElementById("blocInstallation");
+const btnInstaller = document.getElementById("btnInstaller");
+const aideInstallation = document.getElementById("aideInstallation");
+
+let evenementInstallation = null;
+
+function estDejaInstallee(){
+
+    return (
+        (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+        window.navigator.standalone===true
+    );
+
+}
+
+function estAppareilApple(){
+
+    return (
+        /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+        // iPad récents : ils se présentent comme un Mac mais ont un écran tactile
+        (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1)
+    );
+
+}
+
+window.addEventListener("beforeinstallprompt", (e)=>{
+
+    // On garde l'événement pour déclencher l'installation depuis notre bouton
+    e.preventDefault();
+    evenementInstallation = e;
+
+    if(!estDejaInstallee()){
+        blocInstallation.hidden = false;
+    }
+
+});
+
+window.addEventListener("appinstalled", ()=>{
+
+    evenementInstallation = null;
+    blocInstallation.hidden = true;
+
+});
+
+if(!estDejaInstallee() && estAppareilApple()){
+    blocInstallation.hidden = false;
+}
+
+btnInstaller.addEventListener("click", async ()=>{
+
+    // Android / Chrome / Edge : fenêtre d'installation du navigateur
+    if(evenementInstallation){
+
+        evenementInstallation.prompt();
+
+        try{
+            await evenementInstallation.userChoice;
+        }catch(erreur){
+            // Choix ignoré : le navigateur gère lui-même le refus
+        }
+
+        evenementInstallation = null;
+        blocInstallation.hidden = true;
+
+        return;
+
+    }
+
+    // iPhone / iPad : on affiche ou masque les étapes
+    aideInstallation.hidden = !aideInstallation.hidden;
+
+});
+
+//==================================================
 // Accessibilité : taille du texte et contraste élevé
 //
 // Les préférences sont mémorisées dans le navigateur (localStorage) et

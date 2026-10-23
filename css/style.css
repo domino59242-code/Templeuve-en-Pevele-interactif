@@ -2196,3 +2196,60 @@ select{
     display:none;
 
 }
+
+
+/* ===========================
+   Installation de l'application (accueil)
+=========================== */
+
+.blocInstallation{
+
+    margin-top:22px;
+    text-align:center;
+
+}
+
+.blocInstallation[hidden],
+.aideInstallation[hidden]{
+
+    display:none;
+
+}
+
+.btnInstaller{
+
+    padding:12px 22px;
+
+    border:2px solid var(--couleur-principale);
+    border-radius:12px;
+    background:white;
+    color:var(--couleur-principale-fonce);
+
+    font-family:inherit;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+.btnInstaller:hover,
+.btnInstaller:focus-visible{
+
+    background:var(--couleur-principale-clair);
+
+}
+
+.aideInstallation{
+
+    margin-top:12px;
+    padding:12px 14px;
+
+    border-radius:10px;
+    background:var(--couleur-principale-clair);
+    color:var(--couleur-texte);
+
+    font-size:14px;
+    line-height:1.4;
+    text-align:left;
+
+}

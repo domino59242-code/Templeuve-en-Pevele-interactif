@@ -12,14 +12,17 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Templeuve en Pévèle Interactif">
     <meta property="og:description" content="Découvrez les commerces, services, lieux de patrimoine et événements de Templeuve et de ses environs, en un coup d'œil sur la carte.">
-    <meta property="og:image" content="https://domino59242-code.github.io/Templeuve-en-Pevele-interactif/assets/icon-512.png">
+    <meta property="og:image" content="https://domino59242-code.github.io/Templeuve-en-Pevele-interactif/assets/feature-graphic.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="500">
+    <meta property="og:image:alt" content="Templeuve en Pévèle Interactif : commerces, services et événements de Templeuve et de ses environs">
     <meta property="og:url" content="https://domino59242-code.github.io/Templeuve-en-Pevele-interactif/">
     <meta property="og:locale" content="fr_FR">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Templeuve en Pévèle Interactif">
     <meta name="twitter:description" content="Découvrez les commerces, services, lieux de patrimoine et événements de Templeuve et de ses environs en un coup d'œil sur la carte.">
-    <meta name="twitter:image" content="https://domino59242-code.github.io/Templeuve-en-Pevele-interactif/assets/icon-512.png">
+    <meta name="twitter:image" content="https://domino59242-code.github.io/Templeuve-en-Pevele-interactif/assets/feature-graphic.png">
 
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="alternate icon" href="assets/favicon-32.png">
@@ -106,6 +109,22 @@
 
             <p id="messageAccueil" class="messageAccueil" role="status" hidden></p>
 
+            <!-- Installation de l'application : bouton affiché seulement quand c'est possible -->
+            <div id="blocInstallation" class="blocInstallation" hidden>
+
+                <button type="button" id="btnInstaller" class="btnInstaller">
+                    📲 Installer l'application
+                </button>
+
+                <div id="aideInstallation" class="aideInstallation" hidden>
+                    <b>Sur iPhone ou iPad</b> : touchez le bouton <b>Partager</b>
+                    (le carré avec une flèche vers le haut, en bas de l'écran), puis
+                    <b>« Sur l'écran d'accueil »</b>. L'application apparaît alors
+                    comme les autres.
+                </div>
+
+            </div>
+
             <div id="blocVedetteAccueil" class="blocVedetteAccueil masque">
                 <label for="selectVedetteAccueil" class="labelVedetteAccueil">
                     À la une en ce moment
@@ -136,7 +155,7 @@
                     <h1>Templeuve Interactive</h1>
 
                     <p class="version">
-                        Version 12.5
+                        Version 12.6
                     </p>
 
                 </div>
