@@ -14,7 +14,7 @@
  * fichiers. Pour les seules données (data/*.json), ce n'est plus nécessaire.
  ******************************************************************************/
 
-const NOM_CACHE = "templeuve-interactive-v12.6";
+const NOM_CACHE = "templeuve-interactive-v12.7";
 
 const FICHIERS_A_METTRE_EN_CACHE = [
     "./",
