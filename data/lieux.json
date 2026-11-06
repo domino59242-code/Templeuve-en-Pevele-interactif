@@ -568,10 +568,10 @@
         "categorie": "Culture/Loisir/Sport",
         "sousCategorie": "",
         "adresse": "3, Place de l'Etoile",
-        "telephone": "",
+        "telephone": "03 20 59 33 90",
         "mail": "",
         "site": "https://www.cinepevele.fr/#home",
-        "description": "Cinéma 3 salles",
+        "description": "- 3 salles modernes (458 fauteuils club au total)\n- Équipement : Projection 4K Laser et son Dolby 7.1 (écrans de 8 à 12 mètres)",
         "photo": "assets/images/cine-pevele.webp",
         "dateFin": "",
         "horaires": {
@@ -583,7 +583,7 @@
             "samedi": [],
             "dimanche": []
         },
-        "horairesNote": "Selon les programmations",
+        "horairesNote": "Selon les programmations - Du lundi au dimanche, généralement de 13h00 à 21h30",
         "latitude": 50.524173,
         "longitude": 3.171119
     },
@@ -1544,7 +1544,7 @@
         "telephone": "09 87 54 85 57",
         "mail": "",
         "site": "https://www.autour-d-un-verre.fr/",
-        "description": "Cave à vins - Dégustations",
+        "description": "Cave à vins - Dégustations\nAutour d'un Verre à Templeuve en Pévèle, ouvert du mardi au samedi, est la destination parfaite pour les amateurs de vins. Découvrez une cave exceptionnelle ...",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -1972,7 +1972,7 @@
         "telephone": "03 20 59 30 29",
         "mail": "",
         "site": "https://www.facebook.com/profile.php?id=100028375249256#",
-        "description": "Boulangerie",
+        "description": "Boulangerie\nAvec un savoir-faire reconnu, Oechsel met à disposition des prestations variées telles que les commandes de pièces montées et gâteaux d'anniversaire et la fabrication de baguettes tradition et pains au levain. Grâce à le respect des temps de fermentation pour des arômes authentiques, chaque visite ou intervention est pensée pour retrouver le goût authentique du savoir-faire boulanger.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -2009,7 +2009,7 @@
         "telephone": "03 20 59 32 47",
         "mail": "",
         "site": "https://www.interflora.fr/fleuristes/nord-59/59586-templeuve-en-pevele/",
-        "description": "Fleuriste",
+        "description": "Fleuriste\nLivraison de fleurs à Templeuve-en-Pévèle par les fleuristes du réseau Interflora",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -2360,14 +2360,11 @@
         "telephone": "03 20 59 30 42",
         "mail": "",
         "site": "",
-        "description": "Boucherie",
+        "description": "Boucherie\nSpécialités : Boucherie, charcuterie, plats préparés et buffets à emporter.",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "lundi": [],
             "mardi": [
                 "09:30-12:30",
                 "15:00-19:00"
@@ -2388,10 +2385,7 @@
                 "09:30-12:30",
                 "15:00-18:00"
             ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.530203,
         "longitude": 3.174667
@@ -2530,7 +2524,7 @@
     },
     {
         "id": 69,
-        "nom": "CROSS Formatio,",
+        "nom": "CROSS Formation",
         "vedette": false,
         "categorie": "Service",
         "sousCategorie": "Divers autres",
@@ -2538,7 +2532,7 @@
         "telephone": "06 15 50 70 12",
         "mail": "contact-crossformation@gmail.com",
         "site": "https://crossformation.fr/",
-        "description": "Centre de formations",
+        "description": "Centre de formations\nPartenaire idéal pour tous vos besoins en matière de sécurité et de prévention des risques professionnels, CROSS FORMATION est un organisme de formation spécialisé dans le domaine de la sécurité en milieu professionnel.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -2609,8 +2603,8 @@
         "adresse": "6, rue Demesmay",
         "telephone": "03 20 61 00 97",
         "mail": "",
-        "site": "",
-        "description": "Autoécole",
+        "site": "https://www.schipman.com/",
+        "description": "Nous proposons des cours de conduite moto (motocyclette, tricycle avec ou sans side-car et avec ou sans moteur), de voitures en boîte manuelle ou en boîte automatique ainsi que de véhicules utilitaires : remorques, caravanes...\n\nNos formations incluent des cours théoriques et pratiques approfondies pour vous permettre de conduire en toute sécurité dans le respect des codes de la route et vous adapter à toutes les situations.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -2672,15 +2666,12 @@
         "adresse": "16, rue Delattre",
         "telephone": "",
         "mail": "",
-        "site": "",
-        "description": "Onglerie",
+        "site": "https://linktr.ee/aucomptoirdegwen",
+        "description": "Prothésiste ongulaire diplômée et déclarée",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "lundi": [],
             "mardi": [
                 "09:30-12:00",
                 "13:00-19:00"
@@ -2697,14 +2688,8 @@
                 "09:30-12:00",
                 "13:00-20:00"
             ],
-            "samedi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "samedi": [],
+            "dimanche": []
         },
         "latitude": 50.525494,
         "longitude": 3.168602
@@ -4025,14 +4010,11 @@
         "telephone": "03 20 05 11 12",
         "mail": "",
         "site": "https://www.credit-agricole.fr/particulier/agence/nord-de-france/templeuve-3399.html",
-        "description": "Banque",
+        "description": "Agence bancaire",
         "photo": "",
         "dateFin": "",
         "horaires": {
-            "lundi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
+            "lundi": [],
             "mardi": [
                 "08:45-12:45",
                 "13:45-18:05"
@@ -4042,21 +4024,15 @@
                 "13:45-18:05"
             ],
             "jeudi": [
-                "00:00-00:00",
                 "14:30-18:05"
             ],
             "vendredi": [
-                "08:45-12:45",
-                "00:00-00:00"
+                "08:45-12:45"
             ],
             "samedi": [
-                "08:45-12:50",
-                "00:00-00:00"
+                "08:45-12:50"
             ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "dimanche": []
         },
         "latitude": 50.526612,
         "longitude": 3.168368
@@ -4809,32 +4785,31 @@
         "adresse": "19, rue Grande campagne",
         "telephone": "03 20 34 69 77",
         "mail": "",
-        "site": "https://www.facebook.com/p/Objectiffs-Coiffure-100063763834379/",
+        "site": "https://www.instagram.com/objec.tiffs/",
         "description": "Coiffeur mixte",
         "photo": "",
         "dateFin": "",
         "horaires": {
             "lundi": [
-                "09:00-12:00",
-                "13:30-17:00"
+                "08:30-12:30"
             ],
             "mardi": [
-                "09:00-12:00",
-                "13:30-17:00"
+                "08:30-12:30",
+                "14:00-19:00"
             ],
             "mercredi": [
-                "09:00-12:00",
-                "13:30-17:00"
+                "08:30-12:30",
+                "14:00-19:00"
             ],
             "jeudi": [
-                "09:00-12:00",
-                "13:30-17:00"
+                "08:30-12:30",
+                "14:30-19:00"
             ],
             "vendredi": [
-                "09:00-19:00"
+                "08:30-18:00"
             ],
             "samedi": [
-                "09:00-18:00"
+                "08:00-17:00"
             ],
             "dimanche": []
         },
@@ -5743,7 +5718,7 @@
         "telephone": "03 20 61 46 06",
         "mail": "",
         "site": "https://www.bdn.fr/briqueterie/usine-de-templeuve/",
-        "description": "Fabricant de briques",
+        "description": "Fabricant de briques\nBriqueteries du Nord développe deux activités : la fabrication de briques de parement issues d’un savoir-faire industriel centenaire et la revalorisation de matériaux pour le BTP à travers un réseau de plateformes de recyclage et de distribution.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -5767,14 +5742,8 @@
                 "07:00-12:00",
                 "12:30-16:00"
             ],
-            "samedi": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ],
-            "dimanche": [
-                "00:00-00:00",
-                "00:00-00:00"
-            ]
+            "samedi": [],
+            "dimanche": []
         },
         "latitude": 50.519034,
         "longitude": 3.151585
@@ -5789,7 +5758,7 @@
         "telephone": "03 74 03 02 79",
         "mail": "lechantdeleau@vert-marine.com",
         "site": "https://www.lechantdeleau.com/",
-        "description": "Centre aquatique",
+        "description": "Centre aquatique\nLe Chant de l’Eau vous propose différents espaces modernes. Avec un espace aquatique comprenant 4 bassins dont un bassin nordique mais également une plage aqualudique et un toboggan, il y en a pour tous les goûts, petits et grands.\n\nLe Chant de l’Eau c’est également un espace fitness avec des équipements derniers cri, cet espace comprend 2 zones composé d’une partie cardio/musculation et d’une partie cours collectifs.\n\nParce qu’après l’effort le réconfort, votre centre aquatique vous propose un espace détente et bien-être. Avec deux saunas, un hammam, un bassin balnéothérapie et un bain à remous extérieur.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -6092,7 +6061,7 @@
         "telephone": "06 14 52 03 06",
         "mail": "",
         "site": "",
-        "description": "Photographe",
+        "description": "Photographe indépendant specialisé dans l'immobilier et les entreprises.",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -6753,7 +6722,7 @@
         "telephone": "",
         "mail": "",
         "site": "",
-        "description": "Vente à emporter de pizzas",
+        "description": "Vente à emporter de pizzas\nDistibuteur automatique 24h/24h",
         "photo": "",
         "dateFin": "",
         "horaires": {
@@ -7678,7 +7647,7 @@
         "sousCategorie": "Education",
         "adresse": "8, rue de l'Égalité à Cappelle-en-Pévèle.",
         "telephone": "03 28 76 00 00",
-        "mail": "",
+        "mail": "ce.0596873a@ac-lille.fr",
         "site": "https://college-simone-veil-cappelle-en-pevele.59.ac-lille.fr/",
         "description": "Collège",
         "photo": "",
